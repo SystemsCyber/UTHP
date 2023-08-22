@@ -23,7 +23,7 @@ Download and install CCS. Make sure that you select the Sitara option as that's 
 ```bash
 git clone git://git.ti.com/pru-software-support-package/pru-software-support-package.git
 ```
-This support package contains the header files you need and also some nice examples in the example/am335x folder. I suggest you pick an example (such as PRU_gpioToggle) to start from. The critical part is that the include and include/am335x folders have some essential stuff.
+This support package contains the header files you need and also some nice examples in the example/am335x folder. I suggest an example (such as PRU_gpioToggle) to start from. The critical part is that the include and include/am335x folders have some essential stuff.
 
 ### Build and deploy
 
@@ -31,7 +31,7 @@ If all goes to plan, you should be able to build in CCS by clicking the hammer i
 
 ### Enable the PRU output
 
-Each pin on the BB has multiple modes. In the case of our simple blinky, we're expecting pin 27 on the P9 header to be used for PRU output. From the PRU's point of view this is PRU0, register R30 bit 5, but to the BeagleBone it's P9_27. You will find all these pin mappings here. To enable it, you will need to execute the following:
+Each pin on the BB has multiple modes. In the case of our LED blink, we're expecting pin 27 on the P9 header to be used for PRU output. From the PRU's point of view this is PRU0, register R30 bit 5, but to the BeagleBone it's P9_27. To enable it, you will need to execute the following:
 ```bash
 config-pin P9_27 pruout
 ```
