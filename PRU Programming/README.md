@@ -1,4 +1,4 @@
-## PRU PRogramming on the BeagleBone Black (BBB)
+## PRU Programming on the BeagleBone Black (BBB)
 
 This tutorial covers programming the BeagleBone Black's Programmable Real-Time Units (PRUs)
 
