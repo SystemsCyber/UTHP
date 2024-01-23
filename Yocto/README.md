@@ -69,7 +69,94 @@ bitbake core-image-minimal
 ```
 ## Flash the image to BBB and run
 
-The image for the BBB will be present in tmp/deploy/images/beaglebone-yocto.
+The image for the BBB will be present in `tmp/deploy/images/beaglebone-yocto/`.
 ```bash
 dd if=core-image-minimal-beaglebone-yocto.wic of=/dev/sdb bs=4M
 ```
+
+## Changing the Kernel for driver configurations
+
+Yocto uses a virtual kernel which can used to make modifications to the kernel configurations. Make sure you have the environment setup correctly. This needs to be done each time you open a new terminal.
+```bash
+source oe-init-build-env
+```
+Open the Virtual Kernel:
+```bash
+bitbake -c menuconfig virtual/kernel
+```
+This will open up a GUI where you can make modifications to the kernel.
+
+## Adding Layers
+
+Yocto uses layers to manage additions to the base build. You can add your layer inside the build directory.
+```bash
+bitbake-layers create-layer meta-<your-layer-name>
+```
+Next, add this layer to your bblayers.conf
+```bash
+bitbake-layers add-layer meta-<your-layer-name>
+```
+
+## Adding recipes inside your layer
+
+Recipes are added inside your layers. They follow a directory structure:
+```
+/poky
+---/build
+   ---/meta-<your-layer-name>
+      ---/recipes-<recipe-name>
+         ---/<recipe-name>
+            ---/<recipe-name>.bb
+```
+This example shows how to add a recipe for the `can-utils` package:
+
+```bash
+recipetool create -o meta-custom/recipes-support/can-utils/can-utils_git.bb git://github.com/linux-can/can-utils.git
+```
+Edit can-utils.bb:
+```bash
+DESCRIPTION = "CAN utilities for Linux"
+HOMEPAGE = "https://github.com/linux-can/can-utils"
+SECTION = "utils"
+LICENSE = "GPL-2.0"
+LIC_FILES_CHKSUM = "file://COPYING;md5=393a5ca445f6965873eca0259a17f833"
+
+SRC_URI = "https://github.com/linux-can/can-utils.git;branch=master"
+SRCREV = "186bd967173a8a42ff544b5977edcda7c968c1aa"
+
+PV = "1.0+git${SRCPV}"
+
+S = "${WORKDIR}/git"
+
+inherit cmake
+
+# Override build directory if necessary
+B = "${WORKDIR}/build"
+
+do_configure() {
+    cmake ${S} -DCMAKE_INSTALL_PREFIX=${D}
+}
+
+do_compile() {
+    oe_runmake
+}
+
+do_install() {
+    oe_runmake install
+}
+
+BBCLASSEXTEND = "native"
+```
+
+Include your recipe in `conf/local.conf`. Add the following line to include the recipe and its dependencies:
+```bash
+IMAGE_INSTALL:append = " can-utils iproute2 libsocketcan"
+```
+
+Rebuild the image:
+```bash
+bitbake core-image-minimal```
+```
+
+
+
