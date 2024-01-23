@@ -42,7 +42,7 @@ The above Git checkout command creates a local branch named my-kirkstone. The fi
 
 ## Building Your Image
 
-The build process creates an entire Linux distribution, including the toolchain, from source. Use following steps to build your image.
+The build process creates an entire Linux distribution, including the toolchain, from the source. Use the following steps to build your image.
 
 ### Initialize the Build Environment
 
@@ -51,7 +51,7 @@ Run the oe-init-build-env environment setup script to define Yocto Project’s b
 cd poky
 source oe-init-build-env
 ```
-The script also creates build/ directory. Once the script is run your current directory is the build directory. After the build completes, all files created during the build will be preset in this directory.
+This has to be done each time you open a new terminal to make changes to your yocto system. The script also creates build/ directory. Once the script is run your current directory is the build directory. After the build completes, all files created during the build will be preset in this directory.
 
 ## Examine and Update Your Local Configuration File
 Once the build environment is setup, a local configuration file named local.conf becomes available in a conf subdirectory of the Build Directory.
