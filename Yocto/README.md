@@ -155,7 +155,8 @@ IMAGE_INSTALL:append = " can-utils iproute2 libsocketcan"
 
 Rebuild the image:
 ```bash
-bitbake core-image-minimal```
+bitbake core-image-minimal
+```
 
 ## Changing the Kernel Device Tree
 
