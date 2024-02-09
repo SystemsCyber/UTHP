@@ -155,8 +155,74 @@ IMAGE_INSTALL:append = " can-utils iproute2 libsocketcan"
 
 Rebuild the image:
 ```bash
-bitbake core-image-minimal```
+bitbake core-image-minimal
 ```
 
+## Changing the Kernel Device Tree
 
+Device Trees are data structures describing the hardware components so the kernel can manage and use those components. These include the CPU, memory, hardware buses, and associated peripherals. For the purpose of the Yocto build this is very important as it tells the kernel the configuration of CPU, memory and peripherals for our beaglebone. The default device tree is defined in the file `am335x-boneblack.dtb`. This can be found in the `boot` directory of the Yocto build. The default device tree does not initialize peripherals that we need for the UTHP and so we need to re-define the device tree for our purpose. If you have a pre-built kernel, we need to remove that to edit the device tree:
+```bash
+bitbake -c clean virtual/kernel
+```
+Now, we remake the kernel files:
+```bash
+bitbake -c menuconfig virtual/kernel
+```
+Just open and exit the menu configuration. This creates the generic device tree files. Next, we modify the device tree:
+```bash
+cd path-to-your-poky-build/tmp/linux/beaglebone-yocto/kernel-sources/arch/arm/boot/dts/
+nano am335x-boneblack.dts   
+```
+For adding D_CAN0 and D_CAN1, we need to disable `I2C2` and `UART1`. Never disable `UART0`:
+```bash
+&i2c2 {
+    status = "disabled";
+};
 
+&uart1 {
+    status = "disabled";
+};
+
+&am33xx_pinmux {
+    dcan0_pins: pinmux_dcan0_pins {
+        pinctrl-single,pins = <
+            AM33XX_IOPAD(0x97C, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_19: d_can0_rx */
+            AM33XX_IOPAD(0x978, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* P9_20: d_can0_tx */
+        >;
+    };
+};
+&am33xx_pinmux {
+    dcan1_pins: pinmux_dcan1_pins {
+        pinctrl-single,pins = <
+            AM33XX_IOPAD(0x984, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_24: d_can1_rx */
+            AM33XX_IOPAD(0x980, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* P9_26: d_can1_tx */
+        >;
+    };
+};
+&dcan0 {
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&dcan0_pins>;
+    /* Other necessary properties and configurations */
+};
+
+&dcan1 {
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&dcan1_pins>;
+    /* Other necessary properties and configurations */
+};
+```
+Now we rebuild the Kernel:
+```bash
+bitbake -c menuconfig virtual/kernel
+```
+Add CAN driver support to the Kernel and bake the Kernel:
+```bash
+bitbake virtual/kernel
+```
+
+Finally, remake the image:
+```bash
+bitbake core-image-minimal
+```
