@@ -481,7 +481,7 @@ pip3 -V
 ```
 Install some useful packages:
 ```
-pip3 install numpy pandas matplotlib python-can can-isotp
+pip3 install numpy pandas matplotlib python-can can-isotp scapy
 ```
 ### 7.4 Install python2.7
 Install the xz-utils package for extracting the Python tarball:
@@ -653,6 +653,25 @@ cd libsigrok
 make
 sudo make install
 ```
+Install sigrok-cli from source:
+```
+git clone git://sigrok.org/sigrok-cli
+cd sigrok-cli
+./autogen.sh
+./configure
+make
+sudo make install
+```
+If package isn't found, try running:
+```
+sudo ldconfig /usr/local/lib
+```
+Then download can2 decoder:
+```
+git clone https://github.com/kentindell/canhack/
+cd canhack/src/can2
+```
+
 
 ### 7.11 py-hv-networks 
 [https://github.com/TruckHacking/py-hv-networks](https://github.com/TruckHacking/py-hv-networks)
@@ -665,7 +684,68 @@ git clone https://github.com/SystemsCyber/py-hv-networks.git
 cd py-hv-networks
 sudo python3 setup.py install
 ```
-**pretty-j1587**  
+```
+pip install -r requirements.txt
+```
+
+### 7.12 cmap
+[https://github.com/CanBusHack/cmap](https://github.com/CanBusHack/cmap)
+```
+git clone https://github.com/CanBusHack/cmap
+```
+Verify the installation and run:
+```
+```
+
+### 7.13 scapy-automotive
+[https://github.com/secdev/scapy](https://github.com/secdev/scapy)
+Scapy works without any external Python modules on Linux and BSD like operating systems. On Windows, you need to install some mandatory dependencies as described in the documentation.
+
+Also note that Scapy comes as a python installation package, so you can install it using pip:
+```
+pip install scapy
+```
+To install:
+```
+git clone https://github.com/secdev/scapy
+cd scapy
+sudo ./run_scapy
+```
+
+### 7.14 TruckDevil
+[https://github.com/LittleBlondeDevil/TruckDevil](https://github.com/LittleBlondeDevil/TruckDevil)
+```
+git clone https://github.com/LittleBlondeDevil/TruckDevil
+```
+Install dependencies:
+```
+pip install -r requirements.txt
+```
+To run:
+```
+python3 truckdevil.py
+```
+
+### 7.15 python-can-j1939  
+[https://github.com/juergenH87/python-can-j1939](https://github.com/juergenH87/python-can-j1939)
+Install can-j1939:
+```
+pip install can-j1939
+```
+Or clone the repository:
+```
+git clone https://github.com/juergenH87/python-can-j1939
+cd python-can-j1939
+pip install .
+```
+
+### 7.16 cancat ???
+[https://github.com/atlas0fd00m/CanCat](https://github.com/atlas0fd00m/CanCat)
+```
+git clone https://github.com/atlas0fd00m/CanCat
+```
+
+**pretty-j1587 ???**
 [https://github.com/ainfosec/pretty_j1587](https://github.com/ainfosec/pretty_j1587)
 ```
 git clone https://github.com/ainfosec/pretty_j1587
@@ -673,7 +753,7 @@ git clone https://github.com/ainfosec/pretty_j1587
 Verify the installation and run:
 ```
 ```
-**pretty-j1939**  
+**pretty-j1939 ???**  
 [https://github.com/nmfta-repo/pretty_j1939](https://github.com/nmfta-repo/pretty_j1939)
 ```
 git clone https://github.com/nmfta-repo/pretty_j1939
@@ -681,46 +761,45 @@ git clone https://github.com/nmfta-repo/pretty_j1939
 Verify the installation and run:
 ```
 ```
-**cmap**  
-[https://github.com/CanBusHack/cmap](https://github.com/CanBusHack/cmap)
-```
-git clone https://github.com/CanBusHack/cmap
-```
 
-**scapy-automotive**  
-[https://github.com/secdev/scapy](https://github.com/secdev/scapy)
-```
-git clone https://github.com/secdev/scapy
-```
-
-**python-can-j1939**  
-[https://github.com/juergenH87/python-can-j1939](https://github.com/juergenH87/python-can-j1939)
-```
-git clone https://github.com/juergenH87/python-can-j1939
-```
-
-**TruckDevil**  
-[https://github.com/LittleBlondeDevil/TruckDevil](https://github.com/LittleBlondeDevil/TruckDevil)
-```
-git clone https://github.com/LittleBlondeDevil/TruckDevil
-```
-
-**cancat**  
-[https://github.com/atlas0fd00m/CanCat](https://github.com/atlas0fd00m/CanCat)
-```
-git clone https://github.com/atlas0fd00m/CanCat
-```
-
-
-
-**PLC4TRUCKSDUCK**  
+**PLC4TRUCKSDUCK ???**  
 [https://github.com/TruckHacking/plc4trucksduck](https://github.com/TruckHacking/plc4trucksduck)
 ```
 git clone https://github.com/TruckHacking/plc4trucksduck
 ```
-## Configuring the User Environment
 
-### Add ascii art to the login screen
+## 8. Configuring the User Environment
+Run the following command to open the .bashrc file:
+```
+nano ~/.bashrc
+```
+Add the following lines to the end of the file:
+```
+# Display ASCII art on terminal startup
+echo ""
+echo "           _____                _____                    _____                    _____          "
+echo "         /\    \              /\    \                  /\    \                  /\    \         "
+echo "        /::\____\            /::\    \                /::\____\                /::\    \        "
+echo "       /:::/    /            \:::\    \              /:::/    /               /::::\    \       "
+echo "      /:::/    /              \:::\    \            /:::/    /               /::::::\    \      "
+echo "     /:::/    /                \:::\    \          /:::/    /               /:::/\:::\    \     "
+echo "    /:::/    /                  \:::\    \        /:::/____/               /:::/__\:::\    \    "
+echo "   /:::/    /                   /::::\    \      /::::\    \              /::::\   \:::\    \   "
+echo "  /:::/    /      _____        /::::::\    \    /::::::\    \   _____    /::::::\   \:::\    \  "
+echo " /:::/____/      /\    \      /:::/\:::\    \  /:::/\:::\    \ /\    \  /:::/\:::\   \:::\____\ "
+echo "|:::|    /      /::\____\    /:::/  \:::\____\/:::/  \:::\    /::\____\/:::/  \:::\   \:::|    |"
+echo "|:::|____\     /:::/    /   /:::/    \::/    /\::/    \:::\  /:::/    /\::/    \:::\  /:::|____|"
+echo " \:::\    \   /:::/    /   /:::/    / \/____/  \/____/ \:::\/:::/    /  \/_____/\:::\/:::/    / "
+echo "  \:::\    \ /:::/    /   /:::/    /                    \::::::/    /            \::::::/    /  "
+echo "   \:::\    /:::/    /   /:::/    /                      \::::/    /              \::::/    /   "
+echo "    \:::\__/:::/    /    \::/    /                       /:::/    /                \::/____/    "
+echo "     \::::::::/    /      \/____/                       /:::/    /                  ~~          "
+echo "      \::::::/    /                                    /:::/    /                               "
+echo "       \::::/    /                                    /:::/    /                                "
+echo "        \::/____/                                     \::/    /                                 "
+echo "         ~~                                            \/____/                                  "
+echo ""
+```
 
 ## [Reduce Debian](https://wiki.debian.org/ReduceDebian)
 
