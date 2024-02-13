@@ -768,43 +768,15 @@ Verify the installation and run:
 git clone https://github.com/TruckHacking/plc4trucksduck
 ```
 
-## 8. Configuring the User Environment
+## 8. Configuring the User Environment (TODO)
 Run the following command to open the .bashrc file:
 ```
 nano ~/.bashrc
-```
-Add the following lines to the end of the file:
-```
-# Display ASCII art on terminal startup
-echo ""
-echo "           _____                _____                    _____                    _____          "
-echo "         /\    \              /\    \                  /\    \                  /\    \         "
-echo "        /::\____\            /::\    \                /::\____\                /::\    \        "
-echo "       /:::/    /            \:::\    \              /:::/    /               /::::\    \       "
-echo "      /:::/    /              \:::\    \            /:::/    /               /::::::\    \      "
-echo "     /:::/    /                \:::\    \          /:::/    /               /:::/\:::\    \     "
-echo "    /:::/    /                  \:::\    \        /:::/____/               /:::/__\:::\    \    "
-echo "   /:::/    /                   /::::\    \      /::::\    \              /::::\   \:::\    \   "
-echo "  /:::/    /      _____        /::::::\    \    /::::::\    \   _____    /::::::\   \:::\    \  "
-echo " /:::/____/      /\    \      /:::/\:::\    \  /:::/\:::\    \ /\    \  /:::/\:::\   \:::\____\ "
-echo "|:::|    /      /::\____\    /:::/  \:::\____\/:::/  \:::\    /::\____\/:::/  \:::\   \:::|    |"
-echo "|:::|____\     /:::/    /   /:::/    \::/    /\::/    \:::\  /:::/    /\::/    \:::\  /:::|____|"
-echo " \:::\    \   /:::/    /   /:::/    / \/____/  \/____/ \:::\/:::/    /  \/_____/\:::\/:::/    / "
-echo "  \:::\    \ /:::/    /   /:::/    /                    \::::::/    /            \::::::/    /  "
-echo "   \:::\    /:::/    /   /:::/    /                      \::::/    /              \::::/    /   "
-echo "    \:::\__/:::/    /    \::/    /                       /:::/    /                \::/____/    "
-echo "     \::::::::/    /      \/____/                       /:::/    /                  ~~          "
-echo "      \::::::/    /                                    /:::/    /                               "
-echo "       \::::/    /                                    /:::/    /                                "
-echo "        \::/____/                                     \::/    /                                 "
-echo "         ~~                                            \/____/                                  "
-echo ""
 ```
 
 ## [Reduce Debian](https://wiki.debian.org/ReduceDebian)
 
 
-#### Installed Software Packages Examples
 
 # References
 - [BeagleBone Black](https://beagleboard.org/black)
