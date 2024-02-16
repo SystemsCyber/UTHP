@@ -55,10 +55,11 @@ This has to be done each time you open a new terminal to make changes to your yo
 
 ## Examine and Update Your Local Configuration File
 Once the build environment is setup, a local configuration file named local.conf becomes available in a conf subdirectory of the Build Directory.
-For this example, the defaults are set to build for BeagleBone Black and qemuarm.
-
+For this example, the defaults are set to build for BeagleBone Black and qemuarm:
+```
 MACHINE ?= “beaglebone-yocto”
 MACHINE ?= “qemuarm”
+```
 
 The same can be tested on the hardware and QEMU.
 ## Start the Build
