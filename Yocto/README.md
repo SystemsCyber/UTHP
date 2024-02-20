@@ -158,7 +158,7 @@ Rebuild the image:
 bitbake core-image-minimal```
 ```
 
-## Adding custom layer to add a custom user
+## Adding custom recipe to add a custom user
 
 Under an layer add a recipe, example custom_user.bb 
 
