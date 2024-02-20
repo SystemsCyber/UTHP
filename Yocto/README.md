@@ -158,5 +158,22 @@ Rebuild the image:
 bitbake core-image-minimal```
 ```
 
+## Adding custom layer to add a custom user
+
+Under an layer add a recipe, example custom_user.bb 
+
+```bash
+inherit extrausers
+
+# Add default user 'uthp' and set the password
+EXTRA_USERS_PARAMS = "useradd uthp; \
+                      usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' uthp; "
+```
+
+Ensure this recipe is added to the package to be baked in as follows:
+
+```bash
+IMAGE_INSTALL:append = " custom_user"
+```
 
 
