@@ -176,4 +176,62 @@ Ensure this recipe is added to the package to be baked in as follows:
 IMAGE_INSTALL:append = " custom_user"
 ```
 
+## Override Existing Functionality in a Yocta Image
 
+A use case may arrise to modify existing functionility in a Yocto Linux Project forexample to change default ```bass /etc/issue``` that displays a custom message when Linux boot.
+
+The following are is the step by step process to achieve this
+
+1. Idenify the base recipe you wish to override:
+
+```bash
+find meta/ -name issue 
+```
+
+This command outputs:
+
+```bash
+meta/recipes-core/base-files/base-files/issue
+```
+
+Now identify which file uses it to display the message in the image. Quick way is to grep throogh files in the base meta layer and make:
+
+```bash
+find meta/ -type f -name "*.bb" -o -name "*.bbappend" | xargs grep "/issue"|more
+```
+
+closest output is the recipe:
+
+```bash
+meta/recipes-core/base-files/base-files_3.0.14.bb:           file://issue.net \
+meta/recipes-core/base-files/base-files_3.0.14.bb:           file://issue \
+meta/recipes-core/base-files/base-files_3.0.14.bb:             ${sysconfdir}/issue /${sysconfdir}/issue.net \
+meta/recipes-core/base-files/base-files_3.0.14.bb:	install -m 644 ${WORKDIR}/issue*  ${D}${sysconfdir}
+meta/recipes-core/base-files/base-files_3.0.14.bb:		printf "${DISTRO_NAME} " >> ${D}${sysconfdir}/issue
+meta/recipes-core/base-files/base-files_3.0.14.bb:		printf "${DISTRO_NAME} " >> ${D}${sysconfdir}/issue.net
+meta/recipes-core/base-files/base-files_3.0.14.bb:			printf "%s " $distro_version_nodate >> ${D}${sysconfdir}/issue
+meta/recipes-core/base-files/base-files_3.0.14.bb:			printf "%s " $distro_version_nodate >> ${D}${sysconfdir}/issue.net
+meta/recipes-core/base-files/base-files_3.0.14.bb:		printf "\\\n \\\l\n" >> ${D}${sysconfdir}/issue
+meta/recipes-core/base-files/base-files_3.0.14.bb:		echo >> ${D}${sysconfdir}/issue
+meta/recipes-core/base-files/base-files_3.0.14.bb:
+```
+
+Using this base script overide the message displayed changing the file ```bash /etc/issue ```.
+
+2. Add custom message
+
+Under the custom recipe folder e.g ```bash */recipe-custom/base-files/ ``` create a append recipe that has an extenssion *.bbappend" with the same file name as the file you wish to overide "base-files_3.0.14.bb" as follows "base-files_%.bbappend". The "%" is used to mask any version of the latest file. Place the message in the folder "*/recipe-custom/base-files/files/example_issue" and make reference to the file in append recipe as follows:
+
+```bash
+S = "${WORKDIR}"
+
+SRC_URI = "file://exaple_issue"
+
+do_install:append() {
+        install -m 0644 ${S}/example_issue ${D}${sysconfdir}/issue
+        echo "Systems Engineering - CSU" >> ${D}${sysconfdir}/issue
+        echo "Yocto [Beaglebone Black], Distro version: ${DISTRO_VERSION}" >> ${D}${sysconfdir}/issue
+}
+```
+
+This code appends a new file to "base-files_3.0.14.bb" during bitbake command execution. NOTE: since we are overriding the functionality there is no neeed to append the append recipe to IMAGE_INSTALL.
