@@ -61,6 +61,12 @@ MACHINE ?= “beaglebone-yocto”
 MACHINE ?= “qemuarm”
 ```
 
+Increase the number of threads that bitbake uses by adding this to the end of `local.conf`:
+```
+BB_NUMBER_THREADS = "y"
+```
+Where `y` is the number of threads you want to use.
+
 The same can be tested on the hardware and QEMU.
 ## Start the Build
 
