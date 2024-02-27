@@ -279,7 +279,12 @@ For adding D_CAN0 and D_CAN1, we need to disable `I2C2` and `UART1`. Never disab
     /* Other necessary properties and configurations */
 };
 ```
-
+Make sure to remove these lines as well from the DTS file:
+- P9_20 (I2C2 SDA)
+- P9_19 (I2C2 SCL)
+- P9_26 (UART1 RXD)
+- P9_24 (UART1 TXD)
+  
 Rebuild the Kernel:
 
 ```bash
