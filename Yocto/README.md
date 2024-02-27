@@ -163,43 +163,37 @@ recipetool create -o meta-custom/recipes-support/can-utils/can-utils_git.bb git:
 Edit can-utils.bb:
 
 ```bash
-&i2c2 {
-    status = "disabled";
-};
+DESCRIPTION = "CAN utilities for Linux"
+HOMEPAGE = "https://github.com/linux-can/can-utils"
+SECTION = "utils"
+LICENSE = "GPL-2.0"
+LIC_FILES_CHKSUM = "file://COPYING;md5=393a5ca445f6965873eca0259a17f833"
 
-&uart1 {
-    status = "disabled";
-};
+SRC_URI = "https://github.com/linux-can/can-utils.git;branch=master"
+SRCREV = "186bd967173a8a42ff544b5977edcda7c968c1aa"
 
-&am33xx_pinmux {
-    dcan0_pins: pinmux_dcan0_pins {
-        pinctrl-single,pins = <
-            AM33XX_IOPAD(0x97C, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_19: d_can0_rx */
-            AM33XX_IOPAD(0x978, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* P9_20: d_can0_tx */
-        >;
-    };
-};
-&am33xx_pinmux {
-    dcan1_pins: pinmux_dcan1_pins {
-        pinctrl-single,pins = <
-            AM33XX_IOPAD(0x984, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_24: d_can1_rx */
-            AM33XX_IOPAD(0x980, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* P9_26: d_can1_tx */
-        >;
-    };
-};
-&dcan0 {
-    status = "okay";
-    pinctrl-names = "default";
-    pinctrl-0 = <&dcan0_pins>;
-    /* Other necessary properties and configurations */
-};
+PV = "1.0+git${SRCPV}"
 
-&dcan1 {
-    status = "okay";
-    pinctrl-names = "default";
-    pinctrl-0 = <&dcan1_pins>;
-    /* Other necessary properties and configurations */
-};
+S = "${WORKDIR}/git"
+
+inherit cmake
+
+# Override build directory if necessary
+B = "${WORKDIR}/build"
+
+do_configure() {
+    cmake ${S} -DCMAKE_INSTALL_PREFIX=${D}
+}
+
+do_compile() {
+    oe_runmake
+}
+
+do_install() {
+    oe_runmake install
+}
+
+BBCLASSEXTEND = "native"
 ```
 
 Include your recipe in conf/local.conf. Add the following line to include the recipe and its dependencies:
