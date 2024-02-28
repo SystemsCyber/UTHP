@@ -1,12 +1,12 @@
-# Yocto Project Build for BeagleBone Black
+# Ultimate Truck Hacking Platform (UTHP) Yocto Build Guide
 
-## Chapter 1: Introduction
+## 1: Introduction
 ### 1.1 Compatible Linux Distribution
 
 Ensure your Build Host meets the following requirements:
 
 - **Disk Space:** 50 Gbytes of free disk space.
-- **OS:** Supported Linux distribution (i.e., recent releases of Fedora, openSUSE, CentOS, Debian, or Ubuntu). I use Ubuntu 22.04.1 LTS.
+- **OS:** Supported Linux distribution (i.e., recent releases of Fedora, openSUSE, CentOS, Debian, or Ubuntu). I use Ubuntu 22.04.1 LTS. [You may also use Windows Subsystem for Linux (WSL) on Windows 10 or 11.](https://docs.yoctoproject.org/dev-manual/start.html#setting-up-to-use-windows-subsystem-for-linux-wsl-2)
 
 ### 1.2 Required Software Versions
 
@@ -18,7 +18,7 @@ Ensure your Build Host meets the following requirements:
 
 > **Note:** The Build Host is the system used to construct images in a Yocto Project Development environment.
 
-## Chapter 2: Build Host Setup
+## 2: Build Host Setup
 ### 2.1 Build Host Packages
 
 Install the essential host packages on your build host:
@@ -46,7 +46,15 @@ Check out the kirkstone branch:
 git checkout -t origin/kirkstone -b my-kirkstone
 ```
 
-## Chapter 3: Building Your Image
+### 2.3 Clone the UTHP Yocto Repository
+
+```bash
+git clone https://github.com/SystemsCyber/UTHP
+git checkout <desired-branch>
+cd UTHP/Yocto
+```
+
+## 3: Building Your Image
 ### 3.1 Initialize the Build Environment
 
 Run the oe-init-build-env environment setup script to define Yocto Project’s build environment on your build host. You need to be within the poky directory.
@@ -60,70 +68,31 @@ This has to be done each time you open a new terminal to make changes to your Yo
 
 ### 3.2 Examine and Update Your Local Configuration File
 
-Once the build environment is set up, a local configuration file named local.conf becomes available in a conf subdirectory of the Build Directory.
+Once the build environment is set up, a local configuration file named local.conf becomes available in a conf subdirectory of the Build Directory (i.e., poky/build/conf/local.conf). This file contains settings that control the behavior of the build system. You can modify this file to suit your needs.
 
-For this example, the defaults are set to build for BeagleBone Black and qemuarm:
+For this example, our defaults are set to build for BeagleBone Black:
 
 ```bash
 MACHINE ?= "beaglebone-yocto"
 ```
 
-Increase the number of threads that bitbake uses by adding this to the end of local.conf:
+> TODO
+
+For our build, we've added the following lines to the end of the local.conf file:
 
 ```bash
 BB_NUMBER_THREADS = "y"
+
+MACHINE_HOSTNAME = "UTHP"
+
+IMAGE_INSTALL:append = " can-utils iproute2 libsocketcan custom_user"
 ```
 
-Where y is the number of threads you want to use.
+> ENDTODO
 
-## Chapter 4: Start the Build
-### 4.1 Build an OS Image
+The IMAGE_INSTALL variable is used to specify which packages to include in the image, and the append operator is used to add to the list of packages to be installed. Some of the image installs need to be added as a recipe, which will be discussed in [3.3 Adding Recipes to Your Build](#34-adding-recipes-to-your-build).
 
-Build an OS image for the target with the following command.
-
-```bash
-bitbake core-image-minimal
-```
-
-## Chapter 5: Flashing and Running
-### 5.1 Flash the Image to BeagleBone Black
-
-The image for the BeagleBone Black will be present in tmp/deploy/images/beaglebone-yocto/.
-
-```bash
-dd if=core-image-minimal-beaglebone-yocto.wic of=/dev/sdb bs=4M
-```
-If you are on a Windows machine, you can use Etcher to flash the image to the SD card.
-
-Connect the BeagleBone Black to your computer and power it up. You can use a serial terminal to connect to the BeagleBone Black. The default baud rate is 115200.
-
-```bash
-screen /dev/ttyUSB0 115200
-```
-
-or on Windows using PuTTY.
-Find the COM port by going to Device Manager and looking under Ports.
-
-## Chapter 6: Kernel Configurations
-### 6.1 Changing the Kernel for Driver Configurations
-
-Yocto uses a virtual kernel, which can be used to make modifications to the kernel configurations. Make sure you have the environment set up correctly. This needs to be done each time you open a new terminal.
-
-```bash
-source oe-init-build-env
-```
-
-Open the Virtual Kernel:
-
-```bash
-bitbake -c menuconfig virtual/kernel
-```
-
-This will open up a GUI where you can make modifications to the kernel.
-
-## Chapter 7: Adding Layers
-### 7.1 Adding Layers to Yocto
-
+### 3.3 Adding Layers to Your Build
 Yocto uses layers to manage additions to the base build. You can add your layer inside the build directory.
 
 ```bash
@@ -136,8 +105,14 @@ Next, add this layer to your bblayers.conf
 bitbake-layers add-layer meta-<your-layer-name>
 ```
 
-## Chapter 8: Adding Recipes
-### 8.1 Adding Recipes Inside Your Layer
+For our build, make sure to copy the [meta-custom](meta-custom) layer to the build directory and add it to the bblayers.conf file with the following command:
+
+```bash
+bitbake-layers add-layer meta-custom
+```
+
+### 3.4 Adding Recipes to Your Build
+
 
 Recipes are added inside your layers and follow a directory structure:
 
@@ -150,7 +125,10 @@ Recipes are added inside your layers and follow a directory structure:
             ---/<recipe-name>.bb
 ```
 
-This example shows how to add a recipe for the can-utils package.
+You can refer to the [meta-skeleton](~/poky/meta-sekelton) layer for examples of how to create recipes. This example shows how to add a recipe for the can-utils package.
+
+#### 3.4.1 This example shows how to add a recipe for the can-utils package:
+> If you are following our build and have already copied the meta-custom layer to the build directory, you can [skip](#82-adding-a-custom-user) this section.
 
 ```bash
 mkdir -p meta-custom/recipes-support/can-utils
@@ -208,9 +186,10 @@ Rebuild the image:
 bitbake core-image-minimal
 ```
 
-### 8.2 Adding a custom user
+### 3.5 Adding a custom user
 
-Under an layer add a recipe, example custom_user.bb 
+Under an layer add a recipe, example custom_user.bb:
+> [Skip](#4-changing-the-kernel-device-tree) this section if you're following our build and have already copied the meta-custom layer to the build directory.
 
 ```bash
 inherit extrausers
@@ -227,17 +206,32 @@ Ensure this recipe is added to the package to be baked in as follows:
 IMAGE_INSTALL:append = " custom_user"
 ```
 
-## Chapter 9: Changing the Kernel Device Tree
-### 9.1 Modifying the Kernel Device Tree
+## 4: Changing the Kernel Device Tree
+### 4.1 Modifying the Kernel / Device Tree
 
-Device Trees are data structures describing the hardware components for the kernel. Modify the device tree for BeagleBone Black in the Yocto build:
+> Note: Before making manual changes to the kernel, it is recommended to use the `bitbake -c menuconfig virtual/kernel` command to open the kernel configuration GUI. This will allow you to make changes to the kernel in a more user-friendly manner. If you are following our build, you can [skip](#5-building-the-image) this section.
+
+#### 4.1.2 Modifying the Kernel / Device Tree using menuconfig:
+
+```bash
+bitbake -c menuconfig virtual/kernel
+```
+To compile these changes for the build, run the following command:
+
+```bash
+bitbake virtual/kernel
+```
+
+#### 4.1.3 Modifying the Device Tree Manually as an example for adding D_CAN0 and D_CAN1:
+
+Device Trees are data structures describing the hardware components for the kernel. To find the device tree for BeagleBone Black in the Yocto build:
 
 ```bash
 find . -name "am335x-boneblack.dts"
 ```
 
-This will return the path to the device tree file which you can modify manually. Make note of the includes at the top of the file. 
-These are the files that are included in the device tree. Make the necessary changes and save the file.
+This will return the path to the device tree file which you can modify manually located in `~/poky/build/tmp/work-shared`. 
+> Make note of the includes at the top of the file. These are the files that are included in the device tree and may have other information that you might be looking for.
 
 For adding D_CAN0 and D_CAN1, we need to disable `I2C2` and `UART1`. Never disable `UART0`:
 ```bash
@@ -297,26 +291,60 @@ Add CAN driver support to the Kernel and bake the Kernel:
 bitbake virtual/kernel
 ```
 
-To add LED support to the BBB kernel:
+#### 4.1.4 Adding LED support via menuconfig as an example:
 
-Device Drivers --> 
-- LED Support (enabled) --> 
-    - LED Class Support (enabled) -- LED Support for GPIO connected LEDs (enabled) -- LED Trigger support (enabled) --> 
-        - LED Heartbeat Trigger (enabled) -- LED CPU Trigger (enabled) -- LED GPIO activated Trigger (enabled) -- LED GPIO Trigger (enabled)
+```bash
+bitbake -c menuconfig virtual/kernel
+```
 
-Finally, remake the image:
+- Device Drivers --> 
+    - LED Support (enabled) --> 
+        - LED Class Support (enabled) -- LED Support for GPIO connected LEDs (enabled) -- LED Trigger support (enabled) --> 
+            - LED Heartbeat Trigger (enabled) -- LED CPU Trigger (enabled) -- LED GPIO activated Trigger (enabled) -- LED GPIO Trigger (enabled)
+
+Rebuild the Kernel:
+
+```bash
+bitbake virtual/kernel
+```
+
+### 4.2 Copying the custom .config file to the kernel source directory:
+
+```bash
+find . -name ".config"
+```
+
+Copy the `.config` file to the kernel source directory and run `bitbake virtual/kernel -c compile -f` to compile the kernel.
+```bash
+cp ~/UTHP/Yocto/.config ~/poky/build/tmp/work-shared/beaglebone-yocto/kernel-build-artifacts
+bitbake virtual/kernel -c compile -f
+```
+
+## 5: Building the Image
+
+To build the image, run the following command:
 
 ```bash
 bitbake core-image-minimal
 ```
 
-Current kernel configuration can be found in the `/poky/build/tmp/work-shared/beaglebone-yocto/kernel-build-artifacts` directory. or by using the following command:
+## 6: Flashing the Image to an SD Card
+
+The image for the BeagleBone Black will be present in tmp/deploy/images/beaglebone-yocto/.
 
 ```bash
-find . -name ".config"
+dd if=core-image-minimal-beaglebone-yocto.wic of=/dev/sdb bs=4M
 ```
-Not tested:
-Copy the `.config` file to the kernel source directory and run `bitbake virtual/kernel -c compile -f` to compile the kernel.
+If you are on a Windows machine, you can use Etcher to flash the image to the SD card.
+
+Connect the BeagleBone Black to your computer and power it up. You can use a serial terminal to connect to the BeagleBone Black. The default baud rate is 115200.
+
+```bash
+screen /dev/ttyUSB0 115200
+```
+
+or on Windows using PuTTY.
+Find the COM port by going to Device Manager and looking under Ports.
 
 ## FAQ  
 ### Nothing changed when using bitbake virtual/kernel:
