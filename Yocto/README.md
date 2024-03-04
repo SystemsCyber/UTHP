@@ -131,11 +131,11 @@ You can refer to the [meta-skeleton](~/poky/meta-sekelton) layer for examples of
 > If you are following our build and have already copied the meta-custom layer to the build directory, you can [skip](#82-adding-a-custom-user) this section.
 
 ```bash
-mkdir -p meta-custom/recipes-support/can-utils
+mkdir -p <path-to-meta-custom>/recipes-support/can-utils
 ```
 
 ```bash
-recipetool create -o meta-custom/recipes-support/can-utils/can-utils_git.bb git://github.com/linux-can/can-utils.git
+recipetool create -o <path-to-meta-custom>/recipes-support/can-utils/can-utils_git.bb git://github.com/linux-can/can-utils.git
 ```
 
 Edit can-utils.bb:
@@ -224,10 +224,10 @@ bitbake virtual/kernel
 
 #### 4.1.3 Modifying the Device Tree Manually as an example for adding D_CAN0 and D_CAN1:
 
-Device Trees are data structures describing the hardware components for the kernel. To find the device tree for BeagleBone Black in the Yocto build:
+Device Trees are data structures describing the hardware components for the kernel. To find the device tree for BeagleBone Black in the Yocto build (within the last 30 mins):
 
 ```bash
-find . -name "am335x-boneblack.dts"
+find . -name "am335x-boneblack.dts" -mmin -30
 ```
 
 This will return the path to the device tree file which you can modify manually located in `~/poky/build/tmp/work-shared`. 
@@ -286,6 +286,15 @@ bitbake -c menuconfig virtual/kernel
 ```
 
 Add CAN driver support to the Kernel and bake the Kernel:
+```
+- Networking support --> 
+    - CAN bus subsystem support (enabled) --> 
+        - Enable everything -- CAN Device Drivers -->
+            - <*> Virtual Local CAN Interface (vcan) -- <*> Virtual CAN Tunnel (vxcan) -- <*> Serial / USB serial CAN Adaptors (slcan) -- <*> Platform CAN drivers with Netlink support (NEW) -- [*]   CAN bit-timing calculation (NEW)
+            -  <*>   Bosch C_CAN/D_CAN devices -->
+                - <*>   Generic Platform Bus based C_CAN/D_CAN driver
+            - [*] CAN devices debugging messages
+```
 
 ```bash
 bitbake virtual/kernel
@@ -311,7 +320,7 @@ bitbake virtual/kernel
 ### 4.2 Copying the custom .config file to the kernel source directory:
 
 ```bash
-find . -name ".config"
+find . -name ".config" -mmin 30
 ```
 
 Copy the `.config` file to the kernel source directory and run `bitbake virtual/kernel -c compile -f` to compile the kernel.
