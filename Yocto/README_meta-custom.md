@@ -72,3 +72,23 @@ Modified device tree from the build folder ```bash ./tmp/work-shared/beaglebone-
     status = "okay";
 };
 ```
+
+Once changes are made to:
+
+1. Modify Kernel parameters via ```bash bitbake -c menuconfig virtual/kernel ```; and
+2. Modified the changes to the device tree as in above
+
+You can now compile in the changes to the image to be "bitbaked" as follows:
+
+```bash
+bitbake -c compile -f virtual/kernel
+
+```
+
+finally run the bitbake on the recipe or the core-image-minimal you are targeting
+
+```bash
+bitbake custom-image
+```
+
+
