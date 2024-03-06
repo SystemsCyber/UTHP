@@ -126,6 +126,7 @@ Recipes are added inside your layers and follow a directory structure:
 ```
 
 You can refer to the [meta-skeleton](~/poky/meta-sekelton) layer for examples of how to create recipes. This example shows how to add a recipe for the can-utils package.
+You can also refer to your branch's repo for recipies that have already been made (e.g., https://layers.openembedded.org/layerindex/branch/kirkstone/layers/)
 
 #### 3.4.1 This example shows how to add a recipe for the can-utils package:
 > If you are following our build and have already copied the meta-custom layer to the build directory, you can [skip](#82-adding-a-custom-user) this section.
