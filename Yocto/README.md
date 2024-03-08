@@ -51,6 +51,10 @@ git checkout -t origin/kirkstone -b my-kirkstone
 ```bash
 git clone https://github.com/SystemsCyber/UTHP
 git checkout <desired-branch>
+```
+
+Then move to the UTHP/Yocto directory and take a look at existing files:
+```bash
 cd UTHP/Yocto
 ```
 
@@ -76,21 +80,13 @@ For this example, our defaults are set to build for BeagleBone Black:
 MACHINE ?= "beaglebone-yocto"
 ```
 
-> TODO
-
-For our build, we've added the following lines to the end of the local.conf file:
-
+Add our meta-custom layer:
 ```bash
-BB_NUMBER_THREADS = "y"
-
-MACHINE_HOSTNAME = "UTHP"
-
-IMAGE_INSTALL:append = " can-utils iproute2 libsocketcan custom_user"
+cp -r ~/UTHP/Yocto/meta-custom ~/poky
 ```
+Now take a look and understand the [custom-image.bb file](~/poky/meta-custom/recipes-core/images/custom-image.bb)
 
-> ENDTODO
-
-The IMAGE_INSTALL variable is used to specify which packages to include in the image, and the append operator is used to add to the list of packages to be installed. Some of the image installs need to be added as a recipe, which will be discussed in [3.3 Adding Recipes to Your Build](#34-adding-recipes-to-your-build).
+> The IMAGE_INSTALL variable is used to specify which packages to include in the image, and the append operator is used to add to the list of packages to be installed. Some of the image installs need to be added as a recipe, which will be discussed in [3.3 Adding Recipes to Your Build](#34-adding-recipes-to-your-build).
 
 ### 3.3 Adding Layers to Your Build
 Yocto uses layers to manage additions to the base build. You can add your layer inside the build directory.
@@ -108,7 +104,7 @@ bitbake-layers add-layer meta-<your-layer-name>
 For our build, make sure to copy the [meta-custom](meta-custom) layer to the build directory and add it to the bblayers.conf file with the following command:
 
 ```bash
-bitbake-layers add-layer meta-custom
+bitbake-layers add-layer <path-to-meta-custom-layer>
 ```
 
 ### 3.4 Adding Recipes to Your Build
@@ -129,83 +125,7 @@ You can refer to the [meta-skeleton](~/poky/meta-sekelton) layer for examples of
 You can also refer to your branch's repo for recipies that have already been made (e.g., https://layers.openembedded.org/layerindex/branch/kirkstone/layers/)
 
 #### 3.4.1 This example shows how to add a recipe for the can-utils package:
-> If you are following our build and have already copied the meta-custom layer to the build directory, you can [skip](#82-adding-a-custom-user) this section.
-
-```bash
-mkdir -p <path-to-meta-custom>/recipes-support/can-utils
-```
-
-```bash
-recipetool create -o <path-to-meta-custom>/recipes-support/can-utils/can-utils_git.bb git://github.com/linux-can/can-utils.git
-```
-
-Edit can-utils.bb:
-
-```bash
-DESCRIPTION = "CAN utilities for Linux"
-HOMEPAGE = "https://github.com/linux-can/can-utils"
-SECTION = "utils"
-LICENSE = "GPL-2.0"
-LIC_FILES_CHKSUM = "file://COPYING;md5=393a5ca445f6965873eca0259a17f833"
-
-SRC_URI = "https://github.com/linux-can/can-utils.git;branch=master"
-SRCREV = "186bd967173a8a42ff544b5977edcda7c968c1aa"
-
-PV = "1.0+git${SRCPV}"
-
-S = "${WORKDIR}/git"
-
-inherit cmake
-
-# Override build directory if necessary
-B = "${WORKDIR}/build"
-
-do_configure() {
-    cmake ${S} -DCMAKE_INSTALL_PREFIX=${D}
-}
-
-do_compile() {
-    oe_runmake
-}
-
-do_install() {
-    oe_runmake install
-}
-
-BBCLASSEXTEND = "native"
-```
-
-Include your recipe in conf/local.conf. Add the following line to include the recipe and its dependencies:
-
-```bash
-IMAGE_INSTALL:append = " can-utils iproute2 libsocketcan"
-```
-
-Rebuild the image:
-
-```bash
-bitbake core-image-minimal
-```
-
-### 3.5 Adding a custom user
-
-Under an layer add a recipe, example custom_user.bb:
-> [Skip](#4-changing-the-kernel-device-tree) this section if you're following our build and have already copied the meta-custom layer to the build directory.
-
-```bash
-inherit extrausers
-
-# Add default user 'uthp' and set the password
-EXTRA_USERS_PARAMS = "useradd uthp; \
-                      usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' uthp; "
-```
-
-Ensure this recipe is added to the package to be baked in as follows:
-
-```bash
-
-IMAGE_INSTALL:append = " custom_user"
-```
+> If you are following our build and have already copied the meta-custom layer to the build directory, you can [skip](#82-adding-a-custom-user) this 
 
 ## 4: Changing the Kernel Device Tree
 ### 4.1 Modifying the Kernel / Device Tree
@@ -306,11 +226,12 @@ bitbake virtual/kernel
 ```bash
 bitbake -c menuconfig virtual/kernel
 ```
-
+```bash
 - Device Drivers --> 
     - LED Support (enabled) --> 
         - LED Class Support (enabled) -- LED Support for GPIO connected LEDs (enabled) -- LED Trigger support (enabled) --> 
             - LED Heartbeat Trigger (enabled) -- LED CPU Trigger (enabled) -- LED GPIO activated Trigger (enabled) -- LED GPIO Trigger (enabled)
+```
 
 Rebuild the Kernel:
 
@@ -335,7 +256,7 @@ bitbake virtual/kernel -c compile -f
 To build the image, run the following command:
 
 ```bash
-bitbake core-image-minimal
+bitbake custom-image
 ```
 
 ## 6: Flashing the Image to an SD Card
@@ -343,7 +264,7 @@ bitbake core-image-minimal
 The image for the BeagleBone Black will be present in tmp/deploy/images/beaglebone-yocto/.
 
 ```bash
-dd if=core-image-minimal-beaglebone-yocto.wic of=/dev/sdb bs=4M
+dd if=custom-image-beaglebone-yocto.wic of=/dev/sdb bs=4M
 ```
 If you are on a Windows machine, you can use Etcher to flash the image to the SD card.
 
