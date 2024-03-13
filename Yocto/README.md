@@ -1,6 +1,7 @@
 # Ultimate Truck Hacking Platform (UTHP) Yocto Build Guide
 
 ## 1: Introduction
+
 ### 1.1 Compatible Linux Distribution
 
 Ensure your Build Host meets the following requirements:
@@ -19,6 +20,7 @@ Ensure your Build Host meets the following requirements:
 > **Note:** The Build Host is the system used to construct images in a Yocto Project Development environment.
 
 ## 2: Build Host Setup
+
 ### 2.1 Build Host Packages
 
 Install the essential host packages on your build host:
@@ -54,11 +56,13 @@ git checkout <desired-branch>
 ```
 
 Then move to the UTHP/Yocto directory and take a look at existing files:
+
 ```bash
 cd UTHP/Yocto
 ```
 
 ## 3: Building Your Image
+
 ### 3.1 Initialize the Build Environment
 
 Run the oe-init-build-env environment setup script to define Yocto Project’s build environment on your build host. You need to be within the poky directory.
@@ -80,15 +84,8 @@ For this example, our defaults are set to build for BeagleBone Black:
 MACHINE ?= "beaglebone-yocto"
 ```
 
-Add our meta-custom layer:
-```bash
-cp -r ~/UTHP/Yocto/meta-custom ~/poky
-```
-Now take a look and understand the [custom-image.bb file](~/poky/meta-custom/recipes-core/images/custom-image.bb)
-
-> The IMAGE_INSTALL variable is used to specify which packages to include in the image, and the append operator is used to add to the list of packages to be installed. Some of the image installs need to be added as a recipe, which will be discussed in [3.3 Adding Recipes to Your Build](#34-adding-recipes-to-your-build).
-
 ### 3.3 Adding Layers to Your Build
+
 Yocto uses layers to manage additions to the base build. You can add your layer inside the build directory.
 
 ```bash
@@ -107,8 +104,33 @@ For our build, make sure to copy the [meta-custom](meta-custom) layer to the bui
 bitbake-layers add-layer <path-to-meta-custom-layer>
 ```
 
-### 3.4 Adding Recipes to Your Build
+To add our meta-custom layer:
 
+```bash
+cp -r ~/UTHP/Yocto/meta-custom ~/poky
+bitbake-layers add-layer ../meta-custom/
+```
+
+Now take a look and understand the [custom-image.bb file](~/poky/meta-custom/recipes-core/images/custom-image.bb) under ~/poky/meta-custom/recipes-core/images.
+
+> The IMAGE_INSTALL variable is used to specify which packages to include in the image, and the append operator is used to add to the list of packages to be installed. Some of the image installs need to be added as a recipe, which will be discussed in [3.3 Adding Recipes to Your Build](#34-adding-recipes-to-your-build).
+
+If you are following our build, add the meta-openembedded layers for common software tools and utilities such as can-utils:
+
+```bash
+cd ~/poky
+git clone git://git.openembedded.org/meta-openembedded
+cd meta-openembedded
+git checkout -t origin/kirkstone -b my-kirkstone
+```
+
+Add the meta-oe layer for can-utils support. Within your oe-init-build-env:
+
+```bash
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+```
+
+### 3.4 Adding Custom Recipes to Your Build
 
 Recipes are added inside your layers and follow a directory structure:
 
@@ -122,12 +144,16 @@ Recipes are added inside your layers and follow a directory structure:
 ```
 
 You can refer to the [meta-skeleton](~/poky/meta-sekelton) layer for examples of how to create recipes. This example shows how to add a recipe for the can-utils package.
-You can also refer to your branch's repo for recipies that have already been made (e.g., https://layers.openembedded.org/layerindex/branch/kirkstone/layers/)
-
-#### 3.4.1 This example shows how to add a recipe for the can-utils package:
-> If you are following our build and have already copied the meta-custom layer to the build directory, you can [skip](#82-adding-a-custom-user) this 
+You can also refer to your branch's repo for recipies that have already been made (e.g., https://layers.openembedded.org/layerindex/branch/kirkstone/layers/ )
 
 ## 4: Changing the Kernel Device Tree
+
+If you are following the UTHP build, just run:
+
+```bash
+bitbake virtual/kernel
+```
+
 ### 4.1 Modifying the Kernel / Device Tree
 
 > Note: Before making manual changes to the kernel, it is recommended to use the `bitbake -c menuconfig virtual/kernel` command to open the kernel configuration GUI. This will allow you to make changes to the kernel in a more user-friendly manner. If you are following our build, you can [skip](#5-building-the-image) this section.
@@ -137,6 +163,7 @@ You can also refer to your branch's repo for recipies that have already been mad
 ```bash
 bitbake -c menuconfig virtual/kernel
 ```
+
 To compile these changes for the build, run the following command:
 
 ```bash
@@ -145,16 +172,18 @@ bitbake virtual/kernel
 
 #### 4.1.3 Modifying the Device Tree Manually as an example for adding D_CAN0 and D_CAN1:
 
-Device Trees are data structures describing the hardware components for the kernel. To find the device tree for BeagleBone Black in the Yocto build (within the last 30 mins):
+Device Trees are data structures describing the hardware components for the kernel. To find the device tree for BeagleBone Black in the Yocto build:
 
 ```bash
-find . -name "am335x-boneblack.dts" -mmin -30
+find . -name "am335x-boneblack.dts" -mtime -1
 ```
 
-This will return the path to the device tree file which you can modify manually located in `~/poky/build/tmp/work-shared`. 
+This will return the path to the device tree file which you can modify manually located in `~/poky/build/tmp/work-shared`. It's recommend to use the `find` command frequently when working with yocto.
+
 > Make note of the includes at the top of the file. These are the files that are included in the device tree and may have other information that you might be looking for.
 
 For adding D_CAN0 and D_CAN1, we need to disable `I2C2` and `UART1`. Never disable `UART0`:
+
 ```bash
 &i2c2 {
     status = "disabled";
@@ -194,12 +223,14 @@ For adding D_CAN0 and D_CAN1, we need to disable `I2C2` and `UART1`. Never disab
     /* Other necessary properties and configurations */
 };
 ```
+
 Make sure to remove these lines as well from the DTS file:
+
 - P9_20 (I2C2 SDA)
 - P9_19 (I2C2 SCL)
 - P9_26 (UART1 RXD)
 - P9_24 (UART1 TXD)
-  
+
 Rebuild the Kernel:
 
 ```bash
@@ -207,6 +238,7 @@ bitbake -c menuconfig virtual/kernel
 ```
 
 Add CAN driver support to the Kernel and bake the Kernel:
+
 ```
 - Networking support --> 
     - CAN bus subsystem support (enabled) --> 
@@ -221,33 +253,16 @@ Add CAN driver support to the Kernel and bake the Kernel:
 bitbake virtual/kernel
 ```
 
-#### 4.1.4 Adding LED support via menuconfig as an example:
+#### 4.2 The .config file in kernel source directory produced by the menuconfig:
 
 ```bash
-bitbake -c menuconfig virtual/kernel
-```
-```bash
-- Device Drivers --> 
-    - LED Support (enabled) --> 
-        - LED Class Support (enabled) -- LED Support for GPIO connected LEDs (enabled) -- LED Trigger support (enabled) --> 
-            - LED Heartbeat Trigger (enabled) -- LED CPU Trigger (enabled) -- LED GPIO activated Trigger (enabled) -- LED GPIO Trigger (enabled)
-```
-
-Rebuild the Kernel:
-
-```bash
-bitbake virtual/kernel
-```
-
-### 4.2 Copying the custom .config file to the kernel source directory:
-
-```bash
-find . -name ".config" -mmin 30
+find . -name ".config" -mtime -1
 ```
 
 Copy the `.config` file to the kernel source directory and run `bitbake virtual/kernel -c compile -f` to compile the kernel.
+
 ```bash
-cp ~/UTHP/Yocto/.config ~/poky/build/tmp/work-shared/beaglebone-yocto/kernel-build-artifacts
+cp ~/UTHP/Yocto/.config ~/poky/build/<path-to-your-.config-file> 
 bitbake virtual/kernel -c compile -f
 ```
 
@@ -266,6 +281,7 @@ The image for the BeagleBone Black will be present in tmp/deploy/images/beaglebo
 ```bash
 dd if=custom-image-beaglebone-yocto.wic of=/dev/sdb bs=4M
 ```
+
 If you are on a Windows machine, you can use Etcher to flash the image to the SD card.
 
 Connect the BeagleBone Black to your computer and power it up. You can use a serial terminal to connect to the BeagleBone Black. The default baud rate is 115200.
@@ -277,8 +293,10 @@ screen /dev/ttyUSB0 115200
 or on Windows using PuTTY.
 Find the COM port by going to Device Manager and looking under Ports.
 
-## FAQ  
+## FAQ
+
 ### Nothing changed when using bitbake virtual/kernel:
+
 Clean the Build: Try cleaning the build directory first:
 
 ```bash
@@ -293,7 +311,7 @@ bitbake -c compile -f virtual/kernel
 
 ### How to verify Device Tree Overlays are working:
 
-On the host system see the compiled device tree file, decompile it and check the changes are included:
+On the host system see the compiled device tree file, decompile it and check the changes are included and verify your sanity:
 
 ```bash
 sudo apt-get install device-tree-compiler
