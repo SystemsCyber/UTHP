@@ -266,6 +266,8 @@ cp ~/UTHP/Yocto/.config ~/poky/build/<path-to-your-.config-file>
 bitbake virtual/kernel -c compile -f
 ```
 
+> The linux-yocto_%.bbappend file under the meta-custom layer utlizes the virtual/kernel built through the recipe linux-yocto.
+
 ## 5: Building the Image
 
 To build the image, run the following command:
@@ -295,20 +297,6 @@ Find the COM port by going to Device Manager and looking under Ports.
 
 ## FAQ
 
-### Nothing changed when using bitbake virtual/kernel:
-
-Clean the Build: Try cleaning the build directory first:
-
-```bash
-bitbake -c cleansstate virtual/kernel
-```
-
-Force a Rebuild: Force Bitbake to rebuild the kernel even if it thinks it's up to date:
-
-```bash
-bitbake -c compile -f virtual/kernel
-```
-
 ### How to verify Device Tree Overlays are working:
 
 On the host system see the compiled device tree file, decompile it and check the changes are included and verify your sanity:
@@ -320,3 +308,29 @@ sudo apt-get install device-tree-compiler
 ```bash
 dtc -I dtb -O dts -o am335x-boneblack.dts am335x-boneblack.dtb
 ```
+
+### How to clean / clear yocto cache?
+
+1. **`-c clean`**: This task cleans up the build artifacts for a specific recipe. It removes the temporary files and build output generated during the compilation process for the specified recipe. It does not remove any downloaded source files or other cached data. This task is useful when you want to clean up the build artifacts for a specific recipe without affecting other recipes.
+  
+  Example:
+  
+  ```bash
+  bitbake -c clean <recipe-name>
+  ```
+  
+2. **`-c cleanall`**: This task performs a more comprehensive clean-up compared to `-c clean`. It removes not only the build artifacts for a specific recipe but also any downloaded source files, patches, and other cached data associated with the recipe. It effectively resets the recipe's build environment to a clean state, as if it had never been built before. This task is useful when you want to completely clean a recipe and rebuild it from scratch.
+  
+  Example:
+  
+  ```bash
+  bitbake -c cleanall <recipe-name>
+  ```
+  
+3. **`-c cleansstate`**: This task cleans the shared state cache for a specific recipe. The shared state cache contains pre-built artifacts and metadata that can be reused across multiple builds to speed up the build process. By running `-c cleansstate`, you clear the cache for the specified recipe, forcing BitBake to rebuild the recipe and its dependencies from scratch. This task is useful when you suspect that the cached data for a recipe might be corrupted or outdated.
+  
+  Example:
+  
+  ```bash
+  bitbake -c cleansstate <recipe-name>
+  ```
