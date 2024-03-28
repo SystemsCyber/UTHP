@@ -10,7 +10,10 @@ inherit extrausers
 IMAGE_OVERHEAD_FACTOR ?= "1.0"
 IMAGE_ROOTFS_SIZE ?= "204800"
 
-IMAGE_INSTALL:append = " i2c-tools iproute2 sudo can-utils usbinit python3 python3-pip python3-fcntl python3-scapy python3-ipython kernel-modules"
+IMAGE_INSTALL:append = " i2c-tools iproute2 sudo can-utils usbinit python3-core"
+# python3-pip python3-fcntl python3-scapy python3-ipython python3-ipython_genutils kernel-modules"
+
+EXTRA_IMAGE_FEATURES = "debug-tweaks"
 
 # Add uthp user and set temp root password
 EXTRA_USERS_PARAMS = "useradd uthp; \
