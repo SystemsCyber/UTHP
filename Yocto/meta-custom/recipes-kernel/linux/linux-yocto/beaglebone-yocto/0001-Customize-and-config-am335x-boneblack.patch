@@ -1,0 +1,56 @@
+--- am335x-boneblack.dts	2024-03-29 12:31:47.335965056 -0600
++++ /home/sbeer/poky/build/tmp/work-shared/beaglebone-yocto/kernel-source/arch/arm/boot/dts/am335x-boneblack.dts	2024-03-29 12:52:13.781620354 -0600
+@@ -39,6 +39,10 @@
+ 		"P8_33 [lcd d13]",
+ 		"P8_31 [lcd d14]",
+ 		"P8_32 [lcd d15]",
++		"P9_20 [i2c2_sda]",
++		"P9_19 [i2c2_scl]",
++		"P9_26 [uart1_rxd]",
++		"P9_24 [uart1_txd]",
+ 		"[rmii1_txd3]",
+ 		"[rmii1_txd2]",
+ 		"[usb0_drvvbus]",
+@@ -164,41 +168,3 @@
+ 		"NC",
+ 		"NC";
+ };
+-
+-&i2c2 {
+-    status = "disabled";
+-};
+-
+-&uart1 {
+-    status = "disabled";
+-};
+-
+-&am33xx_pinmux {
+-    dcan0_pins: pinmux_dcan0_pins {
+-        pinctrl-single,pins = <
+-            AM33XX_IOPAD(0x97C, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_19: d_can0_rx */
+-            AM33XX_IOPAD(0x978, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* P9_20: d_can0_tx */
+-        >;
+-    };
+-};
+-&am33xx_pinmux {
+-    dcan1_pins: pinmux_dcan1_pins {
+-        pinctrl-single,pins = <
+-            AM33XX_IOPAD(0x984, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_24: d_can1_rx */
+-            AM33XX_IOPAD(0x980, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* P9_26: d_can1_tx */
+-        >;
+-    };
+-};
+-&dcan0 {
+-    status = "okay";
+-    pinctrl-names = "default";
+-    pinctrl-0 = <&dcan0_pins>;
+-    /* Other necessary properties and configurations */
+-};
+-
+-&dcan1 {
+-    status = "okay";
+-    pinctrl-names = "default";
+-    pinctrl-0 = <&dcan1_pins>;
+-    /* Other necessary properties and configurations */
+-};
+\ No newline at end of file

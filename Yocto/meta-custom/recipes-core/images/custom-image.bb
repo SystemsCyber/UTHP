@@ -6,14 +6,18 @@ LICENSE = "MIT"
 inherit core-image
 inherit extrausers
 
-# Set rooffs to 2000 MiB by default
+# Set rooffs to ~4GB by default
 IMAGE_OVERHEAD_FACTOR ?= "1.0"
-IMAGE_ROOTFS_SIZE ?= "204800"
+IMAGE_ROOTFS_SIZE ?= "3872983"
 
-IMAGE_INSTALL:append = " i2c-tools iproute2 sudo can-utils usbinit python3-core"
-# python3-pip python3-fcntl python3-scapy python3-ipython python3-ipython_genutils kernel-modules"
+IMAGE_INSTALL:append = " i2c-tools iproute2 sudo kernel-modules ntp can-utils usbinit \
+                        python3 python3-core python3-setuptools python3-ipython python3-ipython-genutils python3-venv python3-pip python3-scapy" 
 
-EXTRA_IMAGE_FEATURES = "debug-tweaks"
+# python3-fcntl python3-scapy python3-pip"
+# python3-ipython-genutils" # ipython needs to be installed via pip or custom recipe
+
+TIMEZONE = "America/Denver"
+NTP_SERVERS = "pool.ntp.org"
 
 # Add uthp user and set temp root password
 EXTRA_USERS_PARAMS = "useradd uthp; \
