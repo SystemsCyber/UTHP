@@ -1,0 +1,16 @@
+diff --git a/am335x-boneblack.dts.orig b/am335x-boneblack.dts
+index 9312197..06e68e5 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -168,3 +168,11 @@
+ 		"NC",
+ 		"NC";
+ };
++
++i2c1_pins: pinmux_i2c1_pins {
++    pinctrl-single,pins = <
++        AM33XX_IOPAD(0x95c, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_17: i2c1_scl, Mode 2 */
++        AM33XX_IOPAD(0x958, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_18: i2c1_sda, Mode 2 */
++    >;
++};
++
