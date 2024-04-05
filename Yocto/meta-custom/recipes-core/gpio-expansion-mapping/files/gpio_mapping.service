@@ -1,0 +1,11 @@
+[Unit]
+Description=Startup script to map software GPIOs to expansion pins
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/init.d/gpio-startup-script.sh
+
+[Install]
+WantedBy=multi-user.target
+

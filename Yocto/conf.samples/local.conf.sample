@@ -104,17 +104,8 @@ DISTRO ?= "poky"
 #  - 'package_ipk' for ipk files are used by opkg (a debian style embedded package manager)
 #  - 'package_rpm' for rpm style packages
 # E.g.: PACKAGE_CLASSES ?= "package_rpm package_deb package_ipk"
-# We default to rpm:
+# OE-Core defaults to ipkg, whilst Poky defaults to rpm:
 PACKAGE_CLASSES ?= "package_rpm"
-
-#
-# SDK target architecture
-#
-# This variable specifies the architecture to build SDK items for and means
-# you can build the SDK packages for architectures other than the machine you are
-# running the build on (i.e. building i686 packages on an x86_64 host).
-# Supported values are i686, x86_64, aarch64
-#SDKMACHINE ?= "i686"
 
 #
 # Extra image configuration defaults
@@ -274,10 +265,9 @@ PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
 # track the version of this file when it was generated. This can safely be ignored if
 # this doesn't mean anything to you.
 CONF_VERSION = "2"
-#INHERIT += "create-spdx"
-#INHERIT += "cve-check"
-#SPDX_PRETTY = "1"
-#SPDX_INCLUDE_SOURCES = "1"
-#SPDX_ARCHIVE_SOURCES = "1"
-#SPDX_ARCHIVE_PACKAGED = "1"
+
+### UTHPMODS ###
+INIT_MANAGER = "systemd"
+
+MACHINE ?= "beaglebone-yocto"
 I_SWEAR_TO_MIGRATE_TO_PYTHON3="yes"
