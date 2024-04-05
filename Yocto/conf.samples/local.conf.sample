@@ -25,7 +25,7 @@ DISTRO ?= "poky"
 #  - 'package_rpm' for rpm style packages
 # E.g.: PACKAGE_CLASSES ?= "package_rpm package_deb package_ipk"
 # OE-Core defaults to ipkg, whilst Poky defaults to rpm:
-PACKAGE_CLASSES ?= "package_ipk"
+PACKAGE_CLASSES ?= "package_rpm"
 
 #
 # Extra image configuration defaults
@@ -74,3 +74,4 @@ CONF_VERSION = "2"
 INIT_MANAGER = "systemd"
 
 MACHINE ?= "beaglebone-yocto"
+I_SWEAR_TO_MIGRATE_TO_PYTHON3="yes"

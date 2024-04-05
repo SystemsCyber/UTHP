@@ -13,4 +13,5 @@ BBLAYERS ?= " \
   /home/sbeer/poky/meta-openembedded/meta-oe \
   /home/sbeer/poky/meta-openembedded/meta-python \
   /home/sbeer/poky/meta-openembedded/meta-networking \
+  /home/sbeer/poky/meta-openembedded/meta-python2 \
   "

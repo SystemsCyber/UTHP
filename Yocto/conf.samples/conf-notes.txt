@@ -2,4 +2,4 @@
 ### Shell environment set up for builds. ###
 
 Custom targets are:
-    custom-imagte
+    custom-image
