@@ -124,6 +124,13 @@ cd meta-openembedded
 git checkout -t origin/kirkstone -b my-kirkstone
 ```
 
+You will also need to clone the following repositories and checkout the kirkstone branch:
+
+```bash
+git clone https://github.com/Xilinx/meta-jupyter
+git clone https://git.openembedded.org/meta-python2
+```
+
 Add the meta-oe layer for can-utils support. Within your oe-init-build-env:
 
 ```bash
