@@ -18,7 +18,6 @@ CONF_VERSION = "2"
 ### UTHPMODS ###
 INIT_MANAGER = "systemd"
 
-MACHINE ?= "beaglebone-yocto"
 I_SWEAR_TO_MIGRATE_TO_PYTHON3="yes"
 PARALLEL_MAKE = "-j 4"
 BB_NUMBER_THREADS = "12"
