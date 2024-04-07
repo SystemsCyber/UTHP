@@ -1,2 +1,2 @@
-# canmatrix
-![test_cancap](test_cancap.gif)
+# CANMAT
+![test_cancat](test_cancat.gif)
