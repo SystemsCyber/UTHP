@@ -1,22 +1,119 @@
 SUMMARY = "UTHP Yocto Image"
-
+# Reference : https://github.com/jumpnow/meta-bbb
 IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
 LICENSE = "MIT"
 
 inherit core-image
 inherit extrausers
 
-# Set rooffs to ~4GB by default
+IMAGE_FEATURES += "package-management"
+IMAGE_LINGUAS = "en-us"
+
+# Set rooffs to ~4GB by default TODO: make this dynamic
 IMAGE_OVERHEAD_FACTOR ?= "1.0"
 IMAGE_ROOTFS_SIZE ?= "3872983"
 
-IMAGE_INSTALL:append = " i2c-tools iproute2 sudo kernel-modules ntp can-utils usbinit libgpiod libgpiod-tools libgpiod-dev gpio-expansion-mapping \
-                        python python3 python3-core python3-setuptools python3-ipython python3-ipython-genutils python3-venv python3-pip python3-scapy \
-                        python3-bitstring python-importlib-metadata python-enum34 python-six python3-cmap \
-                        python-attrs python-future python-typing python2.7-canmatrix python3-github-cancat"
+CORE_OS = " \
+    openssh openssh-keygen openssh-sftp-server \
+    sudo \
+    libgpiod libgpiod-tools libgpiod-dev gpio-expansion-mapping \
+    kea \
+ "
 
-# python3-fcntl python3-scapy python3-pip"
-# python3-ipython-genutils" # ipython needs to be installed via pip or custom recipe
+KERNEL_EXTRA_INSTALL = " \
+    kernel-modules \
+ "
+
+DEV_SDK_INSTALL = " \
+    binutils \
+    binutils-symlinks \
+    coreutils \
+    cpp \
+    cpp-symlinks \
+    diffutils \
+    file \
+    gcc \
+    gcc-symlinks \
+    g++ \
+    g++-symlinks \
+    gettext \
+    git \
+    ldd \
+    libstdc++ \
+    libstdc++-dev \
+    libtool \
+    make \
+    perl-modules \
+    pkgconfig \
+ "
+
+DEV_EXTRAS = " \
+    ntp \
+    ntp-tickadj \
+ "
+
+EXTRA_TOOLS_INSTALL = " \
+    bc \
+    bzip2 \
+    devmem2 \
+    dosfstools \
+    ethtool \
+    findutils \
+    i2c-tools \
+    iftop \
+    htop \
+    less \
+    nano \
+    procps \
+    rsync \
+    sysfsutils \
+    tcpdump \
+    unzip \
+    util-linux \
+    wget \
+    zip \
+ "
+
+CAN_TOOLS = " \
+    canutils \
+    libsocketcan \
+    iproute2 \
+ "
+
+PYTHON_TOOLS = " \
+    python \
+    python-modules \
+    python-importlib-metadata \
+    python-enum34 \
+    python-six \
+    python-attrs \
+    python-typing \
+ "
+
+PYTHON3_TOOLS = " \
+    python3 \
+    python3-core \
+    python3-setuptools \
+    python3-pip \
+    python3-bitstring \
+    python3-jupyter \
+    python3-jupyter-server \
+    python3-scapy \
+    python3-can \
+    python3-cantools \
+    python3-six \
+ "
+
+IMAGE_INSTALL += " \
+    ${CAN_TOOLS} \
+    ${CORE_OS} \
+    ${DEV_SDK_INSTALL} \
+    ${DEV_EXTRAS} \
+    ${EXTRA_TOOLS_INSTALL} \
+    ${KERNEL_EXTRA_INSTALL} \
+ "
+
+# FIXME: python3-cmap python3-github-cancat usbinit python3-future python-future python2.7-github-canmatrix
 
 TIMEZONE = "America/Denver"
 NTP_SERVERS = "pool.ntp.org"
@@ -33,4 +130,17 @@ update_sudoers(){
     sed -i 's/# %sudo/%sudo/' ${IMAGE_ROOTFS}/etc/sudoers
 }
 
-ROOTFS_POSTPROCESS_COMMAND += "update_sudoers;"
+disable_bootlogd() {
+    echo BOOTLOGD_ENABLE=no > ${IMAGE_ROOTFS}/etc/default/bootlogd
+}
+
+set_local_timezone() {
+    ln -sf /usr/share/zoneinfo/EST5EDT ${IMAGE_ROOTFS}/etc/localtime
+}
+
+ROOTFS_POSTPROCESS_COMMAND += "update_sudoers; \
+    set_local_timezone; \
+    disable_bootlogd; \
+    "
+
+export IMAGE_BASENAME = "uthp"
