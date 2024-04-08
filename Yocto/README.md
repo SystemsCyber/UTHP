@@ -179,6 +179,8 @@ bitbake virtual/kernel
 
 #### 4.1.3 Modifying the Device Tree Manually as an example for adding D_CAN0 and D_CAN1:
 
+If you are following our build, you can just run `bitbake virtual/kernel` to compile the changes. To learn about making manual changes to the device tree, continue reading. IF you would like to learn how to include a patch file as a part of the build process, skip to [4.1.4](#414-including-a-patch-file-as-a-part-of-the-build-process).
+
 Device Trees are data structures describing the hardware components for the kernel. To find the device tree for BeagleBone Black in the Yocto build:
 
 ```bash
@@ -258,6 +260,46 @@ Add CAN driver support to the Kernel and bake the Kernel:
 
 ```bash
 bitbake virtual/kernel
+```
+
+#### 4.1.4 Including a Patch File as a Part of the Build Process:
+
+First, change to the kernel source directory:
+
+```bash
+cd ~/poky/build/tmp/work-shared/beaglebone-yocto/kernel-source/arch/arm/boot/dts
+```
+
+Then, git pull:
+```bash
+git pull
+```
+
+Ensure the dts file is unmodified and there are no changes:
+
+```bash
+git status
+```
+
+Now make your changes to the dts file. Once you are done, create a patch file:
+
+```bash
+git add <name of the dts file>
+git commit -m "Added D_CAN0 and D_CAN1" # For example
+git format-patch -1
+```
+
+Then move the patch file to the meta-custom layer:
+
+```bash
+mv 0001-Added-D_CAN0-and-D_CAN1.patch ~/poky/meta-custom/recipes-kernel/linux/files/
+```
+
+Add the patch file to the kernel recipe:
+
+```bash
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+SRC_URI += "file://0001-Added-D_CAN0-and-D_CAN1.patch"
 ```
 
 #### 4.2 The .config file in kernel source directory produced by the menuconfig:
