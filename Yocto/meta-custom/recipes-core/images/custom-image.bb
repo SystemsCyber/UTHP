@@ -76,7 +76,7 @@ EXTRA_TOOLS_INSTALL = " \
  "
 
 CAN_TOOLS = " \
-    canutils \
+    can-utils \
     libsocketcan \
     iproute2 \
  "
