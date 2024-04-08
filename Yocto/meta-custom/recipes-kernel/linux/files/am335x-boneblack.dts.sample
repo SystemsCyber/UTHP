@@ -165,6 +165,10 @@
 		"NC";
 };
 
+&baseboard_eeprom {
+	vcc-supply = <&ldo4_reg>;
+};
+
 &i2c2 {
     status = "disabled";
 };

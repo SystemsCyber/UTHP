@@ -1,5 +1,5 @@
 SUMMARY = "UTHP Yocto Image"
-# Reference : https://github.com/jumpnow/meta-bbb
+
 IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
 LICENSE = "MIT"
 
@@ -18,6 +18,7 @@ CORE_OS = " \
     sudo \
     libgpiod libgpiod-tools libgpiod-dev gpio-expansion-mapping \
     kea \
+    usbutils usbinit \
  "
 
 KERNEL_EXTRA_INSTALL = " \
@@ -102,6 +103,13 @@ PYTHON3_TOOLS = " \
     python3-can \
     python3-cantools \
     python3-six \
+    python3-cancat \
+    python3-canmatrix \
+    python3-cmap \
+    python3-future \
+    python3-pretty-j1939 \
+    python3-pretty-j1587 \
+    python3-sae-j1939 \
  "
 
 IMAGE_INSTALL += " \
@@ -111,9 +119,11 @@ IMAGE_INSTALL += " \
     ${DEV_EXTRAS} \
     ${EXTRA_TOOLS_INSTALL} \
     ${KERNEL_EXTRA_INSTALL} \
+    ${PYTHON_TOOLS} \
+    ${PYTHON3_TOOLS} \
  "
 
-# FIXME: python3-cmap python3-github-cancat usbinit python3-future python-future python2.7-github-canmatrix
+# FIXME: 
 
 TIMEZONE = "America/Denver"
 NTP_SERVERS = "pool.ntp.org"
