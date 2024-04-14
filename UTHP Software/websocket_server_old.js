@@ -22,10 +22,10 @@ channel.addListener("onMessage", (msg) => {
     // Implement your filtering logic here
     // For example, only forward messages with a specific ID
     //console.log("Received CAN message:", msg);
-    if (msg.id === 0x0CF00400 || msg.id === 0x18FEF100 || msg.id === 0x18FEEE00 || msg.id === 0x18FEEF00) { // Replace 123 with the ID of the messages you're interested in
+    if (msg.id === 0x0CF00400 || msg.id === 0x18FEF100) { // Replace 123 with the ID of the messages you're interested in
         // Convert the message to a desired format if necessary
         //console.log("Received CAN message:", msg);
-        const dataToSend = JSON.stringify(msg);
+	const dataToSend = JSON.stringify(msg);
 
         // Broadcast the message to all connected WebSocket clients
         broadcast(dataToSend);
