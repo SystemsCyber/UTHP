@@ -67,8 +67,10 @@ EXTRA_TOOLS_INSTALL = " \
     nano \
     procps \
     rsync \
+    rtl-sdr \
     sysfsutils \
     tcpdump \
+    tmux \
     unzip \
     util-linux \
     wget \
@@ -79,8 +81,10 @@ CAN_TOOLS = " \
     can-utils \
     libsocketcan \
     iproute2 \
+    sigrok-cli \
  "
 
+PREFERRED_VERSION_python = "2.7"
 PYTHON_TOOLS = " \
     python \
     python-modules \
@@ -98,7 +102,6 @@ PYTHON3_TOOLS = " \
     python3-pip \
     python3-bitstring \
     python3-jupyter \
-    python3-jupyter-server \
     python3-scapy \
     python3-can \
     python3-cantools \
@@ -110,6 +113,13 @@ PYTHON3_TOOLS = " \
     python3-pretty-j1939 \
     python3-pretty-j1587 \
     python3-sae-j1939 \
+    python3-jsonschema \
+    python3-nest-asyncio \
+    python3-numpy \
+    python3-pyserial \
+    python3-termcolor \
+    python3-attrs \
+    python3-typing-extensions \
  "
 
 IMAGE_INSTALL += " \
@@ -123,7 +133,7 @@ IMAGE_INSTALL += " \
     ${PYTHON3_TOOLS} \
  "
 
-# FIXME: 
+# FIXME: scapy 
 
 TIMEZONE = "America/Denver"
 NTP_SERVERS = "pool.ntp.org"
@@ -152,5 +162,6 @@ ROOTFS_POSTPROCESS_COMMAND += "update_sudoers; \
     set_local_timezone; \
     disable_bootlogd; \
     "
+
 
 export IMAGE_BASENAME = "uthp"
