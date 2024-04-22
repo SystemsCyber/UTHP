@@ -341,6 +341,16 @@ Connect the BeagleBone Black to your computer and power it up. You can use a ser
 screen /dev/ttyUSB0 115200
 ```
 
+You can also connect via SSH
+
+On the host computer:
+```bash
+sudo ifconfig usb0 192.168.7.* netmask 255.255.255.0 up
+```
+```bash
+ssh uthp@192.168.7.2
+```
+
 or on Windows using PuTTY.
 Find the COM port by going to Device Manager and looking under Ports.
 

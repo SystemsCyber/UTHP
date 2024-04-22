@@ -23,6 +23,7 @@ CORE_OS = " \
 
 KERNEL_EXTRA_INSTALL = " \
     kernel-modules \
+    usb0-service \
  "
 
 DEV_SDK_INSTALL = " \
@@ -102,6 +103,8 @@ PYTHON3_TOOLS = " \
     python3-pip \
     python3-bitstring \
     python3-jupyter \
+    python3-jupyterlab \
+    python3-jupyterlab-server \
     python3-scapy \
     python3-can \
     python3-cantools \
