@@ -18,7 +18,7 @@ CORE_OS = " \
     sudo \
     libgpiod libgpiod-tools libgpiod-dev gpio-expansion-mapping \
     kea \
-    usbutils usbinit \
+    usbutils \
  "
 
 KERNEL_EXTRA_INSTALL = " \
@@ -103,8 +103,6 @@ PYTHON3_TOOLS = " \
     python3-pip \
     python3-bitstring \
     python3-jupyter \
-    python3-jupyterlab \
-    python3-jupyterlab-server \
     python3-scapy \
     python3-can \
     python3-cantools \
@@ -123,6 +121,7 @@ PYTHON3_TOOLS = " \
     python3-termcolor \
     python3-attrs \
     python3-typing-extensions \
+    python3-py-hv-networks \
  "
 
 IMAGE_INSTALL += " \
@@ -135,8 +134,9 @@ IMAGE_INSTALL += " \
     ${PYTHON_TOOLS} \
     ${PYTHON3_TOOLS} \
  "
+CORE_IMAGE_EXTRA_INSTALL += "usbinit"
 
-# FIXME: scapy 
+# FIXME: scapy six issues?
 
 TIMEZONE = "America/Denver"
 NTP_SERVERS = "pool.ntp.org"
