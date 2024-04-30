@@ -83,6 +83,7 @@ CAN_TOOLS = " \
     libsocketcan \
     iproute2 \
     sigrok-cli \
+    can2 \
  "
 
 PREFERRED_VERSION_python = "2.7"
