@@ -84,6 +84,7 @@ CAN_TOOLS = " \
     iproute2 \
     sigrok-cli \
     can2 \
+    truckdevil \
  "
 
 PREFERRED_VERSION_python = "2.7"
