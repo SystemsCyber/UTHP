@@ -7,6 +7,7 @@ Before=network.target
 Type=oneshot
 ExecStart=/sbin/ip addr add 192.168.7.2/24 dev usb0
 ExecStart=/sbin/ip link set usb0 up
+ExecStart=/sbin/ip route add default via 192.168.7.1
 RemainAfterExit=yes
 
 [Install]

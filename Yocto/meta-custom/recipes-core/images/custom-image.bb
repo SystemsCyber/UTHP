@@ -17,13 +17,13 @@ CORE_OS = " \
     openssh openssh-keygen openssh-sftp-server \
     sudo \
     libgpiod libgpiod-tools libgpiod-dev gpio-expansion-mapping \
-    kea \
     usbutils \
  "
 
 KERNEL_EXTRA_INSTALL = " \
     kernel-modules \
     usb0-service \
+    usbinit \
  "
 
 DEV_SDK_INSTALL = " \
@@ -85,6 +85,7 @@ CAN_TOOLS = " \
     sigrok-cli \
     can2 \
     truckdevil \
+    config-pin \
  "
 
 PREFERRED_VERSION_python = "2.7"
@@ -126,6 +127,9 @@ PYTHON3_TOOLS = " \
     python3-py-hv-networks \
  "
 
+NET_SERVICES = " \
+    kea \
+"
 IMAGE_INSTALL += " \
     ${CAN_TOOLS} \
     ${CORE_OS} \
@@ -135,6 +139,7 @@ IMAGE_INSTALL += " \
     ${KERNEL_EXTRA_INSTALL} \
     ${PYTHON_TOOLS} \
     ${PYTHON3_TOOLS} \
+    ${NET_SERVICES} \
  "
 CORE_IMAGE_EXTRA_INSTALL += "usbinit"
 
@@ -145,9 +150,10 @@ NTP_SERVERS = "pool.ntp.org"
 
 # Add uthp user and set temp root password
 EXTRA_USERS_PARAMS = "useradd uthp; \
-	usermod -p '\$5\$nqWQ3Hm3qq0DiJIg\$eOzUIVEIdlQKKD64WMO6I8JirEeGzTPwCj13S.wgnQ8' uthp; \
-    usermod -p '\$5\$nqWQ3Hm3qq0DiJIg\$eOzUIVEIdlQKKD64WMO6I8JirEeGzTPwCj13S.wgnQ8' root; \
+	usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' uthp; \
+    usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' root; \
     usermod -aG sudo uthp; \
+    useradd www-data; \
 	"
 
 # Here we give sudo access to sudo members
