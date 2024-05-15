@@ -13,17 +13,18 @@ IMAGE_LINGUAS = "en-us"
 IMAGE_OVERHEAD_FACTOR ?= "1.0"
 IMAGE_ROOTFS_SIZE ?= "3872983"
 
+# removed: gpio-expansion-mapping
 CORE_OS = " \
     openssh openssh-keygen openssh-sftp-server \
     sudo \
-    libgpiod libgpiod-tools libgpiod-dev gpio-expansion-mapping \
+    libgpiod libgpiod-tools libgpiod-dev \
     usbutils \
  "
 
+# removed: usbinit
 KERNEL_EXTRA_INSTALL = " \
     kernel-modules \
-    usb0-service \
-    usbinit \
+    usb0-dhcp \
  "
 
 DEV_SDK_INSTALL = " \
@@ -126,10 +127,7 @@ PYTHON3_TOOLS = " \
     python3-typing-extensions \
     python3-py-hv-networks \
  "
-
-NET_SERVICES = " \
-    kea \
-"
+ 
 IMAGE_INSTALL += " \
     ${CAN_TOOLS} \
     ${CORE_OS} \
@@ -139,9 +137,7 @@ IMAGE_INSTALL += " \
     ${KERNEL_EXTRA_INSTALL} \
     ${PYTHON_TOOLS} \
     ${PYTHON3_TOOLS} \
-    ${NET_SERVICES} \
  "
-CORE_IMAGE_EXTRA_INSTALL += "usbinit"
 
 # FIXME: scapy six issues?
 
@@ -150,7 +146,7 @@ NTP_SERVERS = "pool.ntp.org"
 
 # Add uthp user and set temp root password
 EXTRA_USERS_PARAMS = "useradd uthp; \
-	usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' uthp; \
+	usermod -p '\$6\$mnuHR9wkrQ2XfpBi\$hVzkt8Kh3Rh0Qy96ws6qlbYhSDqcqI6/wzsHv.FOD7k8BB2pvQ5RyzdHwei6zsbMsxNzFcWbPv6OqQR/YF/j91' uthp; \
     usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' root; \
     usermod -aG sudo uthp; \
     useradd www-data; \
