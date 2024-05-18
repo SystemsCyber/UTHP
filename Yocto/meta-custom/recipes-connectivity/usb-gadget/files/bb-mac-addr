@@ -1,0 +1,7 @@
+# Default settings for bb-usb-gadgets. This file is sourced by /bin/sh from
+# /usr/bin/bb-start-acm-ncm-rndis-old-gadget
+MAC_ADDR=3C:E4:B0:46:87:00
+USB0_HOST_ADDR=3C:E4:B0:46:87:02
+USB0_DEV_ADDR=3C:E4:B0:46:87:03
+USB1_HOST_ADDR=3C:E4:B0:46:87:04
+USB1_DEV_ADDR=3C:E4:B0:46:87:05

@@ -24,6 +24,7 @@ CORE_OS = " \
 # removed: usbinit
 KERNEL_EXTRA_INSTALL = " \
     kernel-modules \
+    usb-gadget \
     usb0-dhcp \
  "
 
@@ -146,11 +147,11 @@ NTP_SERVERS = "pool.ntp.org"
 
 # Add uthp user and set temp root password
 EXTRA_USERS_PARAMS = "useradd uthp; \
-	usermod -p '\$6\$mnuHR9wkrQ2XfpBi\$hVzkt8Kh3Rh0Qy96ws6qlbYhSDqcqI6/wzsHv.FOD7k8BB2pvQ5RyzdHwei6zsbMsxNzFcWbPv6OqQR/YF/j91' uthp; \
+        usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' uthp; \
     usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' root; \
     usermod -aG sudo uthp; \
     useradd www-data; \
-	"
+        "
 
 # Here we give sudo access to sudo members
 update_sudoers(){
