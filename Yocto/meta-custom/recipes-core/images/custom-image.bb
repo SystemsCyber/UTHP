@@ -147,11 +147,11 @@ NTP_SERVERS = "pool.ntp.org"
 
 # Add uthp user and set temp root password
 EXTRA_USERS_PARAMS = "useradd uthp; \
-        usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' uthp; \
-    usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' root; \
-    usermod -aG sudo uthp; \
-    useradd www-data; \
-        "
+        usermod -p '\$6\$E7vIdVMq/YhPFJOF\$m.86tbw/hojt.iYihgZVKh6A5Q/vy2RxRfkvkQ3zNTI4qpyBixhc4NjRo5JpMtNlYR5jorr76MayZGomvR2AO1' uthp; \
+        usermod -p '\$6\$E7vIdVMq/YhPFJOF\$m.86tbw/hojt.iYihgZVKh6A5Q/vy2RxRfkvkQ3zNTI4qpyBixhc4NjRo5JpMtNlYR5jorr76MayZGomvR2AO1' root; \
+        usermod -aG sudo uthp; \
+        useradd www-data; \
+            "
 
 # Here we give sudo access to sudo members
 update_sudoers(){
