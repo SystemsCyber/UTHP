@@ -1,0 +1,14 @@
+[Unit]
+Description=My Flask Application
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /usr/lib/python3.8/site-packages/uthp-app/app.py
+WorkingDirectory=/usr/lib/python3.8/site-packages/uthp-app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

@@ -7,7 +7,6 @@ RequiredForOnline=no
 [Network]
 DHCP=no
 Address=192.168.7.2/24
-Gateway=192.168.7.1
 DHCPServer=on
 
 [DHCPServer]
