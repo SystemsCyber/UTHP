@@ -18,14 +18,14 @@ The hardware design has the following main components:
 ## Printed Circuit Board
 There are multiple hardware versions for the PCB. The design is open, but uses Altium Designer software for the PCB Layout software. Each version is captured as a schematic, Altium files, bill of materials and Gerber Files.
 
-![UTHP Version 2 Schematics](UTHP PCB\UTHP Truck Cape Schematics V1.pdf)
+![UTHP Version 2 Schematics](UTHP%20PCB\UTHP%20Truck%20Cape%20Schematics%20V1.pdf)
 
 ### Version 1:
 Photo of the top side of the board.
-[UTHP V1 Topside.jpg](UTHP V1 Topside.jpg)
+[UTHP V1 Topside.jpg](UTHP%20V1%20Topside.jpg)
 
 Photo of the bottom side of the board.
-[UTHP V1 Bottomside.jpg](UTHP V1 Bottomside.jpg)
+[UTHP V1 Bottomside.jpg](UTHP%20V1%20Bottomside.jpg)
 
 ### Version 1 Errata
 1. The LEDs needs to be moved towards the center of the board to keep the LEDs from interering with the light pipes.
