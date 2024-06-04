@@ -1,27 +1,14 @@
 from flask import Flask, request, jsonify
-import pamela, pwd, hashlib
+import threading, pamela, pwd, hashlib, websockets, can, asyncio, logging
 
 app = Flask(__name__)
+bus = can.interface.Bus(channel='vcan0', bustype='socketcan')
+clients = set()
+candump_running = False  # Default state: CAN dump service is off
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    return jsonify({"message": "Hello Word - UTHP"}), 200
-
-# def check_password(username, password):
-#     print("In check_password", username)
-#     try:
-#         # Fetch user info from /etc/passwd
-#         pw = pwd.getpwnam(username)
-#         print("username: ", pw)
-#         # Fetch encrypted password from /etc/shadow
-#         spw = spwd.getspnam(username)
-#         # Verify the password
-#         if crypt.crypt(password, spw.sp_pwdp) == spw.sp_pwdp:
-#             return True
-#     except KeyError:
-#         return False
-#     return False
-
+    return jsonify({"message": "Hello Word - UTHP Tools"}), 200
 
 def check_password(username, password):
     try:
@@ -57,6 +44,72 @@ def hash_uid(uid):
     return hasher.hexdigest()
 
 
+# Function to broadcast messages to all connected clients
+async def broadcast(data):
+    for client in clients:
+        await client.send(data)
+
+# WebSocket handler
+async def handle_websocket(websocket, path):
+    clients.add(websocket)
+    try:
+        async for message in websocket:
+            pass  # You can add message handling logic here if needed
+    finally:
+        clients.remove(websocket)
+
+# Start CAN message processing
+async def process_messages():
+    while True:
+        if candump_running:
+            msg = bus.recv()
+            if msg.arbitration_id in [0x0CF00400, 0x18FEF100]:
+                data_to_send = msg.__str__()
+                await broadcast(data_to_send)
+        else:
+            await asyncio.sleep(1)  # Sleep for 1 second if CAN dump is stopped
+
+# Start the WebSocket server
+async def start_websocket_server():
+    await websockets.serve(handle_websocket, "192.168.7.2", 8081)
+
+# Start the CAN message processing loop
+async def start_can_processing():
+    await process_messages()
+
+# REST API endpoint to start the CAN dump service
+@app.route('/api/can/start', methods=['POST'])
+def start_candump():
+    global candump_running
+    candump_running = True
+    return jsonify({'message': 'CAN dump service started'}), 200
+
+# REST API endpoint to stop the CAN dump service
+@app.route('/api/can/stop', methods=['POST'])
+def stop_candump():
+    global candump_running
+    candump_running = False
+    return jsonify({'message': 'CAN dump service stopped'}), 200
+
+# REST API endpoint to check if the CAN dump service is running
+@app.route('/api/can/status')
+def check_candump():
+    return jsonify({'candump_running': candump_running}), 200
+
+def start_flask():
+    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
+
+def main():
+    loop = asyncio.get_event_loop()
+    loop.create_task(start_can_processing())
+    loop.create_task(start_websocket_server())
+
+    flask_thread = threading.Thread(target=start_flask)
+    flask_thread.start()
+
+    loop.run_forever()
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=5000)
+    logging.basicConfig(level=logging.INFO)
+    main()
 

@@ -24,6 +24,7 @@ KERNEL_EXTRA_INSTALL = " \
     kernel-modules \
     usb-gadget \
     usb0-dhcp \
+    vcan0 \
  "
 
 DEV_SDK_INSTALL = " \
@@ -81,6 +82,7 @@ EXTRA_TOOLS_INSTALL = " \
 CAN_TOOLS = " \
     can-utils \
     libsocketcan \
+    libsocketcan-dev \
     iproute2 \
     sigrok-cli \
     can2 \
@@ -126,6 +128,9 @@ PYTHON3_TOOLS = " \
     python3-typing-extensions \
     python3-py-hv-networks \
     python3-flask \
+    python3-websockets \
+    python3-dev \
+    python3-asyncio-glib \
     pamela \
  "
 
