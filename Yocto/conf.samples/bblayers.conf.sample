@@ -6,13 +6,13 @@ BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
 BBLAYERS ?= " \
-  /home/sbeer/poky/meta \
-  /home/sbeer/poky/meta-poky \
-  /home/sbeer/poky/meta-yocto-bsp \
-  /home/sbeer/poky/meta-custom \
-  /home/sbeer/poky/meta-openembedded/meta-oe \
-  /home/sbeer/poky/meta-openembedded/meta-python \
-  /home/sbeer/poky/meta-openembedded/meta-networking \
-  /home/sbeer/poky/meta-openembedded/meta-python2 \
-  /home/sbeer/poky/meta-jupyter \
+  /storage/spencer/poky/meta \
+  /storage/spencer/poky/meta-poky \
+  /storage/spencer/poky/meta-yocto-bsp \
+  /storage/spencer/UTHP/Yocto/meta-custom \
+  /storage/spencer/poky/meta-openembedded/meta-oe \
+  /storage/spencer/poky/meta-openembedded/meta-python \
+  /storage/spencer/poky/meta-openembedded/meta-networking \
+  /storage/spencer/poky/meta-openembedded/meta-python2 \
+  /storage/spencer/poky/meta-openembedded/meta-jupyter \
   "

@@ -48,6 +48,8 @@ Check out the kirkstone branch:
 git checkout -t origin/kirkstone -b my-kirkstone
 ```
 
+> This is the LTS version of the Yocto Project. The kirkstone branch is the latest LTS release.
+
 ### 2.3 Clone the UTHP Yocto Repository
 
 ```bash
@@ -84,6 +86,8 @@ For this example, our defaults are set to build for BeagleBone Black:
 MACHINE ?= "beaglebone-yocto"
 ```
 
+> Please refer to conf.samples for example configurations or copy them directly to your conf file. (e.g., `cp conf/sample/conf/local.conf.sample poky/build/conf/local.conf`)
+
 ### 3.3 Adding Layers to Your Build
 
 Yocto uses layers to manage additions to the base build. You can add your layer inside the build directory.
@@ -104,12 +108,7 @@ For our build, make sure to copy the [meta-custom](meta-custom) layer to the bui
 bitbake-layers add-layer <path-to-meta-custom-layer>
 ```
 
-To add our meta-custom layer:
-
-```bash
-cp -r ~/UTHP/Yocto/meta-custom ~/poky
-bitbake-layers add-layer ../meta-custom/
-```
+> To add our meta-custom layer, ensure that you copy the path of the meta-custom layer to the bblayers.conf file.
 
 Now take a look and understand the [custom-image.bb file](~/poky/meta-custom/recipes-core/images/custom-image.bb) under ~/poky/meta-custom/recipes-core/images.
 
@@ -128,10 +127,16 @@ You will also need to clone the following repositories and checkout the kirkston
 
 ```bash
 git clone https://github.com/Xilinx/meta-jupyter
-git clone https://git.openembedded.org/meta-python2
+git checkout -t origin/kirkstone-next -b my-kirkstone
 ```
 
-Add the meta-oe layer for can-utils support. Within your oe-init-build-env:
+```bash
+cd ../../meta-openembedded/
+git clone https://git.openembedded.org/meta-python2
+git checkout -t origin/kirkstone -b my-kirkstone
+```
+
+Add the meta-oe layer for can-utils support if not already added within your bblayers file. Within your oe-init-build-env:
 
 ```bash
 bitbake-layers add-layer ../meta-openembedded/meta-oe

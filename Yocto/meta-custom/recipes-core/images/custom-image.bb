@@ -1,4 +1,4 @@
-SUMMARY = "UTHP Yocto Image"
+SUMMARY = "UTHP Yocto Image Recipe"
 
 IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
 LICENSE = "MIT"
@@ -16,7 +16,7 @@ IMAGE_ROOTFS_SIZE ?= "3872983"
 CORE_OS = " \
     openssh openssh-keygen openssh-sftp-server \
     sudo \
-    libgpiod libgpiod-tools libgpiod-dev gpio-expansion-mapping \
+    libgpiod libgpiod-tools libgpiod-dev \
     usbutils \
  "
 
@@ -50,11 +50,6 @@ DEV_SDK_INSTALL = " \
     pkgconfig \
  "
 
-DEV_EXTRAS = " \
-    ntp \
-    ntp-tickadj \
- "
-
 EXTRA_TOOLS_INSTALL = " \
     bc \
     bzip2 \
@@ -68,10 +63,8 @@ EXTRA_TOOLS_INSTALL = " \
     less \
     nano \
     procps \
-    rsync \
     rtl-sdr \
     sysfsutils \
-    tcpdump \
     tmux \
     unzip \
     util-linux \
@@ -101,6 +94,7 @@ PYTHON_TOOLS = " \
     python-typing \
  "
 
+# FIXME: scapy six issues?
 PYTHON3_TOOLS = " \
     python3 \
     python3-core \
@@ -131,59 +125,29 @@ PYTHON3_TOOLS = " \
     python3-websockets \
     python3-dev \
     python3-asyncio-glib \
-    pamela \
  "
-
-NET_SERVICES = " \
-    lighttpd \
-    uthp-app-api \ 
-    uthp-app-ui \
-"
-
-
 
 IMAGE_INSTALL += " \
     ${CAN_TOOLS} \
     ${CORE_OS} \
     ${DEV_SDK_INSTALL} \
-    ${DEV_EXTRAS} \
     ${EXTRA_TOOLS_INSTALL} \
     ${KERNEL_EXTRA_INSTALL} \
     ${PYTHON_TOOLS} \
     ${PYTHON3_TOOLS} \
-    ${NET_SERVICES} \
  "
-CORE_IMAGE_EXTRA_INSTALL += "usbinit"
 
-# FIXME: scapy six issues?
-
-TIMEZONE = "America/Denver"
-NTP_SERVERS = "pool.ntp.org"
-
-# Add uthp user and set temp root password
+# Add uthp user and set 'temp' as password for root and uthp for dev
 EXTRA_USERS_PARAMS = "useradd uthp; \
-	usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' uthp; \
-    usermod -p '\$5\$Nx2D0wB1k15\$LYl7n9Tvtwo0fmsbs/frfpm7OuDJj2AIvcdWZfhS99C' root; \
+	usermod -p '\$6\$kXDp5Q1Ki1mAOJ7U\$Bz7DjUHuRjnO/oPL6Xc3/TOiknek/eXiXIL8wiU00VpNJmd9dMayr6RvsY5Ip9DZ7Q9CAZEhFIKAgYRJf8ZgV0' uthp; \
+    usermod -p '\$6\$kXDp5Q1Ki1mAOJ7U\$Bz7DjUHuRjnO/oPL6Xc3/TOiknek/eXiXIL8wiU00VpNJmd9dMayr6RvsY5Ip9DZ7Q9CAZEhFIKAgYRJf8ZgV0' root; \
     usermod -aG sudo uthp; \
 	"
 
 # Here we give sudo access to sudo members
+# TODO: This is a security risk, we should remove this once in production
 update_sudoers(){
     sed -i 's/# %sudo/%sudo/' ${IMAGE_ROOTFS}/etc/sudoers
 }
-
-disable_bootlogd() {
-    echo BOOTLOGD_ENABLE=no > ${IMAGE_ROOTFS}/etc/default/bootlogd
-}
-
-set_local_timezone() {
-    ln -sf /usr/share/zoneinfo/EST5EDT ${IMAGE_ROOTFS}/etc/localtime
-}
-
-ROOTFS_POSTPROCESS_COMMAND += "update_sudoers; \
-    set_local_timezone; \
-    disable_bootlogd; \
-    "
-
 
 export IMAGE_BASENAME = "uthp"
