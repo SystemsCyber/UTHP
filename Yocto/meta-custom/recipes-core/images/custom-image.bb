@@ -150,4 +150,6 @@ update_sudoers(){
     sed -i 's/# %sudo/%sudo/' ${IMAGE_ROOTFS}/etc/sudoers
 }
 
+ROOTFS_POSTPROCESS_COMMAND += "update_sudoers; "
+
 export IMAGE_BASENAME = "uthp"
