@@ -2,4 +2,4 @@
 KERNEL_DEFCONFIG = "defconfig"
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI += "file://defconfig \ 
-            file://0001-Added-D_CAN0-and-C_CAN1.patch"
+            file://0001-UTHPKv0.0.patch"

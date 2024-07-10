@@ -9,5 +9,8 @@ SRC_URI[sha256sum] = "7c72341c6e872d9b9e10a681d77a407e8e2cf4e1b88a315e24bd82a938
 
 S = "${WORKDIR}/git"
 
-# Assuming the use of poetry or a similar tool as the build backend
-inherit setuptools3
+# install full TruckDevil package in /usr/bin
+do_install() {
+    install -d ${D}${bindir} # create the directory just in case it doesn't exist
+    cp -r ${S}/truckdevil ${D}${bindir}/ # copy the entire directory
+}

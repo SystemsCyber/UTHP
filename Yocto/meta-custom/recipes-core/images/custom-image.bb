@@ -6,12 +6,10 @@ LICENSE = "MIT"
 inherit core-image
 inherit extrausers
 
-IMAGE_FEATURES += "package-management"
 IMAGE_LINGUAS = "en-us"
 
 # Set rooffs to ~4GB by default TODO: make this dynamic
-IMAGE_OVERHEAD_FACTOR ?= "1.0"
-IMAGE_ROOTFS_SIZE ?= "3872983"
+IMAGE_ROOTFS_SIZE = "3145728"
 
 CORE_OS = " \
     openssh openssh-keygen openssh-sftp-server \
@@ -22,10 +20,8 @@ CORE_OS = " \
 
 KERNEL_EXTRA_INSTALL = " \
     kernel-modules \
-    usb-gadget \
-    usb0-dhcp \
-    vcan0 \
  "
+# deleted vcan0
 
 DEV_SDK_INSTALL = " \
     binutils \
@@ -48,7 +44,11 @@ DEV_SDK_INSTALL = " \
     make \
     perl-modules \
     pkgconfig \
+    gnupg \
+    rsync \
+    apt-setup \
  "
+# need rsync to get the files from the host to the target for apt-keys at least
 
 EXTRA_TOOLS_INSTALL = " \
     bc \
@@ -79,8 +79,8 @@ CAN_TOOLS = " \
     iproute2 \
     sigrok-cli \
     can2 \
-    truckdevil \
     config-pin \
+    truckdevil \
  "
 
 PREFERRED_VERSION_python = "2.7"
@@ -153,3 +153,5 @@ update_sudoers(){
 ROOTFS_POSTPROCESS_COMMAND += "update_sudoers; "
 
 export IMAGE_BASENAME = "uthp"
+
+# kernel located in ..../poky/build/tmp/work/beaglebone-poky-linux-gnueabi/linux-bb.org/6.1.80+git/build/.config

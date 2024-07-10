@@ -11,7 +11,7 @@ S = "${WORKDIR}/git"
 
 # Assuming the use of poetry or a similar tool as the build backend
 inherit setuptools3
-RDEPENDS:${PN} += "perl python python3"
+RDEPENDS:${PN} += "perl python3"
 
 do_compile() {
     # Build the package using the backend specified in pyproject.toml

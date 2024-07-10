@@ -1,0 +1,3 @@
+[submodule "Yocto/meta-python2"]
+	path = Yocto/meta-python2
+	url = git://git.openembedded.org/meta-python2
