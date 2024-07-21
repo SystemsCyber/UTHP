@@ -112,7 +112,7 @@ The 9-pin connector is a double ended connector that is connected on the inside 
 ## PLC4TRUCKS
 There are two approaches to working with the SAE J2497 - Power Line Carrier Communications for Commercial Vehicles. The first approach is to use a GPIO pin through the PRU to excite and read the PLC signals through a coupling capacitor. The second approach is to utilize purpose build hardware for PLC communication. 
 
-The hardware approach has 2 solutions: 1) a custom circuit board for the Intellion P485 chip that has been used in PLC enable devices for many years, and 2) a new Mikroe Click board using the SM24000 PLC solution. 
+The hardware approach has 2 solutions: 1) a custom circuit board for the Intellion P485 chip that has been used in PLC enable devices for many years, and 2) a new Mikroe Click board using the [SM24000 PLC solution](https://www.mikroe.com/n-plc-click-bundle-ac-plug-eu). 
 
 ## Logic Analyzer
 The [BitMagic Basic Logic Analyzer](https://1bitsquared.com/products/bitmagic-basic) is used inside the UTHP. There is a designated header that connects the BitMagic Basic to the signals on the board. These signals can be analyzed using the SIGROK software. 
