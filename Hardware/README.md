@@ -81,9 +81,9 @@ There is a printed circuit board mounted to the UTHP enclosure using banana jack
 
 The breakout board exposes all the CAN channels, LIN, J1708. Raw Power and ground. The reason it's called raw power is because the power line has not been filtered and it may carry the PLC4TRUCKS (SAE J2497) signals. 
 
-The [banana jack breakout board schematic](Enclosure%20Design\banana%20jack%20board%20schematic.pdf) shows the signals included. The [design files from Altium](Enclosure%20Design/banana%20jack%20circuit%20board%20v2.zip) include the resulting Gerber and NC Drill files. These are sufficient for someone to have these boards manufactured. 
+The [banana jack breakout board schematic](Enclosure%20Design/banana%20jack%20board%20schematic.pdf) shows the signals included. The [design files from Altium](Enclosure%20Design/banana%20jack%20circuit%20board%20v2.zip) include the resulting Gerber and NC Drill files. These are sufficient for someone to have these boards manufactured. 
 
-![Rendering of Banana Jack Board](Enclosure%20Design\BananaJackBoardRendering.png)
+![Rendering of Banana Jack Board](Enclosure%20Design/BananaJackBoardRendering.png)
 
 With the printed circuit boards in hand, they need to be populated. The connector is a 20-pin shrouded male header mounted on the bottom of the board. The banana jacks themselves are mounted through the enclosure and secured in place with the nuts that come with the banana jacks. The part numbers and utilization in the breakout board are as follows:
 
@@ -109,7 +109,12 @@ The 9-pin connector is a double ended connector that is connected on the inside 
 |    1     | Molex | 39-01-2100 | Digikey | WM3704-ND | Cable End | Mini-Fit Jr 5557 10 Position Receptacle 4.20mm |
 |    1     | Essentra Components | CG-PG11-2-BK | Digikey | RPC2237-ND | Cord Grip | CABLE GLAND 5-10MM PG11 POLYAMID |
 
-
-
 ## PLC4TRUCKS
+There are two approaches to working with the SAE J2497 - Power Line Carrier Communications for Commercial Vehicles. The first approach is to use a GPIO pin through the PRU to excite and read the PLC signals through a coupling capacitor. The second approach is to utilize purpose build hardware for PLC communication. 
 
+The hardware approach has 2 solutions: 1) a custom circuit board for the Intellion P485 chip that has been used in PLC enable devices for many years, and 2) a new Mikroe Click board using the SM24000 PLC solution. 
+
+## Logic Analyzer
+The [BitMagic Basic Logic Analyzer](https://1bitsquared.com/products/bitmagic-basic) is used inside the UTHP. There is a designated header that connects the BitMagic Basic to the signals on the board. These signals can be analyzed using the SIGROK software. 
+
+A small micro USB cable is needed to connect the Bitmagic to the Beagle Bone Black. For example: the [DH-20M50057 from Cvilux](https://www.digikey.com/en/products/detail/cvilux-usa/DH-20M50057/13177527).
