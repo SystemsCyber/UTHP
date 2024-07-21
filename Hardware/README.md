@@ -40,7 +40,7 @@ Schematics:
 ![UTHP Version 2 Schematics](UTHP%20PCB/UTHP%20Schematics%20v2.pdf)
 
 Bill of Materials: 
-[UTHP BOM v2.csv](UTHP%20PCB\UTHP%20BOM%20v2.csv)
+[UTHP BOM v2.csv](UTHP%20PCB/UTHP%20BOM%20v2.csv)
 
 
 
@@ -50,12 +50,13 @@ Schematics:
 
 Photo of the top side of the board.
 
-[UTHP V1 Topside.jpg](UTHP%20V1%20Topside.jpg)
+![UTHP V1 Topside.jpg](UTHP%20V1%20Topside.jpg)
 
 Photo of the bottom side of the board.
 
-[UTHP V1 Bottomside.jpg](UTHP%20V1%20Bottomside.jpg)
+![UTHP V1 Bottomside.jpg](UTHP%20V1%20Bottomside.jpg)
 
+#### Version 1 Errata:
 1. The LEDs needs to be moved towards the center of the board to keep the LEDs from interering with the light pipes.
 2. The DSUB15 connector needs to be moved towards the edge of the board.
 3. There are many other changes that make version 1 of the board unsuitable for use.
@@ -63,11 +64,11 @@ Photo of the bottom side of the board.
 ## Enclosure
 The main part of the enclosure is the [Hammond 1455Q1602BK](https://www.digikey.com/en/products/detail/hammond-manufacturing/1455Q1602BK/965866) enclosure. This is an anodized black aluminum enclosure that can accept 160mm by 120mm printed circuit boards. The anodized aluminum is nicely finished with a laser etcher and the file that is used to etch the graphics on the top of the enclosure is available as an svg file: 
 
-![Belly Pan Layout](Hardware/Enclosure%20Design/Belly%20Pan%20Layout.svg)
+![Belly Pan Layout](Enclosure%20Design/Belly%20Pan%20Layout.svg)
 
 There are holes layed out for banana jacks on the enclosure. These are drilled to accomodate the banana jack breakout board. 
 
-The ends of the enclosure are plastic end caps that be cut with a laser. The part number for a spare end cap is [Hammond 1455QPLBK]( https://www.digikey.com/en/products/detail/hammond-manufacturing/1455QPLBK/2359061)
+The ends of the enclosure are plastic end caps that be cut with a laser. The part number for a spare end cap is [Hammond 1455QPLBK](https://www.digikey.com/en/products/detail/hammond-manufacturing/1455QPLBK/2359061)
 
 The end caps also support the USB connections with a micro USB cable and Ethernet with RJ45. These are exposed on the end panel with an internal cable that connects directy to the BeagleBone Black.
 
