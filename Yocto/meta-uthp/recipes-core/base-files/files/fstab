@@ -1,0 +1,4 @@
+# /etc/fstab: static file system information. mmc should be /dev/mmcblk1p1 and /dev/mmcblk1p2
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/dev/mmcblk0p1  /boot           auto    defaults        0       2
+/dev/mmcblk0p2  /               auto    defaults        0       1

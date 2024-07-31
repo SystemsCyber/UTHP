@@ -1,0 +1,168 @@
+From 3ceade2bb0d19698d03a2b3a07696e0607f0b96c Mon Sep 17 00:00:00 2001
+From: spenc3rb <beersc@colostate.edu>
+Date: Mon, 8 Jul 2024 08:37:10 -0600
+Subject: [PATCH] UTHPKv0.0
+
+---
+ arch/arm/boot/dts/am335x-boneblack.dts | 147 +++++++++++++++++++++++++
+ 1 file changed, 147 insertions(+)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index 9312197316f0..23dc75219a5e 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -168,3 +168,150 @@ &gpio3 {
+ 		"NC",
+ 		"NC";
+ };
++
++
++&i2c2 {
++    status = "disabled";
++};
++
++&uart1 {
++    status = "disabled";
++};
++
++&am33xx_pinmux {
++    pinctrl-0 = <&dcan0_pins &dcan1_pins &uart2_pins &uart4_pins &uart4_pins &i2c1_pins &gpio_pins &timer_pins>;
++
++    uart2_pins: pinxmux_uart2_pins {
++	pinctrl-single,pins = <
++            AM33XX_IOPAD(0x954, PIN_OUTPUT_PULLDOWN | MUX_MODE1) /* P9_21: uart2_txd */
++            AM33XX_IOPAD(0x950, PIN_INPUT_PULLUP | MUX_MODE1) /* P9_22: uart2_rxd */
++        >;
++    };
++
++    uart4_pins: pinxmux_uart4_pins {
++	pinctrl-single,pins = <
++            AM33XX_IOPAD(0x874, PIN_OUTPUT_PULLDOWN | MUX_MODE6) /* P9_13: uart4_txd */
++            AM33XX_IOPAD(0x870, PIN_INPUT_PULLUP | MUX_MODE6) /* P9_11: uart4_rxd */
++        >;
++    };
++
++    uart5_pins: pinxmux_uart5_pins {
++	pinctrl-single,pins = <
++            AM33XX_IOPAD(0x8C0, PIN_OUTPUT_PULLDOWN | MUX_MODE4) /* P8_37: uart5_txd */
++            AM33XX_IOPAD(0x8C4, PIN_INPUT_PULLUP | MUX_MODE4) /* P8_38: uart5_rxd */
++        >;
++    };
++
++    i2c1_pins: pinmux_i2c1_pins {
++        pinctrl-single,pins = <
++            AM33XX_IOPAD(0x95C, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_17: I2C1_SCL */
++            AM33XX_IOPAD(0x958, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_18: I2C1_SDA */
++        >;
++    };
++
++    spi1_pins: pinmux_spi1_pins {
++        pinctrl-single,pins = <
++            AM33XX_IOPAD(0x99C, PIN_OUTPUT | MUX_MODE3) /* P9_28: SPI1_CS0 */
++            AM33XX_IOPAD(0x994, PIN_OUTPUT | MUX_MODE3) /* P9_29: spi1_d0 */
++            AM33XX_IOPAD(0x998, PIN_OUTPUT | MUX_MODE3) /* P9_30: spi1_d1 */
++            AM33XX_IOPAD(0x998, PIN_OUTPUT | MUX_MODE3) /* P9_30: spi1_sclk */
++        >;
++    };
++
++    gpio_pins: pinmux_gpio_pins {
++        pinctrl-single,pins = <
++            /* P9 GPIOS */
++            AM33XX_IOPAD(0x844, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P9_23: gpio1_17 */
++            AM33XX_IOPAD(0x9AC, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P9_25: gpio3_21 */
++            AM33XX_IOPAD(0x9B4, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P9_41: gpio0_20 */
++            AM33XX_IOPAD(0x840, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P9_15: gpio1_16 */
++            AM33XX_IOPAD(0x848, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P9_14: gpio1_18 */
++            AM33XX_IOPAD(0x878, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P9_12: gpio1_28 */
++	    /* P8 GPIOS */
++            AM33XX_IOPAD(0x834, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_11: gpio1_13 */
++            AM33XX_IOPAD(0x830, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_12: gpio1_12 */
++            AM33XX_IOPAD(0x824, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_13: gpio0_23 */
++            AM33XX_IOPAD(0x828, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_14: gpio0_26 */
++            AM33XX_IOPAD(0x87c, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_26: gpio1_29 */
++            AM33XX_IOPAD(0x8E0, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_27: gpio2_22 */
++            AM33XX_IOPAD(0x8E8, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_28: gpio2_24 */
++            AM33XX_IOPAD(0x8E4, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_29: gpio2_23 */
++            AM33XX_IOPAD(0x8D8, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_31: gpio0_10 */
++            AM33XX_IOPAD(0x8DC, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_32: gpio0_11 */
++            AM33XX_IOPAD(0x8B8, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_39: gpio2_12 */
++            AM33XX_IOPAD(0x8Bc, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_40: gpio2_13 */
++            AM33XX_IOPAD(0x8B0, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_41: gpio2_10 */
++            AM33XX_IOPAD(0x8B4, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_42: gpio2_11 */
++            AM33XX_IOPAD(0x8A8, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_43: gpio2_8 */
++            AM33XX_IOPAD(0x8AC, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_44: gpio2_9 */
++            AM33XX_IOPAD(0x8A0, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_45: gpio2_6 */
++            AM33XX_IOPAD(0x8A4, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* P8_46: gpio2_7 */
++        >;
++    };
++
++    pwm_pins: pinmux_apwm_pins {
++        pinctrl-single,pins = <
++            /* P9 PWMs */
++            AM33XX_IOPAD(0x9A0, PIN_OUTPUT | MUX_MODE3) /* P9_42: pr1_ecap0_ecap_capin_apwm_o */
++            AM33XX_IOPAD(0x84C, PIN_OUTPUT | MUX_MODE6) /* P9_16: ehrpwm1B */
++
++            /* P8 PWMs */
++            AM33XX_IOPAD(0x820, PIN_OUTPUT | MUX_MODE4) /* P8_19: ehrpwm2A */
++        >;
++    };
++
++
++    timer_pins: pinmux_timer_pins {
++        pinctrl-single,pins = <
++            AM33XX_IOPAD(0x890, PIN_OUTPUT | MUX_MODE2) /* P8_7: timer4 */
++            AM33XX_IOPAD(0x894, PIN_OUTPUT | MUX_MODE2) /* P8_8: timer7 */
++            AM33XX_IOPAD(0x89C, PIN_OUTPUT | MUX_MODE2) /* P8_9: timer5 */
++            AM33XX_IOPAD(0x898, PIN_OUTPUT | MUX_MODE2) /* P8_10: timer6 */
++        >;
++    };
++
++    dcan0_pins: pinmux_dcan0_pins {
++        pinctrl-single,pins = <
++            AM33XX_IOPAD(0x97C, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_19: d_can0_rx */
++            AM33XX_IOPAD(0x978, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* P9_20: d_can0_tx */
++        >;
++    };
++
++    dcan1_pins: pinmux_dcan1_pins {
++        pinctrl-single,pins = <
++            AM33XX_IOPAD(0x984, PIN_INPUT_PULLUP | MUX_MODE2) /* P9_24: d_can1_rx */
++            AM33XX_IOPAD(0x980, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* P9_26: d_can1_tx */
++        >;
++    };
++};
++
++&dcan0 {
++    status = "okay";
++    pinctrl-names = "default";
++    pinctrl-0 = <&dcan0_pins>;
++    /* Other necessary properties and configurations */
++};
++
++&dcan1 {
++    status = "okay";
++    pinctrl-names = "default";
++    pinctrl-0 = <&dcan1_pins>;
++    /* Other necessary properties and configurations */
++};
++
++&uart2 {
++    status = "okay";
++};
++
++&uart4 {
++    status = "okay";
++};
++
++
++&uart5 {
++    status = "okay";
++};
++
++&i2c1 {
++    status = "okay";
++};
+\ No newline at end of file
+-- 
+2.34.1
+

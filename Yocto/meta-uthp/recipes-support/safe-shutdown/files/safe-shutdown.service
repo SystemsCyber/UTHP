@@ -1,0 +1,11 @@
+[Unit]
+Description=Check Power Source Service
+After=network.target
+
+[Service]
+ExecStart=/opt/scripts/safe-shutdown.sh
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

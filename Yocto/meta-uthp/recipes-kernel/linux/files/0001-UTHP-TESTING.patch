@@ -1,0 +1,25 @@
+From affbc8671516f43ef5c85eb19aa97eb12ae38dd5 Mon Sep 17 00:00:00 2001
+From: spenc3rb <beersc@colostate.edu>
+Date: Mon, 15 Jul 2024 16:58:59 -0600
+Subject: [PATCH] UTHP-TESTING
+
+---
+ arch/arm/boot/dts/am335x-boneblack.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index ea205b720764..570a3e85c852 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -178,3 +178,7 @@ &gpio3 {
+ &baseboard_eeprom {
+ 	vcc-supply = <&ldo4_reg>;
+ };
++
++&mcasp0 {
++	status = "disabled";
++};
+\ No newline at end of file
+-- 
+2.34.1
+

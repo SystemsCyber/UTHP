@@ -1,0 +1,40 @@
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+PATCHRESOLVE = "noop"
+BB_DISKMON_DIRS ??= "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    HALT,${TMPDIR},100M,1K \
+    HALT,${DL_DIR},100M,1K \
+    HALT,${SSTATE_DIR},100M,1K \
+    HALT,/tmp,10M,1K"
+
+CONF_VERSION = "2"
+
+### UTHPMODS ###
+INIT_MANAGER = "systemd"
+
+I_SWEAR_TO_MIGRATE_TO_PYTHON3="yes"
+
+PARALLEL_MAKE = "-j 12"
+BB_NUMBER_THREADS = "12"
+
+PACKAGE_CLASSES ?= "package_deb"
+EXTRA_IMAGE_FEATURES += " package-management"
+# PACKAGE_FEED_URIS = "http://deb.debian.org/debian"
+# PACKAGE_FEED_BASE_PATHS = "bookworm"
+# PACKAGE_ARCHS = "armhf"
+
+INHERIT += "ccache"
+CCACHE_DIR = "/storage/spencer/poky/ccache"
+
+# PREFFERED_PROVIDER_virtual/kernel ?= "linux-bb.org_git" -- already set in beaglebone.conf
+# PREFFERED_VERSION_linux-yocto ?= "5.10%"
+# USER_CLASSES += "buildstats image-mklibs image-prelink"
+
+# Config pin may require to many changes to the kernel and is not strictly necessary at the moment
+# BBMASK += "meta-custom/recipes-devtools/config-pin"
+DISTRO ?= "TruckHackingOS"
+# needs to be named beagle.* to override the default beaglebone.conf
+MACHINE ?= "uthp"

@@ -1,0 +1,12 @@
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Current targets are:
+    core-image
+
+After you have built the image, 
+you can flash the core-image-uthp.rootfs.wic.xz 
+found in poky/build/deploy-ti/images/uthp/ 
+to an SD card using balenaEtcher or dd.
