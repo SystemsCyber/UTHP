@@ -1,41 +1,77 @@
-This README file contains information on the contents of the meta-custom layer.
+Sure, here's the updated README:
+
+---
+
+# meta-uthp Layer
+
+This README file contains information on the contents of the meta-uthp layer.
 
 Please see the corresponding sections below for details.
 
-Dependencies
-============
+## Dependencies
 
-  URI: <first dependency>
-  branch: <branch name>
+The meta-uthp layer depends on the following layers:
 
-  URI: <second dependency>
-  branch: <branch name>
+- **URI**: core  
+  **branch**: scarthgap
 
-  .
-  .
-  .
+- **URI**: meta-openembedded/meta-python 
+  **branch**: scarthgap
 
-Patches
-=======
+- **URI**: meta-python2
+  **branch**: master / close to scarthgap
 
-Please submit any patches against the meta-custom layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
+- **URI**: networking-layer (meta-openembedded/meta-networking)
+  **branch**: scarthgap
 
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+- **URI**: jupyter-layer
+  **branch**: master / close to scarthgap
 
-Table of Contents
-=================
+- **URI**: arm-toolchain  
+  **branch**: scarthgap
 
-  I. Adding the meta-custom layer to your build
+- **URI**: meta-arm  
+  **branch**: scarthgap
+
+- **URI**: meta-ti-bsp  
+  **branch**: scarthgap
+
+- **URI**: meta-ti-extras  
+  **branch**: scarthgap
+
+## Table of Contents
+
+  I. Adding the meta-uthp layer to your build  
  II. Misc
 
+## I. Adding the meta-uthp layer to your build
 
-I. Adding the meta-custom layer to your build
-=================================================
+Run the following command to add the meta-uthp layer to your build:
 
-Run 'bitbake-layers add-layer meta-custom'
+```sh
+bitbake-layers add-layer meta-uthp
+```
 
-II. Misc
-========
+Add the following to your `conf/layer.conf`:
 
---- replace with specific information about the meta-custom layer ---
+```sh
+# We have a conf and classes directory, add to BBPATH
+BBPATH .= ":${LAYERDIR}"
+
+# We have recipes-* directories, add to BBFILES
+BBFILES += "${LAYERDIR}/recipes-*/*/*.bb \
+            ${LAYERDIR}/recipes-*/*/*.bbappend"
+
+BBFILE_COLLECTIONS += "meta-uthp"
+BBFILE_PATTERN_meta-uthp = "^${LAYERDIR}/"
+BBFILE_PRIORITY_meta-uthp = "98"
+
+LAYERDEPENDS_meta-uthp = "core meta-python meta-python2 networking-layer jupyter-layer arm-toolchain meta-arm meta-ti-bsp meta-ti-extras"
+LAYERSERIES_COMPAT_meta-uthp = "scarthgap"
+```
+
+## II. Misc
+
+The meta-uthp layer provides a comprehensive set of functionalities for integrating various tools and libraries, including Python support, networking, Jupyter, ARM toolchains, and support for the beaglebone black. This layer is compatible with the "scarthgap" series.
+
+---
