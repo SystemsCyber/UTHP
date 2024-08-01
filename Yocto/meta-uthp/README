@@ -35,39 +35,19 @@ The meta-uthp layer depends on the following layers:
 - **URI**: meta-ti-extras  
   **branch**: scarthgap
 
-## Table of Contents
+## From scratch:
 
-  I. Adding the meta-uthp layer to your build  
- II. Misc
-
-## I. Adding the meta-uthp layer to your build
-
-Run the following command to add the meta-uthp layer to your build:
-
-```sh
-bitbake-layers add-layer meta-uthp
+```shell
+mkdir ~/my-uthp-yocto
+cd ~/my-uthp-yocto
 ```
-
-Add the following to your `conf/layer.conf`:
-
-```sh
-# We have a conf and classes directory, add to BBPATH
-BBPATH .= ":${LAYERDIR}"
-
-# We have recipes-* directories, add to BBFILES
-BBFILES += "${LAYERDIR}/recipes-*/*/*.bb \
-            ${LAYERDIR}/recipes-*/*/*.bbappend"
-
-BBFILE_COLLECTIONS += "meta-uthp"
-BBFILE_PATTERN_meta-uthp = "^${LAYERDIR}/"
-BBFILE_PRIORITY_meta-uthp = "98"
-
-LAYERDEPENDS_meta-uthp = "core meta-python meta-python2 networking-layer jupyter-layer arm-toolchain meta-arm meta-ti-bsp meta-ti-extras"
-LAYERSERIES_COMPAT_meta-uthp = "scarthgap"
+Download the uthp-setup-dev-env.sh script:
+```shell
+wget https://github.com/SystemsCyber/UTHP/tree/scarthgap/Yocto/meta-uthp/scripts/uthp-setup-dev-env.sh
 ```
-
-## II. Misc
-
-The meta-uthp layer provides a comprehensive set of functionalities for integrating various tools and libraries, including Python support, networking, Jupyter, ARM toolchains, and support for the beaglebone black. This layer is compatible with the "scarthgap" series.
-
+Run it:
+```shell
+chmod +x uthp-setup-dev-env.sh
+sudo ./uthp-setup-dev-env.sh
+```
 ---
