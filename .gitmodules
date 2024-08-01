@@ -1,9 +1,6 @@
 [submodule "Yocto/meta-python2"]
 	path = Yocto/meta-python2
 	url = git://git.openembedded.org/meta-python2
-[submodule "Yocto/Yocto/meta-uthp"]
-	path = Yocto/Yocto/meta-uthp
-	url = https://github.com/SystemsCyber/meta-uthp.git
 [submodule "Yocto/meta-uthp"]
 	path = Yocto/meta-uthp
 	url = https://github.com/SystemsCyber/meta-uthp.git
