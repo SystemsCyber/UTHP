@@ -1,17 +1,3 @@
-# Repository Updates
-
-## [Version 0.1.5] - UTHP Kirkstone - 2024-06-05
-
-### Added
-- This file for tracking updates
-
-### Changed
-
-### Fixed
-- recipes-kernel
-
-### Removed
-
 ## Ultimate Truck Hacking Platform (UTHP)
 
 Welcome to the Ultimate Truck Hacking Platform (UTHP) repository. This repository contains the source code and documentation for the UTHP project. 
