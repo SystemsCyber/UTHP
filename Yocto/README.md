@@ -1,3 +1,4 @@
+# THIS IS A WORK IN PROGRESS, PLEASE DOWNLOAD THE PRERELEASE core-image-uthp.wic.xz or FOLLOW THE INSTRUCTIONS under meta-uthp/README.md
 # Ultimate Truck Hacking Platform (UTHP) Yocto Build Guide
 
 ## 1: Introduction
