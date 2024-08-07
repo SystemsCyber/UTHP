@@ -77,7 +77,7 @@ Micro USB P/N: 3318 link: https://www.adafruit.com/product/3318
 Ethernet P/N: 909 link: https://www.adafruit.com/product/909
 
 ## Banana Jack Breakout Board
-There is a printed circuit board mounted to the UTHP enclosure using banana jacks. The schematic simply shows it as a passthrough device to match the aligned banana jacks. A ribbon cable connects the banana jack board with the main PCB. 
+There is a printed circuit board mounted to the UTHP enclosure using banana jacks. The schematic simply shows it as a passthrough device to match the aligned banana jacks. A ribbon cable connects the banana jack board with the main PCB. The connecting ribbon cable is 5 inches in length to allow for disassembly and adjustment of hardware components. Both ends of each cable have female ribbon cable connectors oriented so that the number one pin aligns with the designated triangle marking on each connector. 
 
 The breakout board exposes all the CAN channels, LIN, J1708. Raw Power and ground. The reason it's called raw power is because the power line has not been filtered and it may carry the PLC4TRUCKS (SAE J2497) signals. 
 
