@@ -4,7 +4,7 @@ The hardware design has the following main components:
 
 
 2. BeagleBone Black
-2. Printed Circuit Board
+2. Printed Circuit Board (UTHP PCB)
 1. Enclosure: Hammond 1455
 3. Banana Jack Breakout
 4. 9-pin Diagnostic Connector
@@ -33,33 +33,23 @@ Supplier Part Number: SAM10843-ND
 ```
 
 ## Printed Circuit Board
-There are multiple hardware versions for the PCB. The design is open, but uses Altium Designer software for the PCB Layout software. Each version is captured as a schematic, Altium files, bill of materials and Gerber Files.
+The UTHP PCB is a circuit card assembly connecting all the pieces of the UTHP in the enclosure. It has the following interfaces:
+1. Pins for the Beaglebone Black
+2. Controller Area Network interfaces
+3. Power Supply and management
+4. Local Interconnect Network (LIN) interfaces
+5. Real-time clock
+6. Pinouts for the PLC daughter board
+7. SAE J1708 interfaces
+8. Circuit protection
 
-### Version 2:
-Schematics: 
-![UTHP Version 2 Schematics](UTHP%20PCB/UTHP%20Schematics%20v2.pdf)
+These features and interfaces are shown in detail in the ![UTHP PCB v3 schematics](UTHP%20PCB\UTHP%20Truck%20Cape%20v3%20Schematics.pdf).
 
-Bill of Materials: 
-[UTHP BOM v2.csv](UTHP%20PCB/UTHP%20BOM%20v2.csv)
+The PCB design was done in a tool called Altium Designer. The original files for Altum Designer are available in the .zip file of the UTHP PCB directory. TO produce the PCB, an electronics assembly business will need Gerber files to have the PCBs made, a Bill of Materials for the parts to put on the PCB, and the Pick-n-Place file to show where the parts go on the PCB. These files are also included in the UTHP PCB directory. With these files, anyone can produce the UTHP. 
 
+There are multiple hardware versions for the PCB. The design is open, but uses Altium Designer software for the PCB Layout software. Each version is captured as a schematic, Altium files, bill of materials and Gerber Files. Previous versions are archived in the Development Versions directory. 
 
-
-### Version 1:
-Schematics: 
-![UTHP Version 1 Schematics](UTHP%20PCB/UTHP%20Schematics%20v1.pdf)
-
-Photo of the top side of the board.
-
-![UTHP V1 Topside.jpg](UTHP%20V1%20Topside.jpg)
-
-Photo of the bottom side of the board.
-
-![UTHP V1 Bottomside.jpg](UTHP%20V1%20Bottomside.jpg)
-
-#### Version 1 Errata:
-1. The LEDs needs to be moved towards the center of the board to keep the LEDs from interering with the light pipes.
-2. The DSUB15 connector needs to be moved towards the edge of the board.
-3. There are many other changes that make version 1 of the board unsuitable for use.
+The UTHP PCB is release under the permissive [Solderpad Hardware License v2.1](http://solderpad.org/licenses/SHL-2.1/).
 
 ## Enclosure
 The main part of the enclosure is the [Hammond 1455Q1602BK](https://www.digikey.com/en/products/detail/hammond-manufacturing/1455Q1602BK/965866) enclosure. This is an anodized black aluminum enclosure that can accept 160mm by 120mm printed circuit boards. The anodized aluminum is nicely finished with a laser etcher and the file that is used to etch the graphics on the top of the enclosure is available as an svg file: 
@@ -72,6 +62,7 @@ The ends of the enclosure are plastic end caps that be cut with a laser. The par
 
 The end caps also support the USB connections with a micro USB cable and Ethernet with RJ45. These are exposed on the end panel with an internal cable that connects directy to the BeagleBone Black.
 
+## Internal Cables
 Micro USB P/N: 3318 link: https://www.adafruit.com/product/3318
 
 Ethernet P/N: 909 link: https://www.adafruit.com/product/909
@@ -110,11 +101,18 @@ The 9-pin connector is a double ended connector that is connected on the inside 
 |    1     | Essentra Components | CG-PG11-2-BK | Digikey | RPC2237-ND | Cord Grip | CABLE GLAND 5-10MM PG11 POLYAMID |
 
 ## PLC4TRUCKS
-There are two approaches to working with the SAE J2497 - Power Line Carrier Communications for Commercial Vehicles. The first approach is to use a GPIO pin through the PRU to excite and read the PLC signals through a coupling capacitor. The second approach is to utilize purpose build hardware for PLC communication. 
-
-The hardware approach has 2 solutions: 1) a custom circuit board for the Intellion P485 chip that has been used in PLC enable devices for many years, and 2) a new Mikroe Click board using the [SM24000 PLC solution](https://www.mikroe.com/n-plc-click-bundle-ac-plug-eu). 
+The approach to working with the SAE J2497 - Power Line Carrier Communications for Commercial Vehicles was to build another specialty printed circuit board that contained the Intellon P485 chip. However, this chip is at end of life, so these PCBs may ne be able to be produced in the future. The design for this board is also in this repository. 
 
 ## Logic Analyzer
-The [BitMagic Basic Logic Analyzer](https://1bitsquared.com/products/bitmagic-basic) is used inside the UTHP. There is a designated header that connects the BitMagic Basic to the signals on the board. These signals can be analyzed using the SIGROK software. 
+The [BitMagic Basic Logic Analyzer](https://1bitsquared.com/products/bitmagic-basic) is used inside the UTHP. There is a designated header that connects the BitMagic Basic to the signals on the board. These signals can be analyzed using the SIGROK software. The Logic analyzer is exposed through the enclosure with a USB-C cable and is not connected to the Beaglebone Black on the inside. The bitmagic basic is protected with some heat shrink and floats in the enclosure. 
 
-A small micro USB cable is needed to connect the Bitmagic to the Beagle Bone Black. For example: the [DH-20M50057 from Cvilux](https://www.digikey.com/en/products/detail/cvilux-usa/DH-20M50057/13177527).
+
+## License
+Copyright 2024 Jeremy Daily and Carson Green
+SPDX-License-Identifier: Apache-2.0 WITH SHL-2.1
+
+Licensed under the Solderpad Hardware License v 2.1 (the “License”); you may not use this file except in compliance with the License, or, at your option, the Apache License version 2.0. You may obtain a copy of the License at
+
+https://solderpad.org/licenses/SHL-2.1/
+
+Unless required by applicable law or agreed to in writing, any work distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
