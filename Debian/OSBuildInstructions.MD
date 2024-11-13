@@ -1,5 +1,5 @@
 # Instructions for setting up the BeagleBone Black derived from: https://github.com/SystemsCyber/TruckCapeProjects/blob/master/OSBuildInstructions.md
-![alt text](beaglebone-black-pinout-1748733925.jpg)
+![pinout diagram here](./imgs/beaglebone-black-pinout-1748733925.jpg)
 ## 1. Flashing the BeagleBone Black with Debian Linux OS
 
 These steps were taken to build the TruckCape recovery SD card. If you have a UTHP from 2024, then these steps have already been done.
