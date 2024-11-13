@@ -1,0 +1,4 @@
+[submodule "Yocto/meta-uthp"]
+	path = Yocto/meta-uthp
+	url = https://github.com/SystemsCyber/meta-uthp.git
+	branch = scarthgap

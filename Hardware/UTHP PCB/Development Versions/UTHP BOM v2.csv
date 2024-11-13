@@ -1,0 +1,60 @@
+Comment,Description,Designator,Quantity,Manufacturer 1,Manufacturer Part Number 1,Supplier 1,Supplier Part Number 1,Supplier Unit Price 1,Supplier Subtotal 1
+2x2 Female Header,PPTC022LFBN-RC,BB4F,1,Sullins,PPTC022LFBN-RC,Digikey,S7070-ND,0.58,0.58
+CR2032,"Battery Connector, 1 Cell, CR2032, 2-Pin SMD, RoHS, Tape and Reel",BT1,1,TE Connectivity AMP Connectors,796136-1,Digikey,A99327CT-ND,2.7,2.7
+0.1uF,0.1 µF ±10% 50V Ceramic Capacitor X7R 0603 (1608 Metric),"C1, C2, C3, C4, C5, C6, C9, C12, C13, C14, C15, C17, C18, C19, C20, C24, C25, C26, C27",19,Kyocera AVX,06035C104K4T4A,Digikey,478-KAM15AR71H104KMCT-ND,0.017,0.323
+10uF,10 µF ±10% 50V Ceramic Capacitor X7R 1210 (3225 Metric),"C10, C11, C16, C23, C31, C34",6,Taiyo Yuden,UMK325AB7106KM-T,Digikey,587-3167-2-ND,0.51,3.06
+220uF,"Aluminum Electrolytic Capacitor, 220 uF, +/- 20%, 50 V, -40 to 85 degC, 2-Pin THD, RoHS, Bulk","C21, C22",2,Panasonic,ECA-1HM221,Digikey,P5183-ND,0.51,1.02
+200pF,CAP CER 200PF 50V 5% NP0 0603,"C28, C32",2,KEMET,C0603C201J5GACTU,Digikey,399-C0603C201J5GAC7867CT-ND,0.33,0.66
+6pF,Cap Ceramic 6pF 50V C0G 0.5pF Pad SMD 0603 +125°C Automotive T/R,"C29, C30",2,TDK,CGA3E2C0G1H060D080AA,Digikey,399-C0603C201J5GAC7867CT-ND,0.021,0.042
+5F 6.0 V Cap,"5 F (EDLC) Supercapacitor 6 V Radial, Can 100mOhm @ 1kHz 1000 Hrs @ 85°C",C33,1,Cornell Dubilier,DSF505Q6R0JBG,Digikey,338-DSF505Q6R0JBG-ND,3.25,3.25
+27pF,"27 pF ±5% 50V Ceramic Capacitor C0G, NP0 0402 (1005 Metric)","C7, C8, C35, C36",4,Murata,GRM1555C1H270JA01D,Digikey,490-5869-1-ND,0.0083,0.0332
+SMBJ24CA-E3/52,"TRANSZORB(R) Transient Voltage Suppressor, 24 V, -55 to 150 degC, 2-Pin DO-214AA (SMBJ), RoHS, Tape and Reel","D1, D2",2,Vishay Semiconductors,SMBJ24CA-E3/52,Digikey,SMBJ24CA-E3/52GICT-ND,0.33,0.66
+1SMB5920BT3G,"3 W Zener Voltage Regulator, 2-Pin SMB, Pb-Free, Tape and Reel",D10,1,ON Semiconductor,1SMB5920BT3G,Digikey,1SMB5920BT3GOSCT-ND,0.123,0.123
+Red,"LED Uni-Color Red, 62.5 mW, 25 mA, -30 to 85 degC, 2-Pin SMD, RoHS, Tape and Reel",DS1,1,Vishay Lite-On,LTST-C190KRKT,Digikey,160-1436-1-ND,0.057,0.057
+Green,"LED Uni-Color Green, 100 mW, 30 mA, -55 to 85 degC, 2-Pin SMD, RoHS, Tape and Reel",DS2,1,Vishay Lite-On,LTST-C190GKT,Digikey,160-1183-6-ND,0.059,0.059
+Blue,"LED Uni-Color Blue, 76 mW, 20 mA, -20 to 80 degC, 2-Pin SMD, RoHS, Tape and Reel",DS3,1,Vishay Lite-On,LTST-C190TBKT,Digikey,160-1646-1-ND,0.112,0.112
+Yellow,"LED Uni-Color Yellow, 75 mW, 30 mA, -30 to 85 degC, 2-Pin SMD, RoHS, Tape and Reel",DS4,1,Vishay Lite-On,LTST-C190KSKT,Digikey,160-1437-1-ND,0.063,0.063
+Fuse,PTC RESET FUSE 60V 750MA 2016,"F1,F2",2,Littelfuse,2016L075/60MR,Digikey,F6800CT-ND,0.4823,0.9646
+10 Pos Header,CONN HEADER R/A 10POS 4.2MM,J10,1,Molex,39-30-1100,Digikey,WM1355-ND,0.62721,0.62721
+14-pin header,CONN HEADER SMD 14POS 1.27MM,J2,1,Samtec,FTSH-107-01-F-DV-K,Digikey,612-FTSH-107-01-F-DV-K-ND,3.86,3.86
+20-pin Male Shrouded Header,"Connector Header Through Hole 20 position 0.100"" (2.54mm)",J3,1,CNC Tech,3020-20-0100-00,Digikey,1175-1612-ND,1.12,1.12
+DSub15,"Receptacle Assembly, 15 Position, Right Angle",J5,1,Amphenol ICC (FCI),D15S33E4GV00LF,Digikey,609-1498-ND,1.12,1.12
+56uH,Automotive Molded Power Inductor,L1,1,Codaca,VSAB1770-560M,Digikey,4044-VSAB1770-560MCT-ND,3.4,3.4
+LQM2HPN2R2MG0L,"Multilayer Type Inductor for Power Lines, 1008 (2520), 2.2µH, 20%, 0.1O, 1.3A",L2,1,Murata,LQM2HPN2R2MG0L,Digikey,490-5114-1-ND,0.21,0.21
+Light Pipe,"Light Pipe Single Clear Rigid Board Mount, Press Fit, Right Angle","LP1, LP2, LP3, LP4",4,Bivar Inc.,SLP3-150-250-R,Digikey,492-2517-ND,0.78,3.12
+Mikroe Click Headers,"8 Position Header Connector 0.100"" (2.54mm) Through Hole Tin",MB1,2,Sullins,PPTC081LFBN-RC,Digikey,S7006-ND,0.66,1.32
+2x23 BBB Pins,PRT-12791,"P8, P9",2,SparkFun,PRT-12791,Digikey,1568-PRT-12791-ND,1.07,2.14
+OptoIsolator,OPTOISOLATOR 5KV TRANSISTOR 4SMD,Q1,1,ON Semiconductor,FOD817B3SD,Digikey,FOD817B3SDCT-ND,0.219,0.219
+IPD90P03P4L-04,"OptiMOS-P2 Power-Transistor, -30 V VDS, -90 A ID, PG-TO252-3-11, Reel, Green",Q2,1,Infineon,IPD90P03P4L-04,Digikey,448-IPD90P03P4L04ATMA2CT-ND,2.15,2.15
+10k,Res Thick Film 0603 10kO 1% 0.1W ±100ppm/°C Automotive Paper T/R,"R1, R2, R8, R9, R12, R13, R14, R15, R18, R19, R25, R26, R27, R36, R38, R39, R40, R41, R42, R43",20,Rohm,KTR03EZPF1002,Digikey,RHM10.0KAYCT-ND,0.011,0.22
+4.7k,"Precision Thick Film Chip Resistor, 4.7 KOhm, +/- 1%, -55 to 155 degC, 0603 (1608 Metric), RoHS, Tape and Reel","R10, R20, R23, R24, R28, R31, R32, R33",8,Yageo,RC0603FR-074K7L,Digikey,311-4.70KHRCT-ND,0.00622,0.04976
+100k,"100 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film",R11,1,Yageo,RC0603FR-13100KL,Digikey,13-RC0603FR-13100KLCT-ND,0.0065,0.0065
+RN731JTTD7061F25,"7.06kO ±1% 0.063W, 1/16W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thin Film",R16,1,Yageo,RT0603BRD077K06L,Digikey,13-RT0603BRD077K06LCT-ND,0.055,0.055
+47,RES SMD 47 OHM 1% 1/10W 0603,"R3, R17, R21, R22, R29, R30, R34, R35, R44, R45, R46",11,Vishay,CRCW060347R0FKEA,Digikey,541-47.0HCT-ND,0.007,0.077
+0,RES 0 OHM JUMPER 1/8W 0805,R37,1,Stackpole Electronics,RMCF0805ZT0R00,Digikey,RMCF0805ZT0R00CT-ND,0.005,0.005
+100,CRGCQ0603 100O 1% ±200ppm/°C 75V,"R4, R5, R6, R7",4,TE Connectivity,CRGCQ0603F100R,Digikey,A129676CT-ND,0.004,0.016
+MCP1525T-I/TT,"2.5V Voltage Reference, 3-Pin SOT-23, Industrial Temperature, Tape and Reel",U1,1,Microchip,MCP1525T-I/TT,Digikey,MCP1525T-I/TTCT-ND,0.76,0.76
+RPMB5.0-3.0,"DC-DC Converter, Encapsulated, SMD, 5V@3A, 5.5-36V in, RPMB-3.0 Series",U10,1,Recom,RPMB5.0-3.0,Digikey,945-RPMB5.0-3.0CT-ND,7.19,7.19
+Buffer,IC TRNSLTR BIDIRECTIONAL 48TSSOP,"U11, U27",2,Texas Instruments,SN74LVCH16T245DGGR,Digikey,296-19568-1-ND,0.7605,1.521
+RS485,TRANSCEIVER,"U12, U26",2,Texas Instruments,THVD1410DR,Digikey,296-THVD1410DRCT-ND,1.4,2.8
+MCP7940NT-I/SN,"Low-Cost I2C Real-Time Clock/Calendar with SRAM and Battery Switchover, 8-Pin SOIC, Industrial Temperature, Tape and Reel",U13,1,Microchip,MCP7940NT-I/SN,Digikey,MCP7940NT-I/SNCT-ND,0.76,0.76
+74AHCT1G14 Inverter,Single Schmidt Trigger Inverter,"U15, U16",2,Diodes,74AHCT1G14SE-7,Digikey,74AHCT1G14SE-7DICT-ND,0.055,0.11
+MCP2003B-E/SN,IC TRANSCEIVER HALF 1/1 8SOIC,U2,1,Microchip,MCP2003B-E/SN,Digikey,MCP2003B-E/SN-ND,0.69,0.69
+MCP2562FDT-E/SN,IC TRANSCEIVER 1/1 8SOIC,"U3, U4, U5, U7",4,Microchip,MCP2562FDT-E/SN,Digikey,MCP2562FDT-E/SNCT-ND,0.98,3.92
+MCP2518FDT-E/SL,IC CAN CONTROLLER SPI 14SOIC,"U6, U8",2,Microchip,MCP2518FDT-E/SL,Digikey,MCP2518FDT-E/SLCT-ND,1.48,2.96
+OpAmp,IC CMOS 1 CIRCUIT SOT23-6,"U9, U17, U18",3,Texas Instruments,TLV9061SIDBVR,Digikey,296-53200-1-ND,0.33,0.99
+ECS-.327-6-17X-C-TR,ECX306X Series 32.76 kHz ±10 ppm 6 pF -40 to +85 °C Surface Mount Crystal,X1,1,ECS International,ECS-.327-6-17X-C-TR,Digikey,XC2129CT-ND,0.363,0.363
+ABM8G-40.000MHZ-18-D2Y-T,Crystal 40MHz ±20ppm (Tol) ±30ppm (Stability) 18pF FUND 50? 4-Pin SMD T/R,"Y1, Y2",2,Abracon,ABM8G-40.000MHZ-18-D2Y-T,Digikey,535-10281-1-ND,0.4468,0.8936
+,,,,,,,,,
+DNI,CONN HDR 6POS 0.1 TIN PCB,"J1,P485",2,Sullins,PPTC061LFBN-RC,Digikey,S7004-ND,0.52,1.04
+DNI,SMA Female Right Angle Surface Mount Connector,J4,1,Linx,CONSMA002-SMD,Digikey,CONSMA002-SMD-ND,1,1
+DNI,70246-1201 Conn Shrouded Header (4 Sides) HDR 12 POS 2.54mm Solder ST Top Entry Thru-Hole C-Grid® Tray,J10,1,Molex,70246-1201,Digikey,23-0702461201-ND,1.67,1.67
+DNI,CONN HEADER VERT 6POS 2.54MM,P1,1,Wurth Electronics,61300611121,Digikey,732-5319-ND,0.187,0.187
+DNI,CONN HEADER VERT 5POS 2.54MM,"P2, P4, P6, P7",4,Wurth Electronics,61300511121,Mouser,732-5318-ND,0.141,0.564
+DNI,CONN HEADER VERT 4POS 2.54MM,"P3, P8",2,Wurth Electronics,61300411121,Digikey,732-5317-ND,0.102,0.204
+DNI,CONN HEADER VERT 12POS 2.54MM,P5,1,Wurth Electronics,61301211121,Digikey,732-5323-ND,0.306,0.306
+DNI,"Header, 2-Pin","P9, P11, PWR",3,Wurth Electronics,61300211121,Digikey,732-5315-ND,0.13,0.39
+DNI,"Header, 3-Pin",P10,1,Wurth Electronics,61300311121,Digikey,732-5316-ND,0.071,0.071
+DNI,CONN HDR 7POS 0.1 TIN PCB,P485,1,Sullins,PPTC071LFBN-RC,Digikey,S7005-ND,0.6,0.6
+DNI,SWITCH SLIDE SPDT 3A 125V,SW1,1,NKK Switches,CS12ANW03,Mouser,633-CS12ANW03,1.83,1.83
+DNI,IC AUTHENTICATION CHIP 8SOIC,U14,1,Microchip,ATECC608A-SSHDA-B,Digikey,ATECC608A-SSHDA-B-ND,0.325,0.325

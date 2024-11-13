@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAN Data Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>CAN Data Visualization</h1>
+	    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 10px;">
+
+            <img src="KWTruckLF.jpg" style="width: 300px; height: auto;">
+        </div>
+        <div style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 10px;">
+
+            <h2>Engine Speed</h2>
+            <canvas id="chart1"></canvas>
+        </div>
+        <div style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 10px;">
+
+            <h2>Wheel Based Vehicle Speed</h2>
+            <canvas id="chart2"></canvas>
+        </div>
+        <div style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 10px;">
+
+            <h2>Driver Demand Percentage Torque</h2>
+            <canvas id="chart3"></canvas>
+        </div>
+        <div style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 10px;">
+
+            <h2>Fuel Temperature</h2>
+            <canvas id="chart4"></canvas>
+        </div>
+        <div style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 10px;">
+
+            <h2>Oil Temperature</h2>
+            <canvas id="chart5"></canvas>
+        </div>
+        <div style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 10px;">
+
+            <h2>Coolant Temperature</h2>
+            <canvas id="chart6"></canvas>
+        </div>
+        <div style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 10px;">
+            
+            <h2>Oil Pressure</h2>
+            <canvas id="chart7"></canvas>
+        </div>    
+    </div>
+    <script>
+        const ws = new WebSocket('ws://192.168.7.2:8081/');
+        let counter = 0; // Counter for x-axis labels for chart1
+        let counter2 = 0; // Counter for x-axis labels for chart2
+        let counter3  = 0; // Counter for x-axis labels for chart3
+        let counter4 = 0; // Counter for x-axis labels for chart4
+        let counter5 = 0; // Counter for x-axis labels for chart5
+        let counter6 = 0; // Counter for x-axis labels for chart6
+        let counter7 = 0; // Counter for x axis labels for chart7
+        var ctx1 = document.getElementById('chart1').getContext('2d');
+        var ctx2 = document.getElementById('chart2').getContext('2d');
+	    var ctx3 = document.getElementById('chart3').getContext('2d');
+        var ctx4 = document.getElementById('chart4').getContext('2d');
+        var ctx5 = document.getElementById('chart5').getContext('2d');
+        var ctx6 = document.getElementById('chart6').getContext('2d');
+        var ctx7 = document.getElementById('chart7').getContext('2d');
+        var chart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Engine Speed in r.p.m.',
+                    data: [],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)', //red
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                animation: {
+                    duration: 0 // Consider disabling animation for faster updates
+                },
+                maintainAspectRatio: true,
+                responsive: true,
+	            plugins: {
+                    legend: {
+                        display: false // Hide legend
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Engine Speed' + ': ' + context.parsed.y.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        var chart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Wheel Based Vehicle Speed in km/hr',
+                    data: [],
+                    borderColor: 'rgba(0, 255, 50, .7)', //green
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                animation: {
+                    duration: 0 // Consider disabling animation for faster updates
+                },
+                maintainAspectRatio: true,
+                responsive: true,
+		        plugins: {
+                    legend: {
+                        display: false // Hide legend
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Wheel Based Vehicle Speed' + ': ' + context.parsed.y.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+	    var chart3 = new Chart(ctx3, {
+    		type: 'line',
+    		data: {
+                    datasets: [{
+            		label: 'Driver Demand Percentage Torque',
+            		data: [], // Your data points go here
+            		pointBackgroundColor: 'rgba(75, 192, 192, 0.5)', // Color of the points //blue
+            		pointRadius: 5, // Size of the points
+			        borderWidth: 1
+        	}]
+    		},
+            options: {
+        		    scales: {
+            		x: {
+                		type: 'linear',
+                		position: 'bottom',
+				
+            		},
+            		y: {
+                		beginAtZero: true,
+                	}
+        		    },
+                    animation: {
+            			duration: 0 // Disable animation for faster updates
+        		    },
+        		    responsive: true,
+        		    maintainAspectRatio: true,
+        		    plugins: {
+            			    legend: {
+                			    display: false // Hide the legend for a cleaner look
+            			    }
+        		    }
+    		    }
+	    });
+        var chart4 = new Chart(ctx4, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Fuel Temperature in Degrees C',
+                    data: [],
+                    borderColor: 'rgba(255, 165, 0, 1)', //orange
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                animation: {
+                    duration: 0 // Consider disabling animation for faster updates
+                },
+                maintainAspectRatio: true,
+                responsive: true,
+	            plugins: {
+                    legend: {
+                        display: false // Hide legend
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Fuel Temperature' + ': ' + context.parsed.y.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        var chart5 = new Chart(ctx5, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Oil Temperature in Degrees C',
+                    data: [],
+                    borderColor: 'rgba(255, 200, 0, 1)', // yellow
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                animation: {
+                    duration: 0 // Consider disabling animation for faster updates
+                },
+                maintainAspectRatio: true,
+                responsive: true,
+	            plugins: {
+                    legend: {
+                        display: false // Hide legend
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Oil Temperature' + ': ' + context.parsed.y.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        var chart6 = new Chart(ctx6, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Coolant Temperture in Degrees C',
+                    data: [],
+                    borderColor: 'rgba(255, 0, 230, 1)', // purple
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                animation: {
+                    duration: 0 // Consider disabling animation for faster updates
+                },
+                maintainAspectRatio: true,
+                responsive: true,
+	            plugins: {
+                    legend: {
+                        display: false // Hide legend
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Coolant Temperature' + ': ' + context.parsed.y.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        var chart7 = new Chart(ctx7, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Oil Pressure in kPa',
+                    data: [],
+                    borderColor: 'rgba(255, 200, 100, 1)', //darker yellow hopefully
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                animation: {
+                    duration: 0 // Consider disabling animation for faster updates
+                },
+                maintainAspectRatio: true,
+                responsive: true,
+	            plugins: {
+                    legend: {
+                        display: false // Hide legend
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Oil Pressure' + ': ' + context.parsed.y.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+	    function updateScatterChartData(chart, torque, counterName) {
+		
+	         if (counterName === 'counter3') {
+           		const newLabel = ++counter3; // Increment the appropriate counter
+    			chart.data.datasets[0].data.push({ x: counter3, y: torque });
+    			if (chart.data.datasets[0].data.length > 10) {
+	        		chart.data.datasets[0].data.shift(); // Remove the oldest data point
+   	 		    }
+
+	    		chart.update(); // Update the chart to reflect the changes
+			    counter3++;
+		    }
+	    }
+
+        function updateChartData(chart, counterName, value) {
+	        if (counterName === 'counter') {
+    	        const newLabel = ++counter; // Increment the appropriate counter
+
+                chart.data.labels.push(newLabel);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(value);
+                });
+		            chart.data.datasets[0].label = `Engine Speed (r.p.m.): ${value.toFixed(2)}`;
+
+                if (chart.data.labels.length > 50) {
+                    chart.data.labels.shift();
+                    chart.data.datasets.forEach((dataset) => {
+                        dataset.data.shift();
+                    });
+                }
+
+                chart.update();    	
+    	    } else if (counterName === 'counter2') {
+        	    const newLabel = ++counter2; // Increment the appropriate counter
+
+                chart.data.labels.push(newLabel);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(value);
+                });
+		            chart.data.datasets[0].label = `Wheel Based Vehicle Speed (km/hr): ${value.toFixed(2)}`;
+                
+                if (chart.data.labels.length > 50) {
+                    chart.data.labels.shift();
+                    chart.data.datasets.forEach((dataset) => {
+                        dataset.data.shift();
+                    });
+                }
+
+                chart.update();
+    	    } else if (counterName === 'counter4') {
+                const newLabel = ++counter4;
+
+                chart.data.labels.push(newLabel);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(value);
+                });
+                    chart.data.datasets[0].label = `Fuel Temperature (Degrees C): ${value.toFixed(2)}`;
+                
+                if (chart.data.labels.length > 50) {
+                    chart.data.labels.shift();
+                    chart.data.datasets.forEach((dataset) => {
+                        dataset.data.shift();
+                    });
+                }
+ 
+                chart.update();
+            } else if (counterName === 'counter5') {
+                const newLabel = ++counter5;
+
+                chart.data.labels.push(newLabel);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(value);
+                });
+                    chart.data.datasets[0].label = `Oil Temperature (Degrees C): ${value.toFixed(2)}`;
+                
+                if (chart.data.labels.length > 50) {
+                    chart.data.labels.shift();
+                    chart.data.datasets.forEach((dataset) => {
+                        dataset.data.shift();
+                    });
+                }
+
+                chart.update()
+            } else if (counterName === 'counter6') {
+                const newLabel = ++counter6;
+
+                chart.data.labels.push(newLabel);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(value);
+                });
+                    chart.data.datasets[0].label = `Coolant Temperature (Degrees C): ${value.toFixed(2)}`;
+
+                if (chart.data.labels.length > 50) {
+                    chart.data.labels.shift();
+                    chart.data.datasets.forEach((dataset) => {
+                        dataset.data.shift();
+                    });
+                }
+
+                chart.update()
+            } else if (counterName === 'counter7') {
+                const newLabel = ++counter7;
+
+                chart.data.labels.push(newLabel);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(value);
+                });
+                    chart.data.datasets[0].label = `Oil Pressure (kPa): ${value.toFixed(2)}`;
+
+                if (chart.data.labels.length > 50) {
+                    chart.data.labels.shift();
+                    chart.data.datasets.forEach((dataset) => {
+                        dataset.data.shift();
+                    });
+                }
+
+                chart.update()
+            }
+        }
+	    let lastUpdateTime1 = 0;
+	    const updateInterval1 = 250; // Time in milliseconds
+
+        let lastUpdateTime2 = 0;
+        const updateInterval2 = 250; // Time in milliseconds
+
+        let lastUpdateTime3 = 0;
+        const updateInterval3 = 250;
+
+        let lastUpdateTime4 = 0;
+        const updateInterval4 = 250;
+
+        ws.onmessage = function(event) {
+
+            const message = JSON.parse(event.data);
+            //console.log("Data received:", message);
+
+            if (message.id === 0x0CF00400) {
+		
+            	const now = Date.now();
+            	if (now - lastUpdateTime1 < updateInterval1) return;
+            	lastUpdateTime1 = now;
+                const rawData = message.data.data.slice(3, 5).reverse();
+                const dataValue = new DataView(new Uint8Array(rawData).buffer).getUint16(0, false) * 0.125;
+                updateChartData(chart1, 'counter', dataValue);
+		        const torque = message.data.data[1] * 1 - 125;
+		        console.log('Current Val:', torque);
+		        updateScatterChartData(chart3, torque, 'counter3');
+            } else if (message.id === 0x18FEF100) {
+		
+            	const now = Date.now();
+            	if (now - lastUpdateTime2 < updateInterval2) return;
+            	lastUpdateTime2 = now;
+                const rawData = message.data.data.slice(1, 3).reverse();
+                const dataValue = new DataView(new Uint8Array(rawData).buffer).getUint16(0, false) * 0.003906;
+                updateChartData(chart2, 'counter2', dataValue);
+            } else if (message.id === 0x18FEEE00) {
+                
+                const now = Date.now()
+                if (now - lastUpdateTime3 < updateInterval3) return;
+                lastUpdateTime3 = now;
+                const FuelTemp = message.data.data[1] * 1 - 40;
+                updateChartData(chart4, 'counter4', FuelTemp);
+                const rawData = message.data.data.slice(2,4).reverse();
+                const OilTemp = new DataView(new Uint8Array(rawData).buffer).getUint16(0, false) * 0.03125 - 273;
+                updateChartData(chart5, 'counter5', OilTemp);
+                const CoolTemp = message.data.data[0] *1 - 40;
+                updateChartData(chart6, 'counter6', CoolTemp);
+            } else if (message.id === 0x18FEEF00) {
+
+                const now = Date.now();
+                if (now - lastUpdateTime4 < updateInterval4) return;
+                lastUpdateTime4 = now;
+                const OilPress = message.data.data[5] * 0.25;
+                updateChartData(chart7, 'counter7', OilPress);
+            }
+        };
+
+        ws.onerror = function(error) {
+            console.log('WebSocket Error:', error);
+        };
+    </script>
+</body>
+</html>
+

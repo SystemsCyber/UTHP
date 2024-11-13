@@ -1,0 +1,2 @@
+# Sigrok
+![sigrok](sigrok.gif)
