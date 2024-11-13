@@ -1,1 +1,3 @@
 # tmux
+
+![tmux](tmux.gif)

@@ -1,3 +1,4 @@
+# THIS IS A WORK IN PROGRESS, PLEASE DOWNLOAD THE PRERELEASE core-image-uthp.wic.xz or FOLLOW THE INSTRUCTIONS under meta-uthp/README.md
 # Ultimate Truck Hacking Platform (UTHP) Yocto Build Guide
 
 ## 1: Introduction
@@ -48,6 +49,8 @@ Check out the kirkstone branch:
 git checkout -t origin/kirkstone -b my-kirkstone
 ```
 
+> This is the LTS version of the Yocto Project. The kirkstone branch is the latest LTS release.
+
 ### 2.3 Clone the UTHP Yocto Repository
 
 ```bash
@@ -84,6 +87,8 @@ For this example, our defaults are set to build for BeagleBone Black:
 MACHINE ?= "beaglebone-yocto"
 ```
 
+> Please refer to conf.samples for example configurations or copy them directly to your conf file. (e.g., `cp conf/sample/conf/local.conf.sample poky/build/conf/local.conf`)
+
 ### 3.3 Adding Layers to Your Build
 
 Yocto uses layers to manage additions to the base build. You can add your layer inside the build directory.
@@ -104,12 +109,7 @@ For our build, make sure to copy the [meta-custom](meta-custom) layer to the bui
 bitbake-layers add-layer <path-to-meta-custom-layer>
 ```
 
-To add our meta-custom layer:
-
-```bash
-cp -r ~/UTHP/Yocto/meta-custom ~/poky
-bitbake-layers add-layer ../meta-custom/
-```
+> To add our meta-custom layer, ensure that you copy the path of the meta-custom layer to the bblayers.conf file.
 
 Now take a look and understand the [custom-image.bb file](~/poky/meta-custom/recipes-core/images/custom-image.bb) under ~/poky/meta-custom/recipes-core/images.
 
@@ -124,7 +124,20 @@ cd meta-openembedded
 git checkout -t origin/kirkstone -b my-kirkstone
 ```
 
-Add the meta-oe layer for can-utils support. Within your oe-init-build-env:
+You will also need to clone the following repositories and checkout the kirkstone branch:
+
+```bash
+git clone https://github.com/Xilinx/meta-jupyter
+git checkout -t origin/kirkstone-next -b my-kirkstone
+```
+
+```bash
+cd ../../meta-openembedded/
+git clone https://git.openembedded.org/meta-python2
+git checkout -t origin/kirkstone -b my-kirkstone
+```
+
+Add the meta-oe layer for can-utils support if not already added within your bblayers file. Within your oe-init-build-env:
 
 ```bash
 bitbake-layers add-layer ../meta-openembedded/meta-oe
@@ -171,6 +184,8 @@ bitbake virtual/kernel
 ```
 
 #### 4.1.3 Modifying the Device Tree Manually as an example for adding D_CAN0 and D_CAN1:
+
+If you are following our build, you can just run `bitbake virtual/kernel` to compile the changes. To learn about making manual changes to the device tree, continue reading. IF you would like to learn how to include a patch file as a part of the build process, skip to [4.1.4](#414-including-a-patch-file-as-a-part-of-the-build-process).
 
 Device Trees are data structures describing the hardware components for the kernel. To find the device tree for BeagleBone Black in the Yocto build:
 
@@ -253,6 +268,46 @@ Add CAN driver support to the Kernel and bake the Kernel:
 bitbake virtual/kernel
 ```
 
+#### 4.1.4 Including a Patch File as a Part of the Build Process:
+
+First, change to the kernel source directory:
+
+```bash
+cd ~/poky/build/tmp/work-shared/beaglebone-yocto/kernel-source/arch/arm/boot/dts
+```
+
+Then, git pull:
+```bash
+git pull
+```
+
+Ensure the dts file is unmodified and there are no changes:
+
+```bash
+git status
+```
+
+Now make your changes to the dts file. Once you are done, create a patch file:
+
+```bash
+git add <name of the dts file>
+git commit -m "Added D_CAN0 and D_CAN1" # For example
+git format-patch -1
+```
+
+Then move the patch file to the meta-custom layer:
+
+```bash
+mv 0001-Added-D_CAN0-and-D_CAN1.patch ~/poky/meta-custom/recipes-kernel/linux/files/
+```
+
+Add the patch file to the kernel recipe:
+
+```bash
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+SRC_URI += "file://0001-Added-D_CAN0-and-D_CAN1.patch"
+```
+
 #### 4.2 The .config file in kernel source directory produced by the menuconfig:
 
 ```bash
@@ -290,6 +345,16 @@ Connect the BeagleBone Black to your computer and power it up. You can use a ser
 
 ```bash
 screen /dev/ttyUSB0 115200
+```
+
+You can also connect via SSH
+
+On the host computer:
+```bash
+sudo ifconfig usb0 192.168.7.* netmask 255.255.255.0 up
+```
+```bash
+ssh uthp@192.168.7.2
 ```
 
 or on Windows using PuTTY.
