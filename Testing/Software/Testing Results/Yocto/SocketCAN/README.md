@@ -1,1 +1,0 @@
-![socketcan](socketcan.gif)

@@ -1,1 +1,0 @@
-# usb-gadget serial console
