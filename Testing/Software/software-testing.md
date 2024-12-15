@@ -36,6 +36,7 @@
     - [j1708dump](#j1708dump)
     - [replay\_attack](#replay_attack)
     - [address\_claim\_attack](#address_claim_attack)
+    - [boot\_times](#boot_times)
 ## CMAP
 ![cmap img](./assets/imgs/cmap.png)
 ## scapy-automotive
@@ -154,3 +155,9 @@
 ### address_claim_attack
 
 [address_claim_attack](./assets/zip/address_claim_attack.zip)
+
+### boot_times
+
+[debian](./assets/bootlogs/debian.log)
+
+[yocto](./assets/bootlogs/yocto.log)
