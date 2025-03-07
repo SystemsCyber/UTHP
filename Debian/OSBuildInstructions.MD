@@ -46,6 +46,8 @@ PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 rtt min/avg/max/mdev = 10.157/10.291/10.425/0.134 ms
 ```
 
+> ***TODO: update time*** !!!
+
 Update U-Boot to the latest version:
 ```
 sudo /opt/u-boot/bb-u-boot-am335x-evm/install.sh
@@ -666,14 +668,14 @@ If package isn't found, try running:
 ```
 sudo ldconfig /usr/local/lib
 ```
-Then download can2 decoder:
+Then download can2 decoder: !!!
 ```
 git clone https://github.com/kentindell/canhack/
 cd canhack/src/can2
 ```
 
 
-### 7.11 py-hv-networks 
+### 7.11 py-hv-networks !!!
 [https://github.com/TruckHacking/py-hv-networks](https://github.com/TruckHacking/py-hv-networks)
 ```
 git clone https://github.com/TruckHacking/py-hv-networks
@@ -688,7 +690,7 @@ sudo python3 setup.py install
 pip install -r requirements.txt
 ```
 
-### 7.12 cmap
+### 7.12 cmap !!!
 [https://github.com/CanBusHack/cmap](https://github.com/CanBusHack/cmap)
 ```
 git clone https://github.com/CanBusHack/cmap
@@ -726,7 +728,7 @@ To run:
 python3 truckdevil.py
 ```
 
-### 7.15 python-can-j1939  
+### 7.15 python-can-j1939   !!!
 [https://github.com/juergenH87/python-can-j1939](https://github.com/juergenH87/python-can-j1939)
 Install can-j1939:
 ```
@@ -739,13 +741,13 @@ cd python-can-j1939
 pip install .
 ```
 
-### 7.16 cancat ???
+### 7.16 cancat ??? !!!
 [https://github.com/atlas0fd00m/CanCat](https://github.com/atlas0fd00m/CanCat)
 ```
 git clone https://github.com/atlas0fd00m/CanCat
 ```
 
-**pretty-j1587 ???**
+**pretty-j1587 ???** !!!
 [https://github.com/ainfosec/pretty_j1587](https://github.com/ainfosec/pretty_j1587)
 ```
 git clone https://github.com/ainfosec/pretty_j1587
@@ -753,7 +755,7 @@ git clone https://github.com/ainfosec/pretty_j1587
 Verify the installation and run:
 ```
 ```
-**pretty-j1939 ???**  
+**pretty-j1939 ???**  !!!
 [https://github.com/nmfta-repo/pretty_j1939](https://github.com/nmfta-repo/pretty_j1939)
 ```
 git clone https://github.com/nmfta-repo/pretty_j1939
@@ -762,13 +764,13 @@ Verify the installation and run:
 ```
 ```
 
-**PLC4TRUCKSDUCK ???**  
+**PLC4TRUCKSDUCK ???**  !!!
 [https://github.com/TruckHacking/plc4trucksduck](https://github.com/TruckHacking/plc4trucksduck)
 ```
 git clone https://github.com/TruckHacking/plc4trucksduck
 ```
 
-## 8. Configuring the User Environment (TODO)
+## 8. Configuring the User Environment (TODO) !!!
 Run the following command to open the .bashrc file:
 ```
 nano ~/.bashrc
