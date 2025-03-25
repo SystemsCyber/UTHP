@@ -53,7 +53,7 @@
 
 ## CanCat
 
-> Not yet ported to SocketCAN
+> Not yet ported to SocketCAN, this will be done in the future.
 
 ![CanCat Native gif](./assets/gifs/cancat-native.gif)
 
@@ -114,7 +114,11 @@
 
 ## CanCat Serial Port
 
+> TODO: optional future work
+
 ## GRIMM J1708 Serial Port
+
+TODO: Add gif
 
 ## Login to the UTHP through SSH and Serial
 
@@ -122,13 +126,23 @@
 
 ## UDP Server for Py-Hv-Networks
 
+![udp-server gif](./assets/gifs/remote-py-hv-networks.gif)
+
 ## TCP Server for TruckDevil
+
+TODO: Add gif
 
 ## TCP Server for CanCat
 
+> TODO: optional future work
+
 ## TCP Server for GRIMM J1708
 
+> TODO: optional future work
+
 ## UDP Server for Canelloni
+
+TODO: Add gif
 
 ## Extras
 
