@@ -11,6 +11,17 @@ mkdir UTHP-R1-XXXX
 cp /path/to/logfile.txt UTHP-R1-XXXX/
 ```
 
+Create your own branch to track your log files with git:
+
+```
+git checkout -b logs-<your-name>
+git add .
+git commit -m "Add logs for UTHP-R1-XXXX"
+git push origin logs-<your-name>
+```
+
+Then create a pull request to merge your branch into the main repository. If you are unable to push to the repository, you can email the maintainers of the repository with your issue or request.
+
 ## QA entry format:
 
 | Date       | Time | UTHP Serial Number | Test Results | Test Cases | Test Run ID |
