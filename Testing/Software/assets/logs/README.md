@@ -22,10 +22,22 @@ git push origin logs-<your-name>
 
 Then create a pull request to merge your branch into the main repository. If you are unable to push to the repository, you can email the maintainers of the repository with your issue or request.
 
+After submitting your logs, sign off with your initials to indicate that the logs have been reviewed and approved as passing the quality assurance process. If your test failed, please put the reason for the failure in a README.md file in the directory of the UTHP serial number, similar to the [example](./UTHP-R1-XXXX).
+
 ## QA entry format:
 
-| Date       | Time | UTHP Serial Number | Test Results | Test Cases | Test Run ID |
+| Date       | Time | UTHP Serial Number | Test Results | Test Cases | Signed off by |
 |------------|------|--------------------|--------------|------------|-------------|
-| 2021-08-01 | 12:00| UTHP-R1-XXXX       | PASS/FAIL    | X          | core        |
+| 2021-08-01 | 12:00| UTHP-R1-XXXX       | PASS/FAIL    | core         | SB |
+| 2021-08-01 | 12:00| UTHP-R1-XXXX       | PASS/FAIL    | plc         | SB |
+| 2021-08-01 | 12:00| UTHP-R1-XXXX       | PASS/FAIL    | remote          | SB |
 
 ## Test Results:
+
+| Date       | Time | UTHP Serial Number | Test Results | Test Cases | Signed off by |
+|------------|------|--------------------|--------------|------------|-------------|
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
