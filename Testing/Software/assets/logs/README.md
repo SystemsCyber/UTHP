@@ -8,7 +8,7 @@ This directory contains logs of the quality assurance process for the UTHP softw
 git clone https://github.com/SystemsCyber/UTHP
 cd UTHP/Testing/Software/assets/logs
 mkdir UTHP-R1-XXXX
-cp /path/to/logfile.log UTHP-R1-XXXX/
+cp /path/to/logfile.txt UTHP-R1-XXXX/
 ```
 
 ## QA entry format:
