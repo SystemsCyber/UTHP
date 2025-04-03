@@ -1,103 +1,84 @@
-# Instructions for setting up the BeagleBone Black derived from: https://github.com/SystemsCyber/TruckCapeProjects/blob/master/OSBuildInstructions.md
-![pinout diagram here](./imgs/beaglebone-black-pinout-1748733925.jpg)
-## 1. Flashing the BeagleBone Black with Debian Linux OS
+# Instructions for setting up Debian on the BeagleBone Black
 
-These steps were taken to build the TruckCape recovery SD card. If you have a UTHP from 2024, then these steps have already been done.
+## 1. Flashing the BeagleBone Black with Debian Linux OS
+These steps were taken to build the TruckCape recovery SD card.
 
 1. [Download this image](https://rcn-ee.com/rootfs/release/2023-10-07/bullseye-minimal-armhf/am335x-eMMC-flasher-debian-11.8-minimal-armhf-2023-10-07-2gb.img.xz) or find one from this [forum](https://forum.beagleboard.org/t/debian-11-x-bullseye-monthly-snapshot-2023-10-07/31280)
+2. Decompress the image using a utility like 7zip (if your imager doesn’t handle `.xz` files automatically).
+3. Use Win32DiskImager, Balena Etcher, Rufus, or similar to burn the image to a 4GB (or larger) SD card. This flasher image will overwrite the onboard eMMC.
+4. Insert the SD card into the BeagleBone Black. Power it on (connect USB) **while holding the SD boot button** until all four user LEDs light up. After ~30 seconds, LEDs should start a back-and-forth pattern. Flashing takes ~10–15 minutes depending on SD speed.
 
-2. Using a utility like 7zip, decompress the image... or not. Some imagers decompress the image for you.
+---
 
-3. Using Win32DiskImager, Balena Etcher, Rufus, or an Imager of your choice, burn the Debian Linux distribution to a 4GB SD partition. This will be a flasher image that will overwrite the eMMC chip in the BeagleBone Black.
+## 2. Connecting to the BeagleBone Black
+You can connect via USB ([how-to](https://www.dummies.com/article/technology/computers/hardware/beaglebone/how-to-connect-the-beaglebone-black-via-serial-over-usb-144981/)) or [via IDE](http://192.168.7.2/ide.html). For security, the IDE port may need to be disabled later.
 
-4. Insert the flasher image SD card into to the BeagleBone Black. Power on the BBB (i.e. plug in the USB) while depressing the SD boot button until the 4 user LEDs come on. After about 30 seconds, the flasher program will start as indicated by the user leds cycling in a back-and-forth pattern. The reflashing process could take 10-15 minutes, depending on the speed of the SD card.
+Use an SSH client (e.g. PuTTY) or serial terminal.
 
-## 2. [Connecting the BeagleBone Black via USB](https://www.dummies.com/article/technology/computers/hardware/beaglebone/how-to-connect-the-beaglebone-black-via-serial-over-usb-144981/) or via [IDE](http://192.168.7.2/ide.html) --> This port will probably need to be closed for security reasons.
-Using an SSH client, like PuTTY, and a USB to computer connection, connect to the Beagle Bone Black SSH using IP 192.168.7.2 on port 22 or COM[1-9] at a baud of 115200.
+- **USB Network:** `ssh debian@192.168.7.2`
+- **Serial:** COM[1-9], baud: `115200`
 
-### The new login uses the following credentials:
-
-U: `debian`
-
-P: `temppwd`
-
-The availability if this connection may take longer than you might like, but be patient, the board will finish booting and enumerate as a drive on your host computer. 
-
-Connect a live Internet connection by the Ethernet cable into your Beagle Bone Black. Check to see if you have a valid IP address on `eth0`:
-
+**Credentials:**
+```text
+Username: debian
+Password: temppwd
 ```
+
+> ⚠️ Be patient after boot. The board may take a moment to enumerate.
+
+Connect Ethernet for internet, then verify connection:
+```bash
 sudo ifconfig
-```
-If you would like to test internet connectivity execute the following `ping` command which will send network packets to Google's external server using its IP address.
-
-```
 ping -c 2 8.8.8.8
 ```
+Successful ping should result in `0% packet loss`.
 
-The above command connection will show the following output. Successful communication should result in `0% packet loss`.
-
-```
-PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=54 time=10.4 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=54 time=10.2 ms
-
---- 8.8.8.8 ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss, time 1006ms
-rtt min/avg/max/mdev = 10.157/10.291/10.425/0.134 ms
-```
-
-> ***TODO: update time*** !!!
-
-Update U-Boot to the latest version:
-```
+### Update U-Boot
+```bash
 sudo /opt/u-boot/bb-u-boot-am335x-evm/install.sh
 ```
 
-## 3. Image Verification
-If you are having troubles, be sure you are using the same version that's documented here. When the kernel changes, the results may be different. 
+---
 
-Enter the following commands to verify your image version, eeprom, and kernel version are the same as the ones used in this document:
-```
+## 3. Image Verification
+Ensure you’re running the expected image:
+```bash
 sudo beagle-version | egrep -e 'eeprom' -e 'model' -e 'dogtag' ; uname -a
 ```
-Output:
-```
+Expected output:
+```text
 eeprom:[A335BNLT000C2042BBBG0642]
 model:[TI_AM335x_BeagleBone_Black]
 dogtag:[BeagleBoard.org Debian Bullseye Minimal Image 2023-10-07]
-Linux BeagleBone 5.10.168-ti-r72 #1bullseye SMP PREEMPT Sat Sep 30 03:37:21 UTC 2023 armv7l GNU/Linux
+Linux BeagleBone 5.10.168-ti-r72 ...
 ```
 
-## 4. Pin multiplexing
+---
 
-Check that you have the config-pin utility installed:
-* `config-pin -c <filename>`
-* `config-pin -l <pin>`
-* `config-pin -q <pin>`
-* `config-pin <pin> <mode>`
-
-Write the following commands to get the CAN hardware to access the pins upon boot. 
-Create a file in the /etc directory:
-
+## 4. Pin Multiplexing
+Ensure `config-pin` is available:
+```bash
+config-pin -q P9_24
 ```
+
+### Create pin config script
+```bash
 sudo nano /etc/pin_config.sh
 ```
-Write the following into the file:
-```
+Paste in:
+```bash
 #!/bin/sh -e
 # DCAN1
 config-pin p9.24 can
-config-pin p9.26 can 
+config-pin p9.26 can
 # DCAN0
 config-pin p9.19 can
 config-pin p9.20 can
-#ttyO2:
+# UARTs
 config-pin p9.21 uart
 config-pin p9.22 uart
-#ttyO4:
 config-pin p9.11 uart
 config-pin p9.13 uart
-#ttyO5:
 config-pin p8.37 uart
 config-pin p8.38 uart
 # PWMs
@@ -108,20 +89,19 @@ config-pin p8.36 pwm
 # GPIO
 config-pin p9.12 gpio
 config-pin p9.14 gpio
-
 exit 0
 ```
-Make the script executable:
-```
+Make it executable:
+```bash
 sudo chmod +x /etc/pin_config.sh
 ```
-However, these commands need to be run upon boot, so let's make a script to do this and add it to a boot sequence.
 
-```
+### Create systemd service
+```bash
 sudo nano /lib/systemd/system/pin_config.service
 ```
-Add this to the file:
-```
+Paste in:
+```ini
 [Unit]
 Description=Setup for BBB
 
@@ -132,137 +112,68 @@ ExecStart=/bin/bash /etc/pin_config.sh
 [Install]
 WantedBy=multi-user.target
 ```
-
-Update the service file permission
-
-```
+Enable and start:
+```bash
 sudo chmod 644 /lib/systemd/system/pin_config.service
-```
-
-Start the service
-
-```
 sudo systemctl start pin_config.service
-```
-
-Verify the service
-
-```
-sudo systemctl status pin_config.service
-```
-Enable the service at boot
-
-```
 sudo systemctl enable pin_config.service
 ```
-To confirm the pin_config.service was enabled, look for a symbolic link in `/etc/systemd/system`
-
-```
-debian@beaglebone:/etc/systemd/system$ ls -la
-lrwxrwxrwx  1 root root   38 Sep 17 04:51 pin_config.service -> /lib/systemd/system/pin_config.service
+Verify:
+```bash
+sudo systemctl status pin_config.service
 ```
 
-Reboot and verify. `sudo shutdown -r now`
-
-```
-debian@beaglebone:~$ config-pin -q p9.24
-
-Current mode for P9_24 is:     can
-
-```
-
-Verify the status of the pin_config.service was successful by looking for an output like this:
-
-```
-debian@beaglebone:~$ sudo systemctl status pin_config.service
-● pin_config.service - Setup for BBB p
-   Loaded: loaded (/etc/systemd/system/pin_config.service; enabled; vendor preset: enabled)
-   Active: inactive (dead) since Tue 2020-09-08 23:52:06 UTC; 2min 18s ago
-  Process: 856 ExecStart=/bin/bash /home/debian/pin_config.sh (code=exited, status=0/SUCCESS)
- Main PID: 856 (code=exited, status=0/SUCCESS)
-
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P9_13 is:     uart
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P8_37 is:     uart
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P8_38 is:     uart
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P8_46 is:     pwm
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P8_45 is:     pwm
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P8_34 is:     pwm
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P8_36 is:     pwm
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P9_12 is:     gpio
-Sep 21 14:06:18 beaglebone bash[2040]: Current mode for P9_14 is:     gpio
-Sep 21 14:06:18 beaglebone systemd[1]: pin_config.service: Succeeded.
-```
-If this doesn't work, be sure to disable the overlays in the uEnv.txt file below.
-
+---
 
 ## 5. Configuring DT Overlays
-Edit the file `/boot/uEnv.txt`:
-```
+Edit `/boot/uEnv.txt`:
+```bash
 sudo nano /boot/uEnv.txt
 ```
-Uncomment the disable_uboot_overlays but leave the emmc commented out:
-```
-###Disable auto loading of virtual capes (emmc/video/wireless/adc)
+Uncomment these lines:
+```text
 #disable_uboot_overlay_emmc=1
 disable_uboot_overlay_video=1
 disable_uboot_overlay_audio=1
 disable_uboot_overlay_wireless=1
 disable_uboot_overlay_adc=1
-###
 ```
-
-### 5.1 Enable the cape-universal overlay
-Edit the file `/boot/uEnv.txt`:
-```
-sudo nano /boot/uEnv.txt
-```
-Ensure the following line is present:
-```
+Enable cape-universal:
+```text
 enable_uboot_cape_universal=1
 ```
-
-### 5.2 Enable the PRU uio overlay
-
-By default TI’s REMOTEPROC PRU is enabled, but you can switch to classic UIO in /boot/uEnv.txt: by adding/enabling, this was added as of: 5.10.106-ti-r41 for the v5.10.x-ti branch…
-Edit the file `/boot/uEnv.txt`:
-```
-sudo nano /boot/uEnv.txt
-```
-Copy the following line to the end of the file and save it:
-```
-### PRU uio enablement
+Enable PRU UIO:
+```text
 uboot_overlay_pru=AM335X-PRU-UIO-00A0.dtbo
 ```
-Verify the overlay is enabled:
-```
+Verify:
+```bash
 lsmod | grep uio
 ```
-Should show:
+Expected output:
+```text
+uio_pruss 16384  0
+uio_pdrv_genirq 20480  0
+uio 20480  2 uio_pruss,uio_pdrv_genirq
 ```
-uio_pruss              16384  0
-uio_pdrv_genirq        20480  0
-uio                    20480  2 uio_pruss,uio_pdrv_genirq
-```
 
+---
 
-## 6. Start the network interfaces
+## 6. Start the Network Interfaces
 
-### 6.1 Enable the CAN interfaces
-Edit your `/etc/network/interfaces` file.
-
-```
+### Enable CAN Interfaces
+Edit:
+```bash
 sudo nano /etc/network/interfaces
 ```
-
-Add the following lines:
-
-```
+Append:
+```text
 allow-hotplug can1
- iface can1 can static
+iface can1 can static
     bitrate 250000
 
 allow-hotplug can0
- iface can0 can static
+iface can0 can static
     bitrate 250000
 ```
 Reboot: `sudo shutdown -r now`
@@ -365,12 +276,21 @@ The vcan interfaces are great ways to develop hardware without needing to troubl
 
 Write a script to stand up some vcan devices. 
 ```
+Check CAN:
+```bash
+sudo ifconfig
+candump any
+```
+
+### Add Virtual CAN (vcan)
+Create startup script:
+```bash
 sudo nano /etc/network/vcan-start.sh
 ```
-Enter these commands into the file:
-```
+Paste:
+```bash
 #!/bin/sh -e
-ip link add type vcan 
+ip link add type vcan
 ip link set vcan0 up
 ip link add dev vcan1 type vcan
 ip link set vcan1 up
@@ -378,18 +298,13 @@ ip link add dev vcan2 type vcan
 ip link set vcan2 up
 exit 0
 ```
-
-Make the script executable:
-```
+Make executable and create service:
+```bash
 sudo chmod +x /etc/network/vcan-start.sh
-```
-This script should be run upon boot, so let's make a script to do this and add it to a boot sequence.
-
-```
 sudo nano /lib/systemd/system/vcan.service
 ```
-Add this to the file:
-```
+Paste:
+```ini
 [Unit]
 Description=Turn on virtual CAN interfaces
 
@@ -416,19 +331,13 @@ Enable the service at boot
 
 ```
 sudo systemctl enable vcan.service
-```
-To confirm the vcan.service was enabled, look for a symbolic link in `/etc/systemd/system`
-
-```
-ls -la /etc/systemd/system/multi-user.target.wants/
-lrwxrwxrwx  1 root root   32 Nov  7 15:27 vcan.service -> /lib/systemd/system/vcan.service
-```
-should show a line
-```
-lrwxrwxrwx  1 root root   32 Nov  7 15:27 vcan.service -> /lib/systemd/system/vcan.service
+sudo systemctl start vcan.service
+sudo shutdown -r now
 ```
 
-Reboot and verify. `sudo shutdown -r now`
+Check vcan:
+```bash
+ifconfig
 ```
 debian@beaglebone:~$ ifconfig
 
@@ -459,80 +368,34 @@ Now there are 3 vcan channels ready for use.
 
 ## 7. Software Package Installation
 
-### 7.1 Ensure git is installed
+### Install essentials:
+```bash
+sudo apt update
+sudo apt install git can-utils python3-pip tmux rtl-sdr -y
 ```
-sudo apt install git -y
-```
-### 7.2 Install [can-utils](https://elinux.org/Can-utils)
-```
-sudo apt install can-utils -y
-```
-Verify the installation and run:
-```
-cangen vcan0 | candump vcan0
-```
-### 7.3 Ensure python3 is installed and upgrade pip
-```
-sudo apt install python3-pip
+
+### Python Setup
+```bash
 sudo pip3 install --upgrade pip
+pip3 install numpy pandas matplotlib python-can can-isotp scapy jupyterlab ipython canmatrix
 ```
-Verify the installation and run:
-```
-python3 -V
-pip3 -V
-```
-Install some useful packages:
-```
-pip3 install numpy pandas matplotlib python-can can-isotp scapy
-```
-### 7.4 Install python2.7
-Install the xz-utils package for extracting the Python tarball:
-```
-sudo apt install xz-utils -y
-```
-Verify the installation and run:
-```
-xz --version
-```
-Install the build-essential package for compiling the Python source code:
-```
-sudo apt install build-essential -y
-```
-Verify the installation and run:
-```
-gcc --version
-```
-Get python2.7 from the ftp server and extract it:
-```
+
+### Python 2.7
+```bash
+sudo apt install xz-utils build-essential -y
 wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz
-tar -xf Python-2.7.9.tar.xz
-```
-Compile and install Python2.7:
-```
+xz -d Python-2.7.9.tar.xz
+tar -xf Python-2.7.9.tar
 cd Python-2.7.9
-sudo ./configure --prefix=/usr/local
+./configure --prefix=/usr/local
+make
 sudo make altinstall
 python2.7 -V
-export PATH="/usr/local/bin:$PATH"
 ```
-Clean up the installation files:
-```
-sudo rm -rf ~/Python-2.7.9*
-```
-Verify the installation and run:
-```
-python2.7 -V
-```
-### 7.5 Install and setup Jupyter-lab
-```
-sudo pip3 install jupyterlab
-```
-Set the password:
-```
+
+### Jupyter Lab
+```bash
 jupyter server password
-```
-Verify the installation and run:
-```
 jupyter lab --ip=0.0.0.0 --port=8888 --NotebookApp.allow_origin='http://192.168.7.1'
 ```
 Then open a browser and navigate to http://BeagleBone:8888/lab and enter the password you set above.
@@ -685,23 +548,18 @@ Then install the package:
 git clone https://github.com/SystemsCyber/py-hv-networks.git
 cd py-hv-networks
 sudo python3 setup.py install
-```
-```
 pip install -r requirements.txt
 ```
 
-### 7.12 cmap !!!
-[https://github.com/CanBusHack/cmap](https://github.com/CanBusHack/cmap)
-```
-git clone https://github.com/CanBusHack/cmap
-```
-Verify the installation and run:
-```
-```
-
-### 7.13 scapy-automotive
-[https://github.com/secdev/scapy](https://github.com/secdev/scapy)
-Scapy works without any external Python modules on Linux and BSD like operating systems. On Windows, you need to install some mandatory dependencies as described in the documentation.
+Additional useful repos (clone and follow individual instructions):
+- https://github.com/CanBusHack/cmap
+- https://github.com/secdev/scapy
+- https://github.com/LittleBlondeDevil/TruckDevil
+- https://github.com/juergenH87/python-can-j1939
+- https://github.com/atlas0fd00m/CanCat
+- https://github.com/ainfosec/pretty_j1587
+- https://github.com/nmfta-repo/pretty_j1939
+- https://github.com/TruckHacking/plc4trucksduck
 
 Also note that Scapy comes as a python installation package, so you can install it using pip:
 ```
@@ -741,47 +599,24 @@ cd python-can-j1939
 pip install .
 ```
 
-### 7.16 cancat ??? !!!
-[https://github.com/atlas0fd00m/CanCat](https://github.com/atlas0fd00m/CanCat)
-```
-git clone https://github.com/atlas0fd00m/CanCat
-```
-
-**pretty-j1587 ???** !!!
-[https://github.com/ainfosec/pretty_j1587](https://github.com/ainfosec/pretty_j1587)
-```
-git clone https://github.com/ainfosec/pretty_j1587
-```
-Verify the installation and run:
-```
-```
-**pretty-j1939 ???**  !!!
-[https://github.com/nmfta-repo/pretty_j1939](https://github.com/nmfta-repo/pretty_j1939)
-```
-git clone https://github.com/nmfta-repo/pretty_j1939
-```
-Verify the installation and run:
-```
-```
-
-**PLC4TRUCKSDUCK ???**  !!!
-[https://github.com/TruckHacking/plc4trucksduck](https://github.com/TruckHacking/plc4trucksduck)
-```
-git clone https://github.com/TruckHacking/plc4trucksduck
-```
-
-## 8. Configuring the User Environment (TODO) !!!
-Run the following command to open the .bashrc file:
-```
+## 8. Configuring the User Environment (TODO)
+```bash
 nano ~/.bashrc
 ```
 
-## [Reduce Debian](https://wiki.debian.org/ReduceDebian)
+---
 
-
-
-# References
+## References
 - [BeagleBone Black](https://beagleboard.org/black)
 - [PinMux](https://www.ofitselfso.com/BeagleNotes/BeagleboneBlackPinMuxModes.php)
-- [PinConfig](https://www.beyondlogic.org/adding-can-to-the-beaglebone-black/)
-- [Pinconfig2](https://www.bacpeters.com/2020/01/25/configuring-the-beaglebone-black-gpio-pins-permanently/)
+- [BeyondLogic CAN Setup](https://www.beyondlogic.org/adding-can-to-the-beaglebone-black/)
+- [Permanent GPIO Config](https://www.bacpeters.com/2020/01/25/configuring-the-beaglebone-black-gpio-pins-permanently/)
+
+---
+
+> ⚠️ If something isn’t working, double-check kernel version, pin configurations, and overlay settings.
+
+---
+
+*Created for UTHP BeagleBone Black CAN Development Environment, 2024/2025*
+
