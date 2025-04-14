@@ -1,0 +1,74 @@
+Script started on 2025-04-04 18:00:23-04:00 [COMMAND="bash -c './can0-2-testing && pytest ./can0-2/'" TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="169" LINES="17"]
+Please ensure you are running this script on the post-production UTHP hardware (eMMC).
+Also ensure the J1939 bus is powered.
+Are you connected to a 12v CAN bus on the deutch 9 pin? (y/n)y
+Setting up the environment for testing the can0-2 uthp tests...
+=====================================================
+Unique identifiers for UTHP-R1-0018:
+mmcblk1      
+|-mmcblk1p1  8E0A-B86E
+`-mmcblk1p2  d40e55b0-6307-4c39-a934-b5f50141f359
+mmcblk1boot0 
+mmcblk1boot1 
+Setting up the CAN interface...
+Environment setup should be complete... waiting for user to confirm hardware is ready.
+Press any key to continue...
+Starting the can0-2 uthp tests...
+[1m========================================================================== test session starts ==========================================================================[0m
+platform linux -- Python 3.12.9, pytest-8.0.2, pluggy-1.4.0
+rootdir: /home/uthp/uthp-tests/can0-2
+configfile: pytest.ini
+plugins: anyio-3.6.1
+[1mcollecting ... [0m[1mcollecting 3 items                                                                                                                                                      [0m[1mcollected 3 items                                                                                                                                                       [0m
+
+can0-2/test_can.py 
+[TEST] Sending from can0
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can0 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can1'...
+[DEBUG] Received ID=0xcf00203 Ext=True DATA=[192, 0, 0, 255, 247, 0, 0, 3]
+[DEBUG] Received ID=0xcf00c03 Ext=True DATA=[0, 251, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can1'
+[RECV] Waiting for valid message on socketcan channel 'can2'...
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can2'
+[32m.[0m
+[TEST] Sending from can1
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can1 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can0'...
+[DEBUG] Received ID=0xcf00203 Ext=True DATA=[192, 0, 0, 255, 247, 0, 0, 3]
+[DEBUG] Received ID=0xcf00203 Ext=True DATA=[192, 0, 0, 255, 247, 0, 0, 3]
+[DEBUG] Received ID=0xcf00c03 Ext=True DATA=[0, 251, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can0'
+[RECV] Waiting for valid message on socketcan channel 'can2'...
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can2'
+[32m.[0m
+[TEST] Sending from can2
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can2 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can0'...
+[DEBUG] Received ID=0xcf00203 Ext=True DATA=[192, 0, 0, 255, 247, 0, 0, 3]
+[DEBUG] Received ID=0xcf00203 Ext=True DATA=[192, 0, 0, 255, 247, 0, 0, 3]
+[DEBUG] Received ID=0xcf00c03 Ext=True DATA=[0, 251, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can0'
+[RECV] Waiting for valid message on socketcan channel 'can1'...
+[DEBUG] Received ID=0xcf00203 Ext=True DATA=[192, 0, 0, 255, 247, 0, 0, 3]
+[DEBUG] Received ID=0xcf00c03 Ext=True DATA=[0, 251, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can1'
+[32m.[0m
+
+[32m=========================================================================== [32m[1m3 passed[0m[32m in 3.28s[0m[32m ===========================================================================[0m
+
+Script done on 2025-04-04 18:00:45-04:00 [COMMAND_EXIT_CODE="0"]

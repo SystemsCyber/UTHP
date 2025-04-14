@@ -1,0 +1,430 @@
+Script started on 2025-04-05 00:28:33-04:00 [COMMAND="bash -c './plc-testing && pytest ./plc/'" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="128" LINES="44"]
+Please ensure you are running this script on the post-production UTHP hardware (eMMC).
+Are you connected to the Brake Board? (y/n) y
+Setting up the environment for testing plc uthp tests...
+=====================================================
+Unique identifiers for UTHP-R1-0032:
+mmcblk1      
+|-mmcblk1p1  117C-B33A
+`-mmcblk1p2  1d2af538-f971-48c9-ae03-d72c4441bff6
+mmcblk1boot0 
+mmcblk1boot1 
+Environment setup should be complete... waiting for user to confirm hardware is ready.
+Press any key to continue...
+Starting the PLC tests...
+[1m===================================================== test session starts ======================================================[0m
+platform linux -- Python 3.12.9, pytest-8.0.2, pluggy-1.4.0
+rootdir: /home/uthp/uthp-tests/plc
+configfile: pytest.ini
+plugins: anyio-3.6.1
+[1mcollecting ... [0m[1mcollecting 8 items                                                                                                             [0m[1mcollected 8 items                                                                                                              [0m
+
+plc/test_plc4trucksduck.py [32m.[0m[32m.[0m
+[32m.[0m(1815.412430) j1708 88310d973fffa80d01d101ff 
+(1815.913354) j1708 88310d973fffa80f01d101ff 
+(1816.413598) j1708 88310d973fffa80d01d101ff 
+(1816.912918) j1708 88310d973fffa80d01d101ff 
+(1817.412905) j1708 88310d973fffa80f01d101ff 
+(1817.912473) j1708 88310d973fffa80c01d101ff 
+(1818.000799) j1708 88c2020435 
+(1818.410599) j1708 88310d973fffa80f01d101ff 
+(1818.911201) j1708 88310d973fffa80f01d101ff 
+(1819.414098) j1708 88310d973fffa80d01d101ff 
+(1819.912811) j1708 88310d973fffa80d01d101ff 
+(1820.412815) j1708 88310d973fffa80f01d101ff 
+(1820.914086) j1708 88310d973fffa80d01d101ff 
+(1821.413047) j1708 88310d973fffa80f01d101ff 
+(1821.912854) j1708 88310d973fffa80f01d101ff 
+(1822.416874) j1708 88310d973fffa80c01d101ff 
+(1822.910988) j1708 88310d973fffa80d01d101ff 
+(1823.412164) j1708 88310d973fffa80f01d101ff 
+(1823.916991) j1708 88310d973fffa80d01d101ff 
+(1824.412817) j1708 88310d973fffa80f01d101ff 
+(1824.913348) j1708 88310d973fffa80f01d101ff 
+(1825.415059) j1708 88310d973fffa80d01d101ff 
+(1825.912628) j1708 88310d973fffa80d01d101ff 
+(1826.413624) j1708 88310d973fffa80f01d101ff 
+(1826.916903) j1708 88310d973fffa80d01d101ff 
+(1827.411484) j1708 88310d973fffa80d01d101ff 
+(1827.914031) j1708 88310d973fffa80f01d101ff 
+(1828.416912) j1708 88310d973fffa80d01d101ff 
+(1828.911761) j1708 88310d973fffa80d01d101ff 
+(1829.412964) j1708 88310d973fffa80f01d101ff 
+(1829.916923) j1708 88310d973fffa80d01d101ff 
+(1830.411781) j1708 88310d973fffa80d01d101ff 
+(1830.912895) j1708 88310d973fffa80f01d101ff 
+(1831.416922) j1708 88310d973fffa80d01d101ff 
+(1831.912151) j1708 88310d973fffa80d01d101ff 
+(1832.416898) j1708 88310d973fffa80f01d101ff 
+(1832.914361) j1708 88310d973fffa80d01d101ff 
+(1832.998479) j1708 88c2020435 
+(1833.413789) j1708 88310d973fffa80d01d101ff 
+(1833.916909) j1708 88310d973fffa80f01d101ff 
+(1834.414591) j1708 88310d973fffa80f01d101ff 
+(1834.912784) j1708 88310d973fffa80d01d101ff 
+
+[32m.[0m[32m.[0m
+plc/test_prettyj1587.py stdout: usage: pretty_j1587 [-h]
+                    [--j1708-interface [{truckduck_1,j1708,truckduck_2,j1708_2,truckduck_bbplc,plc,RP1210,rp1210}]]
+                    [--truckduck-host [TRUCKDUCK_HOST]]
+                    [--rp1210-dll [RP1210_DLL]]
+                    [--rp1210-device [RP1210_DEVICE]] [--list-rp1210]
+                    [-c CUSTOMDB] [-d] [-f [FILENAMES]] [-j CANON]
+                    [-l [{critical,error,info,debug,notset}]] [-n] [-p] [-t T]
+                    [-u U] [-v [{0,1,2}]] [-w [PID ...]] [-x] [--json]
+                    [--format]
+
+Program to make sense of logged J1708/J1587 data
+
+options:
+  -h, --help            show this help message and exit
+  --j1708-interface [{truckduck_1,j1708,truckduck_2,j1708_2,truckduck_bbplc,plc,RP1210,rp1210}]
+                        choose the interface to send and receive J1708
+                        messages. Truckduck interfaces use localhost by
+                        default. RP1210 J1708 interface is available on 32bit
+                        python running on windows when VDA drivers are
+                        installed and configured.
+  --truckduck-host [TRUCKDUCK_HOST]
+                        specify the network hostname of the target truckduck.
+                        For non-localhost you will need to start port
+                        redirects on the target host.
+  --rp1210-dll [RP1210_DLL]
+                        the RP1210 dll name to use. uses first DLL if omitted.
+  --rp1210-device [RP1210_DEVICE]
+                        the RP1210 device id to use. Default is 1.
+  --list-rp1210         list the RP1210 DLLs and Devices.
+  -c CUSTOMDB, --customdb CUSTOMDB
+                        The filename of the file that contains the custom
+                        database in JSON format
+  -d                    Disable default (grepable) output
+  -f [FILENAMES], --filenames [FILENAMES]
+                        The filename(s) of the file(s) that contain(s) the
+                        messages. Use - for stdin
+  -j CANON, --canon CANON
+                        Use this function to reformat each line of input for
+                        parsing
+  -l [{critical,error,info,debug,notset}]
+                        Set the minimum level log level
+  -n, --nocache         Parse the J-specs every time command is run and
+                        generate a new cache file
+  -p                    Print packet delimeters
+  -t T                  Define a TCP port to use as input
+  -u U                  Define a UDP port to use as input
+  -v [{0,1,2}]          Set the verbosity for regular output
+  -w [PID ...], --whitelist [PID ...]
+                        List of PIDs to be parsed, ignoring other messages
+  -x, --checksums       Tells the parser that the messages contain checksums
+  --json                Print JSON output as opposed to the default
+  --format              Pretty print the JSON output
+
+[32m.[0mstdout: MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xd,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xd, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xf,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xf, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xd,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xd, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xa,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xa, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xd,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xd, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0xc2,0x2,0x4,0x35]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0xc2 (194): Transmitter System Diagnostic Code and Occurrence Count Table
+  DATA: 0x2, 0x4, 0x35
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x31,0xd,0x97,0x3f,0xff,0xa8,0xc,0x1,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x31 (49): ABS Control Status
+  DATA: 0xd
+PID 0x97 (151): ATC Control Status
+  DATA: 0x3f, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xc, 0x1
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+
+stderr: Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/usr/bin/pretty_j1587", line 787, in run
+    self.out_queue.put(data)
+  File "/usr/bin/pretty_j1587", line 593, in put
+    self.j1708_driver.put(message)
+  File "/usr/bin/pretty_j1587", line 561, in put
+    self.message_queue.put(msg)
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 88, in put
+    raise ValueError(f"Queue {self!r} is closed")
+ValueError: Queue <multiprocessing.queues.Queue object at 0xb628cf78> is closed
+
+[32m.[0m[32m.[0m
+
+[32m====================================================== [32m[1m8 passed[0m[32m in 52.17s[0m[32m ======================================================[0m
+
+Script done on 2025-04-05 00:29:54-04:00 [COMMAND_EXIT_CODE="0"]

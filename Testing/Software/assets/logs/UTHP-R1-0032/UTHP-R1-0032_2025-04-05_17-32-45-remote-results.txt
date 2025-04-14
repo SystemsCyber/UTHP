@@ -1,0 +1,49 @@
+2025-04-05 17:32:45,706 - INFO - 
+2025-04-05 17:32:45,706 - INFO - Running remote tests...
+2025-04-05 17:33:40,265 - INFO - ============================= test session starts ==============================
+2025-04-05 17:33:40,265 - INFO - platform linux -- Python 3.12.8, pytest-8.3.5, pluggy-1.5.0
+2025-04-05 17:33:40,265 - INFO - rootdir: /home/deadbeer/Desktop/uthp-tests/remote
+2025-04-05 17:33:40,265 - INFO - configfile: pytest.ini
+2025-04-05 17:33:40,265 - INFO - plugins: anyio-4.6.2, typeguard-4.4.1
+2025-04-05 17:33:40,265 - INFO - collected 6 items
+2025-04-05 17:33:40,265 - INFO - 
+2025-04-05 17:33:40,265 - INFO - remote/test_grimmj1708_serial.py Hex string: 88310d973fffa80d01d101ffde
+2025-04-05 17:33:40,265 - INFO - Checksum is valid for 88310d973fffa80d01d101ffde
+2025-04-05 17:33:40,265 - INFO - Hex string: 88310d973fffa80f01d101ffdc
+2025-04-05 17:33:40,265 - INFO - Checksum is valid for 88310d973fffa80f01d101ffdc
+2025-04-05 17:33:40,265 - INFO - Hex string: 88310d973fffa80c01d101ffdf
+2025-04-05 17:33:40,265 - INFO - Checksum is valid for 88310d973fffa80c01d101ffdf
+2025-04-05 17:33:40,265 - INFO - Hex string: 88310d973fffa80d01d101ffde
+2025-04-05 17:33:40,265 - INFO - Checksum is valid for 88310d973fffa80d01d101ffde
+2025-04-05 17:33:40,265 - INFO - Hex string: 88310d973fffa80f01d101ffdc
+2025-04-05 17:33:40,265 - INFO - Checksum is valid for 88310d973fffa80f01d101ffdc
+2025-04-05 17:33:40,265 - INFO - .
+2025-04-05 17:33:40,265 - INFO - remote/test_serial.py Serial Output:
+2025-04-05 17:33:40,265 - INFO - 
+2025-04-05 17:33:40,265 - INFO - UTHP-R1-0032 login:
+2025-04-05 17:33:40,265 - INFO - .
+2025-04-05 17:33:40,265 - INFO - remote/test_ssh.py SSH Output: SSH_SUCCESS
+2025-04-05 17:33:40,265 - INFO - [SUCCESS] SSH authentication verified.
+2025-04-05 17:33:40,265 - INFO - uthp@UTHP-R1-0032
+2025-04-05 17:33:40,265 - INFO - .Root login attempt failed as expected: Authentication failed.
+2025-04-05 17:33:40,265 - INFO - .
+2025-04-05 17:33:40,265 - INFO - remote/test_truck_devil_serial.py (1743895991.400604) 14FF0117    05 FF01 17 --> FF [0008] 0000F0FFFCFF0000
+2025-04-05 17:33:40,265 - INFO - (1743895991.403124) 08F00200    02 F002 00 --> FF [0008] FDFFFFFFFFFFFFFF
+2025-04-05 17:33:40,265 - INFO - (1743895991.403575) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-04-05 17:33:40,265 - INFO - (1743895991.403861) 0CFF0300    03 FF03 00 --> FF [0008] 7DFFFFFFFFFFFFFF
+2025-04-05 17:33:40,265 - INFO - (1743895991.404114) 14FF0700    05 FF07 00 --> FF [0008] FFFFFFFFFFFFFFFF
+2025-04-05 17:33:40,265 - INFO - 
+2025-04-05 17:33:40,265 - INFO - message sent.
+2025-04-05 17:33:40,265 - INFO - 
+2025-04-05 17:33:40,265 - INFO - .
+2025-04-05 17:33:40,265 - INFO - remote/test_truck_devil_tcp.py Command output:
+2025-04-05 17:33:40,265 - INFO -  (1743896018.810817) 08F0090B    02 F009 0B --> FF [0008] 837D20717D577DFF
+2025-04-05 17:33:40,265 - INFO - (1743896018.822213) 08FE6E0B    02 FE6E 0B --> FF [0008] FFFEFFFEFFFEFFFE
+2025-04-05 17:33:40,265 - INFO - (1743896018.833733) 08FF000B    02 FF00 0B --> FF [0008] 0000FFFA0CFF2F07
+2025-04-05 17:33:40,265 - INFO - (1743896018.845432) 0CFF000B    03 FF00 0B --> FF [0008] FFFFFFFF00FF507E
+2025-04-05 17:33:40,265 - INFO - (1743896018.857077) 0CFF0300    03 FF03 00 --> FF [0008] 7DFFFFFFFFFFFFFF
+2025-04-05 17:33:40,265 - INFO - 
+2025-04-05 17:33:40,266 - INFO - .
+2025-04-05 17:33:40,266 - INFO - 
+2025-04-05 17:33:40,266 - INFO - ============================== 6 passed in 54.29s ==============================
+2025-04-05 17:33:40,266 - INFO - Environment variables cleaned up.
