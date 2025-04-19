@@ -1,0 +1,25 @@
+2025-04-18 17:38:50,147 - INFO - 
+2025-04-18 17:38:50,147 - INFO - Running remote tests...
+2025-04-18 17:38:50,389 - INFO - ============================= test session starts ==============================
+2025-04-18 17:38:50,389 - INFO - platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+2025-04-18 17:38:50,389 - INFO - rootdir: /home/student/Desktop/uthp-tests/remote
+2025-04-18 17:38:50,389 - INFO - configfile: pytest.ini
+2025-04-18 17:38:50,389 - INFO - collected 6 items
+2025-04-18 17:39:12,499 - INFO - remote/test_grimmj1708_serial.py .
+2025-04-18 17:39:17,510 - INFO - remote/test_serial.py Serial Output:
+2025-04-18 17:39:17,510 - INFO - UTHP-R1-0092 login:
+2025-04-18 17:39:17,510 - INFO - UTHP-R1-0092 login:
+2025-04-18 17:39:17,513 - INFO - .
+2025-04-18 17:39:18,129 - INFO - remote/test_ssh.py SSH Output: SSH_SUCCESS
+2025-04-18 17:39:18,129 - INFO - [SUCCESS] SSH authentication verified.
+2025-04-18 17:39:18,129 - INFO - uthp@UTHP-R1-0092
+2025-04-18 17:39:18,566 - INFO - .Root login attempt failed as expected: Authentication failed.
+2025-04-18 17:39:18,569 - INFO - .
+2025-04-18 17:40:19,505 - INFO - remote/test_truck_devil_serial.py F
+2025-04-18 17:42:43,840 - INFO - Environment variables cleaned up.
+2025-04-18 17:42:43,840 - ERROR - Traceback (most recent call last):
+2025-04-18 17:42:43,841 - ERROR -   File "/home/student/Desktop/uthp-tests/./remote/remote-testing.py", line 90, in <module>
+2025-04-18 17:42:43,842 - ERROR - main()
+2025-04-18 17:42:43,842 - ERROR -   File "/home/student/Desktop/uthp-tests/./remote/remote-testing.py", line 78, in main
+2025-04-18 17:42:43,843 - ERROR - for line in proc.stdout:
+2025-04-18 17:42:43,843 - ERROR - KeyboardInterrupt
