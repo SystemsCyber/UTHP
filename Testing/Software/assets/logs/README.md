@@ -86,3 +86,4 @@ After submitting your logs, sign off with your initials to indicate that the log
 | UTHP-R1-0064 | PASS | hardware,core,plc,remote,can0-2 | SS | all tests passed! (no safe-shutdown)|
 | UTHP-R1-0078 | PASS | hardware,core,plc,remote,can0-2 | SS | all tests passed! (no safe-shutdown)|
 | UTHP-R1-0062 | PASS | hardware,core,plc,remote,can0-2 | SS | all tests passed! (no safe-shutdown)|
+| UTHP-R1-0085 | PASS | hardware,core,plc,remote,can0-2 | SS | all tests passed! (no safe-shutdown)|
