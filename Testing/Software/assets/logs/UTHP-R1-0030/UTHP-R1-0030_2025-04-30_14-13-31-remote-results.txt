@@ -1,0 +1,33 @@
+2025-04-30 14:13:31,508 - INFO - 
+2025-04-30 14:13:31,509 - INFO - Running remote tests...
+2025-04-30 14:13:31,745 - INFO - ============================= test session starts ==============================
+2025-04-30 14:13:31,745 - INFO - platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+2025-04-30 14:13:31,745 - INFO - rootdir: /home/student/Desktop/uthp-tests/remote
+2025-04-30 14:13:31,745 - INFO - configfile: pytest.ini
+2025-04-30 14:13:31,745 - INFO - collected 6 items
+2025-04-30 14:13:53,721 - INFO - remote/test_grimmj1708_serial.py .
+2025-04-30 14:13:58,732 - INFO - remote/test_serial.py Serial Output: UTHP-R1-0030 login:
+2025-04-30 14:13:58,733 - INFO - UTHP-R1-0030 login:
+2025-04-30 14:13:58,735 - INFO - .
+2025-04-30 14:13:59,377 - INFO - remote/test_ssh.py SSH Output: SSH_SUCCESS
+2025-04-30 14:13:59,377 - INFO - [SUCCESS] SSH authentication verified.
+2025-04-30 14:13:59,377 - INFO - uthp@UTHP-R1-0030
+2025-04-30 14:13:59,808 - INFO - .Root login attempt failed as expected: Authentication failed.
+2025-04-30 14:13:59,809 - INFO - .
+2025-04-30 14:14:17,075 - INFO - remote/test_truck_devil_serial.py (1746044040.855669) 14FF02ED    05 FF02 ED --> FF [0008] F1FFFFFFFFFFFFFF
+2025-04-30 14:14:17,075 - INFO - (1746044040.855918) 10FF00E6    04 FF00 E6 --> FF [0008] FFFFFFFFFFFFFFFF
+2025-04-30 14:14:17,075 - INFO - (1746044040.857669) 14FF0721    05 FF07 21 --> FF [0008] B0C6F0FFFFFFFFFF
+2025-04-30 14:14:17,076 - INFO - (1746044040.857838) 14FF0821    05 FF08 21 --> FF [0008] C23601FFCF0000FF
+2025-04-30 14:14:17,076 - INFO - (1746044040.857995) 10FF0117    04 FF01 17 --> FF [0008] F0FAF0FFFFFFFFFF
+2025-04-30 14:14:17,076 - INFO - message sent.
+2025-04-30 14:14:17,078 - INFO - .
+2025-04-30 14:14:29,557 - INFO - remote/test_truck_devil_tcp.py Command output:
+2025-04-30 14:14:29,558 - INFO -  (1746044068.135672) 14FF0700    05 FF07 00 --> FF [0008] FFFFFFFFFFFFFFFF
+2025-04-30 14:14:29,558 - INFO - (1746044068.147688) 14FF1600    05 FF16 00 --> FF [0008] FFFFFFFFFFFFFFFF
+2025-04-30 14:14:29,558 - INFO - (1746044068.159469) 10FF0021    04 FF00 21 --> FF [0008] 82000000FF3F4DC8
+2025-04-30 14:14:29,559 - INFO - (1746044068.170747) 10FF0047    04 FF00 47 --> FF [0008] C13FFFFFFFFFFFFF
+2025-04-30 14:14:29,559 - INFO - (1746044068.182114) 18FF0247    06 FF02 47 --> FF [0008] FFFFFFFFFFFFFFFF
+2025-04-30 14:14:29,562 - INFO - .
+2025-04-30 14:14:29,562 - INFO - ============================== 6 passed in 57.88s ==============================
+2025-04-30 14:14:29,634 - INFO - Process finished with return code 0
+2025-04-30 14:14:29,634 - INFO - Environment variables cleaned up.
