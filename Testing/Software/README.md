@@ -21,13 +21,10 @@
   - [canmatrix](#canmatrix)
   - [can-utils](#can-utils)
   - [TruckDevil Serial Port](#truckdevil-serial-port)
-  - [CanCat Serial Port](#cancat-serial-port)
   - [GRIMM J1708 Serial Port](#grimm-j1708-serial-port)
   - [Login to the UTHP through SSH and Serial](#login-to-the-uthp-through-ssh-and-serial)
   - [UDP Server for Py-Hv-Networks](#udp-server-for-py-hv-networks)
   - [TCP Server for TruckDevil](#tcp-server-for-truckdevil)
-  - [TCP Server for CanCat](#tcp-server-for-cancat)
-  - [TCP Server for GRIMM J1708](#tcp-server-for-grimm-j1708)
   - [UDP Server for Canelloni](#udp-server-for-canelloni)
   - [Extras](#extras)
     - [Safe Shutdown](#safe-shutdown)
@@ -112,13 +109,9 @@
 
 ![TruckDevil Serial gif](./assets/gifs/truckdevil-laptop.gif)
 
-## CanCat Serial Port
-
-> TODO: optional future work
-
 ## GRIMM J1708 Serial Port
 
-TODO: Add gif
+![GRIMM J1708 Serial gif](./assets/gifs/grimm-j1708-encoding.gif)
 
 ## Login to the UTHP through SSH and Serial
 
@@ -130,15 +123,7 @@ TODO: Add gif
 
 ## TCP Server for TruckDevil
 
-TODO: Add gif
-
-## TCP Server for CanCat
-
-> TODO: optional future work
-
-## TCP Server for GRIMM J1708
-
-> TODO: optional future work
+![tcp-server truckdevil gif](./assets/gifs/truckdevil-tcp.gif)
 
 ## UDP Server for Canelloni
 
