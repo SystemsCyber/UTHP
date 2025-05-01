@@ -127,7 +127,7 @@
 
 ## UDP Server for Canelloni
 
-TODO: Add gif
+![udp-server canelloni gif](./assets/gifs/cannelloni-server.gif)
 
 ## Extras
 
