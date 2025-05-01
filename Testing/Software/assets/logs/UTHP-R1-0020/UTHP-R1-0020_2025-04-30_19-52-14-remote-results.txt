@@ -1,0 +1,39 @@
+2025-04-30 19:52:14,704 - INFO - 
+2025-04-30 19:52:14,704 - INFO - Running remote tests...
+2025-04-30 19:52:14,940 - INFO - ============================= test session starts ==============================
+2025-04-30 19:52:14,940 - INFO - platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+2025-04-30 19:52:14,940 - INFO - rootdir: /home/student/Desktop/uthp-tests/remote
+2025-04-30 19:52:14,940 - INFO - configfile: pytest.ini
+2025-04-30 19:52:14,940 - INFO - collected 6 items
+2025-04-30 19:52:37,897 - INFO - remote/test_grimmj1708_serial.py Hex string: 64009c
+2025-04-30 19:52:37,897 - INFO - Checksum is valid for 64009c
+2025-04-30 19:52:37,900 - INFO - .
+2025-04-30 19:52:42,911 - INFO - remote/test_serial.py Serial Output:
+2025-04-30 19:52:42,911 - INFO - UTHP-R1-0020 login:
+2025-04-30 19:52:42,914 - INFO - Login timed out after 60 seconds.
+2025-04-30 19:52:42,915 - INFO - TruckHackingOS 1.0.3 UTHP-R1-0020 ttyGS0
+2025-04-30 19:52:42,915 - INFO - UTHP-R1-0020 login:
+2025-04-30 19:52:42,915 - INFO - UTHP-R1-0020 login:
+2025-04-30 19:52:42,915 - INFO - .
+2025-04-30 19:52:43,605 - INFO - remote/test_ssh.py SSH Output: SSH_SUCCESS
+2025-04-30 19:52:43,605 - INFO - [SUCCESS] SSH authentication verified.
+2025-04-30 19:52:43,606 - INFO - uthp@UTHP-R1-0020
+2025-04-30 19:52:44,068 - INFO - .Root login attempt failed as expected: Authentication failed.
+2025-04-30 19:52:44,071 - INFO - .
+2025-04-30 19:53:01,393 - INFO - remote/test_truck_devil_serial.py (1746064365.104158) 08F00200    02 F002 00 --> FF [0008] FDFFFFFFFFFFFFFF
+2025-04-30 19:53:01,394 - INFO - (1746064365.104362) 0CFF0200    03 FF02 00 --> FF [0008] 0001FFFFFF00D1A9
+2025-04-30 19:53:01,394 - INFO - (1746064365.104482) 0CFF0500    03 FF05 00 --> FF [0008] FFFFFFFFFFFFFFFF
+2025-04-30 19:53:01,395 - INFO - (1746064365.104598) 10F00300    04 F003 00 --> FF [0008] DD00FFFFFFFCFFFF
+2025-04-30 19:53:01,395 - INFO - (1746064365.104704) 14FF0600    05 FF06 00 --> FF [0008] FF807FF7FFFFFFFF
+2025-04-30 19:53:01,395 - INFO - message sent.
+2025-04-30 19:53:01,397 - INFO - .
+2025-04-30 19:53:13,964 - INFO - remote/test_truck_devil_tcp.py Command output:
+2025-04-30 19:53:13,965 - INFO -  (1746064392.652523) 14FEAE17    05 FEAE 17 --> FF [0008] FFFF0000FFFF5FFF
+2025-04-30 19:53:13,965 - INFO - (1746064392.663843) 10FF0019    04 FF00 19 --> FF [0008] FFFF0FFFFFFF02FD
+2025-04-30 19:53:13,965 - INFO - (1746064392.675740) 10FF01E6    04 FF01 E6 --> FF [0008] FFFF7DCFFFFF5F60
+2025-04-30 19:53:13,966 - INFO - (1746064392.687224) 14FEAE30    05 FEAE 30 --> FF [0008] FFFF0000FFFFFFFF
+2025-04-30 19:53:13,966 - INFO - (1746064392.699015) 14FF0331    05 FF03 31 --> FF [0008] FFFFCFFF1CFFFFFF
+2025-04-30 19:53:13,970 - INFO - .
+2025-04-30 19:53:13,970 - INFO - ============================== 6 passed in 59.10s ==============================
+2025-04-30 19:53:14,041 - INFO - Process finished with return code 0
+2025-04-30 19:53:14,043 - INFO - Environment variables cleaned up.
