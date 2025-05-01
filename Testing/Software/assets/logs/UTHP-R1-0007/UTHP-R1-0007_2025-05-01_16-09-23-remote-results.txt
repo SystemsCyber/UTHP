@@ -1,0 +1,34 @@
+2025-05-01 16:09:23,380 - INFO - 
+2025-05-01 16:09:23,380 - INFO - Running remote tests...
+2025-05-01 16:09:23,618 - INFO - ============================= test session starts ==============================
+2025-05-01 16:09:23,618 - INFO - platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+2025-05-01 16:09:23,618 - INFO - rootdir: /home/student/Desktop/uthp-tests/remote
+2025-05-01 16:09:23,618 - INFO - configfile: pytest.ini
+2025-05-01 16:09:23,618 - INFO - collected 6 items
+2025-05-01 16:09:46,173 - INFO - remote/test_grimmj1708_serial.py .
+2025-05-01 16:09:51,182 - INFO - remote/test_serial.py Serial Output:
+2025-05-01 16:09:51,182 - INFO - UTHP-R1-0007 login:
+2025-05-01 16:09:51,183 - INFO - UTHP-R1-0007 login:
+2025-05-01 16:09:51,184 - INFO - .
+2025-05-01 16:09:51,828 - INFO - remote/test_ssh.py SSH Output: SSH_SUCCESS
+2025-05-01 16:09:51,828 - INFO - [SUCCESS] SSH authentication verified.
+2025-05-01 16:09:51,828 - INFO - uthp@UTHP-R1-0007
+2025-05-01 16:09:52,316 - INFO - .Root login attempt failed as expected: Authentication failed.
+2025-05-01 16:09:52,318 - INFO - .
+2025-05-01 16:10:00,571 - INFO - remote/test_truck_devil_serial.py (1746137393.426990) 08F0090B    02 F009 0B --> FF [0008] 547D20717D6B7DFF
+2025-05-01 16:10:00,571 - INFO - (1746137393.427184) 08FE6E0B    02 FE6E 0B --> FF [0008] FFFEFFFEFFFEFFFE
+2025-05-01 16:10:00,571 - INFO - (1746137393.427375) 08F01D13    02 F01D 13 --> FF [0008] 547D20FF108AF5CA
+2025-05-01 16:10:00,572 - INFO - (1746137393.427480) 08FF000B    02 FF00 0B --> FF [0008] 0000FFFA0CFF3F35
+2025-05-01 16:10:00,572 - INFO - (1746137393.427584) 0CFF000B    03 FF00 0B --> FF [0008] FFFFFFFF00FF701A
+2025-05-01 16:10:00,572 - INFO - message sent.
+2025-05-01 16:10:00,573 - INFO - .
+2025-05-01 16:10:13,092 - INFO - remote/test_truck_devil_tcp.py Command output:
+2025-05-01 16:10:13,092 - INFO -  (1746137411.688687) 14FF0A00    05 FF0A 00 --> FF [0008] FFFFFF0000FFFFBF
+2025-05-01 16:10:13,092 - INFO - (1746137411.699877) 08F0090B    02 F009 0B --> FF [0008] 547D20717D807DFF
+2025-05-01 16:10:13,093 - INFO - (1746137411.711694) 08F01D13    02 F01D 13 --> FF [0008] 547D20FF108AF5EC
+2025-05-01 16:10:13,093 - INFO - (1746137411.722939) 08FE6E0B    02 FE6E 0B --> FF [0008] FFFEFFFEFFFEFFFE
+2025-05-01 16:10:13,093 - INFO - (1746137411.734743) 08FF000B    02 FF00 0B --> FF [0008] 0000FFFA0CFF5F99
+2025-05-01 16:10:13,096 - INFO - .
+2025-05-01 16:10:13,097 - INFO - ============================== 6 passed in 49.54s ==============================
+2025-05-01 16:10:13,156 - INFO - Process finished with return code 0
+2025-05-01 16:10:13,156 - INFO - Environment variables cleaned up.
