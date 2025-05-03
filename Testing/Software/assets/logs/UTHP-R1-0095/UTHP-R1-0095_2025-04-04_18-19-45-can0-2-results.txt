@@ -1,0 +1,228 @@
+Script started on 2025-04-04 18:19:45-04:00 [COMMAND="bash -c './can0-2-testing && pytest ./can0-2/'" TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="161" LINES="22"]
+Please ensure you are running this script on the post-production UTHP hardware (eMMC).
+Also ensure the J1939 bus is powered.
+Are you connected to a 12v CAN bus on the deutch 9 pin? (y/n)y
+Setting up the environment for testing the can0-2 uthp tests...
+=====================================================
+Unique identifiers for UTHP-R1-0095:
+mmcblk1      
+|-mmcblk1p1  72A7-6DBC
+`-mmcblk1p2  02507f97-e0af-44b3-850e-10e6eb5a6510
+mmcblk1boot0 
+mmcblk1boot1 
+Setting up the CAN interface...
+Environment setup should be complete... waiting for user to confirm hardware is ready.
+Press any key to continue...
+Starting the can0-2 uthp tests...
+[1m====================================================================== test session starts ======================================================================[0m
+platform linux -- Python 3.12.9, pytest-8.0.2, pluggy-1.4.0
+rootdir: /home/uthp/uthp-tests/can0-2
+configfile: pytest.ini
+plugins: anyio-3.6.1
+[1mcollecting ... [0m[1mcollecting 3 items                                                                                                                                              [0m[1mcollected 3 items                                                                                                                                               [0m
+
+can0-2/test_can.py 
+[TEST] Sending from can0
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can0 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can1'...
+[DEBUG] Received ID=0xcfe6c17 Ext=True DATA=[255, 255, 255, 255, 0, 254, 0, 254]
+[DEBUG] Received ID=0x18ffc925 Ext=True DATA=[0, 0, 0, 0, 0, 0, 240, 255]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcff0200 Ext=True DATA=[0, 1, 255, 255, 255, 0, 129, 83]
+[DEBUG] Received ID=0xcff0500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14f00500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff1100 Ext=True DATA=[63, 247, 255, 0, 127, 19, 8, 253]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 113, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 135]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 143, 104]
+[DEBUG] Received ID=0x18ffca25 Ext=True DATA=[2, 70, 94, 94, 64, 31, 28, 37]
+[DEBUG] Received ID=0x14fe5a2f Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14feae17 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0xcff0300 Ext=True DATA=[125, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x10f00300 Ext=True DATA=[221, 0, 255, 255, 255, 252, 255, 255]
+[DEBUG] Received ID=0x14fedf00 Ext=True DATA=[133, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff0e00 Ext=True DATA=[255, 255, 255, 255, 255, 255, 0, 251]
+[DEBUG] Received ID=0x18f00100 Ext=True DATA=[255, 255, 255, 255, 0, 255, 255, 255]
+[DEBUG] Received ID=0x14fef200 Ext=True DATA=[255, 255, 0, 0, 0, 0, 255, 255]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 113, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 152]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 159, 90]
+[DEBUG] Received ID=0xcff000b Ext=True DATA=[255, 255, 255, 255, 0, 255, 80, 126]
+[DEBUG] Received ID=0x10ff010b Ext=True DATA=[232, 85, 113, 125, 113, 125, 50, 112]
+[DEBUG] Received ID=0x14ff0053 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcfe6c17 Ext=True DATA=[255, 255, 255, 255, 0, 254, 0, 254]
+[DEBUG] Received ID=0x10ff0117 Ext=True DATA=[240, 250, 240, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcff0200 Ext=True DATA=[0, 1, 255, 255, 255, 0, 145, 97]
+[DEBUG] Received ID=0xcff0500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x10ff0000 Ext=True DATA=[252, 168, 97, 252, 243, 40, 243, 252]
+[DEBUG] Received ID=0x14ff0d00 Ext=True DATA=[4, 255, 251, 7, 0, 60, 63, 60]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can1'
+[RECV] Waiting for valid message on socketcan channel 'can2'...
+[DEBUG] Received ID=0xcfe6c17 Ext=True DATA=[255, 255, 255, 255, 0, 254, 0, 254]
+[DEBUG] Received ID=0x10ff0117 Ext=True DATA=[240, 250, 240, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcff0200 Ext=True DATA=[0, 1, 255, 255, 255, 0, 145, 97]
+[DEBUG] Received ID=0xcff0500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x10ff0000 Ext=True DATA=[252, 168, 97, 252, 243, 40, 243, 252]
+[DEBUG] Received ID=0x14ff0d00 Ext=True DATA=[4, 255, 251, 7, 0, 60, 63, 60]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can2'
+[32m.[0m
+[TEST] Sending from can1
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can1 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can0'...
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 118]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 127, 253]
+[DEBUG] Received ID=0xcff000b Ext=True DATA=[255, 255, 255, 255, 0, 255, 64, 76]
+[DEBUG] Received ID=0x10ff010b Ext=True DATA=[103, 91, 113, 125, 114, 125, 50, 112]
+[DEBUG] Received ID=0x14ff0053 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcfe6c17 Ext=True DATA=[255, 255, 255, 255, 0, 254, 0, 254]
+[DEBUG] Received ID=0x10ff0117 Ext=True DATA=[240, 250, 240, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcff0200 Ext=True DATA=[0, 1, 255, 255, 255, 0, 129, 83]
+[DEBUG] Received ID=0xcff0500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18ff01b2 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x10ff0000 Ext=True DATA=[252, 168, 97, 252, 243, 40, 243, 252]
+[DEBUG] Received ID=0x14ff0d00 Ext=True DATA=[4, 255, 251, 7, 0, 60, 63, 60]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 135]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 143, 104]
+[DEBUG] Received ID=0x14ff0017 Ext=True DATA=[64, 0, 0, 3, 3, 16, 0, 12]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0xcff0300 Ext=True DATA=[125, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff0a00 Ext=True DATA=[255, 255, 255, 0, 0, 255, 255, 191]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 152]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 159, 90]
+[DEBUG] Received ID=0xcff000b Ext=True DATA=[255, 255, 255, 255, 0, 255, 80, 126]
+[DEBUG] Received ID=0x1001000b Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcfe6c17 Ext=True DATA=[255, 255, 255, 255, 0, 254, 0, 254]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcff0200 Ext=True DATA=[0, 1, 255, 255, 255, 0, 145, 97]
+[DEBUG] Received ID=0xcff0500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x10ff0100 Ext=True DATA=[255, 255, 255, 255, 255, 255, 6, 252]
+[DEBUG] Received ID=0x14ff0900 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 169]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 175, 12]
+[DEBUG] Received ID=0x14fe6f0b Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff010b Ext=True DATA=[255, 0, 63, 255, 240, 255, 127, 255]
+[DEBUG] Received ID=0x14ff020b Ext=True DATA=[125, 125, 125, 125, 128, 128, 255, 255]
+[DEBUG] Received ID=0x14ff0117 Ext=True DATA=[0, 0, 240, 255, 252, 255, 0, 0]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0xcff0300 Ext=True DATA=[125, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff0700 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff1600 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can0'
+[RECV] Waiting for valid message on socketcan channel 'can2'...
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0xcff0300 Ext=True DATA=[125, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff0700 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff1600 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can2'
+[32m.[0m
+[TEST] Sending from can2
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can2 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can0'...
+[DEBUG] Received ID=0xcfe6c17 Ext=True DATA=[255, 255, 255, 255, 0, 254, 0, 254]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcff0200 Ext=True DATA=[0, 1, 255, 255, 255, 0, 161, 55]
+[DEBUG] Received ID=0x18ff0400 Ext=True DATA=[3, 192, 63, 3, 207, 13, 95, 113]
+[DEBUG] Received ID=0xcff0500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14fef100 Ext=True DATA=[255, 255, 254, 204, 255, 255, 31, 255]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 203]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 207, 160]
+[DEBUG] Received ID=0x1001000b Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14d0ff17 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0xcff0300 Ext=True DATA=[125, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x10ff0100 Ext=True DATA=[255, 255, 255, 255, 255, 255, 6, 252]
+[DEBUG] Received ID=0x14f00000 Ext=True DATA=[255, 125, 125, 255, 255, 255, 255, 125]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 220]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 223, 146]
+[DEBUG] Received ID=0xcff000b Ext=True DATA=[255, 255, 255, 255, 0, 255, 112, 26]
+[DEBUG] Received ID=0xcfe6c17 Ext=True DATA=[255, 255, 255, 255, 0, 254, 0, 254]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcff0200 Ext=True DATA=[0, 1, 255, 255, 255, 0, 177, 5]
+[DEBUG] Received ID=0xcff0500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14f00500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff1100 Ext=True DATA=[63, 247, 255, 0, 127, 19, 8, 253]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 253]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 239, 196]
+[DEBUG] Received ID=0x14fe5a2f Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14feae17 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0xcff0300 Ext=True DATA=[125, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x10f00300 Ext=True DATA=[221, 0, 255, 255, 255, 252, 255, 255]
+[DEBUG] Received ID=0x14fedf00 Ext=True DATA=[133, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff0e00 Ext=True DATA=[255, 255, 255, 255, 255, 255, 0, 251]
+[DEBUG] Received ID=0x18f00100 Ext=True DATA=[255, 255, 255, 255, 0, 255, 255, 255]
+[DEBUG] Received ID=0x14fef200 Ext=True DATA=[255, 255, 0, 0, 0, 0, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can0'
+[RECV] Waiting for valid message on socketcan channel 'can1'...
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 220]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 223, 146]
+[DEBUG] Received ID=0xcff000b Ext=True DATA=[255, 255, 255, 255, 0, 255, 112, 26]
+[DEBUG] Received ID=0xcfe6c17 Ext=True DATA=[255, 255, 255, 255, 0, 254, 0, 254]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcff0200 Ext=True DATA=[0, 1, 255, 255, 255, 0, 177, 5]
+[DEBUG] Received ID=0xcff0500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14f00500 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff1100 Ext=True DATA=[63, 247, 255, 0, 127, 19, 8, 253]
+[DEBUG] Received ID=0x8f0090b Ext=True DATA=[144, 125, 32, 114, 125, 66, 125, 255]
+[DEBUG] Received ID=0x8f01d13 Ext=True DATA=[144, 125, 32, 255, 16, 138, 245, 253]
+[DEBUG] Received ID=0x8fe6e0b Ext=True DATA=[255, 254, 255, 254, 255, 254, 255, 254]
+[DEBUG] Received ID=0x8ff000b Ext=True DATA=[0, 0, 255, 250, 12, 255, 239, 196]
+[DEBUG] Received ID=0x14fe5a2f Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14feae17 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x8f00200 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0xcff0300 Ext=True DATA=[125, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x10f00300 Ext=True DATA=[221, 0, 255, 255, 255, 252, 255, 255]
+[DEBUG] Received ID=0x14fedf00 Ext=True DATA=[133, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14ff0e00 Ext=True DATA=[255, 255, 255, 255, 255, 255, 0, 251]
+[DEBUG] Received ID=0x18f00100 Ext=True DATA=[255, 255, 255, 255, 0, 255, 255, 255]
+[DEBUG] Received ID=0x14fef200 Ext=True DATA=[255, 255, 0, 0, 0, 0, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can1'
+[32m.[0m
+
+[32m======================================================================= [32m[1m3 passed[0m[32m in 6.84s[0m[32m =======================================================================[0m
+
+Script done on 2025-04-04 18:20:12-04:00 [COMMAND_EXIT_CODE="0"]
