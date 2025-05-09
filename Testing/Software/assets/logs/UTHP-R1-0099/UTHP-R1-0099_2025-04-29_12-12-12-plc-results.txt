@@ -1,0 +1,1038 @@
+Script started on 2025-04-29 12:12:12-06:00 [COMMAND="bash -c './plc-testing && pytest ./plc/'" TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="164" LINES="18"]
+Please ensure you are running this script on the post-production UTHP hardware (eMMC).
+Are you connected to the Brake Board? (y/n) y
+Setting up the environment for testing plc uthp tests...
+=====================================================
+Unique identifiers for UTHP-R1-0099:
+mmcblk1      
+|-mmcblk1p1  25A6-6F09
+`-mmcblk1p2  3fa09352-df08-45f7-b98c-aac15260d1fb
+mmcblk1boot0 
+mmcblk1boot1 
+Environment setup should be complete... waiting for user to confirm hardware is ready.
+Press any key to continue...
+Starting the PLC tests...
+[1m======================================================================= test session starts ========================================================================[0m
+platform linux -- Python 3.12.9, pytest-8.0.2, pluggy-1.4.0
+rootdir: /home/uthp/uthp-tests/plc
+configfile: pytest.ini
+plugins: anyio-3.6.1
+[1mcollecting ... [0m[1mcollected 8 items                                                                                                                                                  [0m
+
+plc/test_plc4trucksduck.py [32m.[0m[32m.[0m
+[32m.[0m(109.389632) j1708 8854ff 
+(109.488922) j1708 8854ff 
+(109.617692) j1708 8854ff310197ffffd101ffa80e010054 
+(109.688757) j1708 8854ff 
+(109.788423) j1708 8854ff 
+(109.892816) j1708 8854ff 
+(109.989808) j1708 8854ff 
+(110.113004) j1708 8854ff310197ffffd101ff 
+(110.191364) j1708 8854ff 
+(110.296921) j1708 8854ff 
+(110.396814) j1708 8854ff 
+(110.493578) j1708 8854ff 
+(110.625356) j1708 8854ff310197ffffd101ffa80e010054 
+(110.695241) j1708 8854ff 
+(110.796703) j1708 8854ff 
+(110.900807) j1708 8854ff 
+(110.997449) j1708 8854ff 
+(111.117247) j1708 8854ff310197ffffd101ff 
+(111.200949) j1708 8854ff 
+(111.299607) j1708 8854ff 
+(111.404796) j1708 8854ff 
+(111.501212) j1708 8854ff 
+(111.632961) j1708 8854ff310197ffffd101ffa819010054 
+(111.704786) j1708 8854ff 
+(111.803407) j1708 8854ff 
+(111.908959) j1708 8854ff 
+(112.008837) j1708 8854ff 
+(112.124692) j1708 8854ff310197ffffd101ff 
+(112.207665) j1708 8854ff 
+(112.307235) j1708 8854ff 
+(112.408114) j1708 8854ff 
+(112.508719) j1708 8854ff 
+(112.640466) j1708 8854ff310197ffffd101ffa819010054 
+(112.712833) j1708 8854ff 
+(112.810924) j1708 8854ff 
+(112.912740) j1708 8854ff 
+(113.012712) j1708 8854ff 
+(113.136764) j1708 8854ff310197ffffd101ff 
+(113.216869) j1708 8854ff 
+(113.314576) j1708 8854ff 
+(113.417044) j1708 8854ff 
+(113.517506) j1708 8854ff 
+(113.648764) j1708 8854ff310197ffffd101ffa81c010054 
+(113.720819) j1708 8854ff 
+(113.818467) j1708 8854ff 
+(113.920910) j1708 8854ff 
+(114.020715) j1708 8854ff 
+(114.140793) j1708 8854ff310197ffffd101ff 
+(114.224795) j1708 8854ff 
+(114.322192) j1708 8854ff 
+(114.422948) j1708 8854ff 
+(114.524720) j1708 8854ff 
+(114.657056) j1708 8854ff310197ffffd101ffa836010054 
+(114.728796) j1708 8854ff 
+(114.826033) j1708 8854ff 
+(114.926692) j1708 8854ff 
+(115.028737) j1708 8854ff 
+(115.147062) j1708 8854ff310197ffffd101ff 
+(115.232829) j1708 8854ff 
+(115.329843) j1708 8854ff 
+(115.430374) j1708 8854ff 
+(115.532900) j1708 8854ff 
+(115.664959) j1708 8854ff310197ffffd101ffa819010054 
+(115.732804) j1708 8854ff 
+(115.836745) j1708 8854ff 
+(115.934208) j1708 8854ff 
+(116.034930) j1708 8854ff 
+(116.156948) j1708 8854ff310197ffffd101ff 
+(116.236655) j1708 8854ff 
+(116.340808) j1708 8854ff 
+(116.438039) j1708 8854ff 
+(116.538806) j1708 8854ff 
+(116.667615) j1708 8854ff310197ffffd101ffa80e01 
+(116.777154) j1708 88c011c2202ae7be2217b2010ab5010bb50107b5cd88c011c221010cb50109b50108b50101b20102b21c88c00fc2220104b20103b20105b20106b201e6880054248854ff 
+(116.841013) j1708 8854ff 
+(116.944873) j1708 8854ff 
+(117.042373) j1708 8854ff 
+(117.164828) j1708 8854ff310197ffffd101ff 
+(117.245028) j1708 8854ff 
+(117.348804) j1708 8854ff 
+(117.445494) j1708 8854ff 
+(117.546300) j1708 8854ff 
+(117.677930) j1708 8854ff310197ffffd101ffa80e010054 
+(118.025522) j1708 8854ff 
+(118.032278) j1708 8854ff 
+(118.038691) j1708 8854ff 
+(118.052819) j1708 8854ff 
+(118.169700) j1708 8854ff310197ffffd101ff 
+(118.252866) j1708 8854ff 
+(118.356895) j1708 8854ff 
+(118.456795) j1708 8854ff 
+(118.553695) j1708 8854ff 
+(118.685486) j1708 8854ff310197ffffd101ffa819010054 
+(118.756799) j1708 8854ff 
+(118.856744) j1708 8854ff 
+(118.960819) j1708 8854ff 
+(119.057204) j1708 8854ff 
+(119.177370) j1708 8854ff310197ffffd101ff 
+(119.259067) j1708 8854ff 
+(119.360723) j1708 8854ff 
+(119.464803) j1708 8854ff 
+(119.561367) j1708 8854ff 
+(119.693094) j1708 8854ff310197ffffd101ffa80e010054 
+(119.762779) j1708 8854ff 
+(119.864771) j1708 8854ff 
+(119.968827) j1708 8854ff 
+(120.065116) j1708 8854ff 
+(120.184916) j1708 8854ff310197ffffd101ff 
+(120.268801) j1708 8854ff 
+(120.368871) j1708 8854ff 
+(120.468797) j1708 8854ff 
+(120.572814) j1708 8854ff 
+(120.700499) j1708 8854ff310197ffffd101ffa816010054 
+(120.770254) j1708 8854ff 
+(120.872872) j1708 8854ff 
+(120.972705) j1708 8854ff 
+(121.072651) j1708 8854ff 
+(121.193573) j1708 8854ff310197ffffd101ff 
+(121.276803) j1708 8854ff 
+(121.374853) j1708 8854ff 
+(121.476787) j1708 8854ff 
+(121.576658) j1708 8854ff 
+(121.712636) j1708 8854ff310197ffffd101ffa81a010054 
+(121.778067) j1708 8854ff 
+(121.880800) j1708 8854ff 
+(121.979279) j1708 8854ff 
+(122.080777) j1708 8854ff 
+(122.204545) j1708 8854ff310197ffffd101ff 
+(122.284817) j1708 8854ff 
+(122.384302) j1708 8854ff 
+(122.483243) j1708 8854ff 
+(122.584705) j1708 8854ff 
+(122.716747) j1708 8854ff310197ffffd101ffa818010054 
+(123.073432) j1708 8854ff 
+(123.080498) j1708 8854ff 
+(123.088928) j1708 8854ff 
+(123.093671) j1708 8854ff 
+(123.208805) j1708 8854ff310197ffffd101ff 
+(123.289490) j1708 8854ff 
+(123.392828) j1708 8854ff 
+(123.490561) j1708 8854ff 
+(123.593003) j1708 8854ff 
+(123.725045) j1708 8854ff310197ffffd101ffa80e010054 
+(123.796798) j1708 8854ff 
+(123.893690) j1708 8854ff 
+(123.994317) j1708 8854ff 
+(124.096915) j1708 8854ff 
+(124.216957) j1708 8854ff310197ffffd101ff 
+(124.296729) j1708 8854ff 
+(124.404864) j1708 8854ff 
+(124.498033) j1708 8854ff 
+(124.598924) j1708 8854ff 
+(124.730596) j1708 8854ff310197ffffd101ffa819010054 
+(124.804818) j1708 8854ff 
+(124.901223) j1708 8854ff 
+(125.001735) j1708 8854ff 
+(125.102583) j1708 8854ff 
+(125.224820) j1708 8854ff310197ffffd101ff 
+(125.308832) j1708 8854ff 
+(125.404967) j1708 8854ff 
+(125.505843) j1708 8854ff 
+(125.606512) j1708 8854ff 
+(125.740850) j1708 8854ff310197ffffd101ffa819010054 
+(125.807972) j1708 8854ff 
+(125.908782) j1708 8854ff 
+(126.012810) j1708 8854ff 
+(126.110113) j1708 8854ff 
+(126.229913) j1708 8854ff310197ffffd101ff 
+(126.312737) j1708 8854ff 
+(126.417008) j1708 8854ff 
+(126.513275) j1708 8854ff 
+(126.613945) j1708 8854ff 
+(126.748864) j1708 8854ff310197ffffd101ffa80e010054 
+(126.815361) j1708 8854ff 
+(126.916744) j1708 8854ff 
+(127.020865) j1708 8854ff 
+(127.117730) j1708 8854ff 
+(127.237527) j1708 8854ff310197ffffd101ff 
+(127.324841) j1708 8854ff 
+(127.419923) j1708 8854ff 
+(127.520866) j1708 8854ff 
+(127.621539) j1708 8854ff 
+(127.754380) j1708 8854ff310197ffffd101ffa80e010054 
+(128.120806) j1708 8854ff 
+(128.132852) j1708 8854ff 
+(128.134989) j1708 8854ff 
+(128.141454) j1708 8854ff 
+(128.248823) j1708 8854ff310197ffffd101ff 
+(128.326739) j1708 8854ff 
+(128.427532) j1708 8854ff 
+(128.528690) j1708 8854ff 
+
+[32m.[0m[32m.[0m
+plc/test_prettyj1587.py stdout: usage: pretty_j1587 [-h]
+                    [--j1708-interface [{truckduck_1,j1708,truckduck_2,j1708_2,truckduck_bbplc,plc,RP1210,rp1210}]]
+                    [--truckduck-host [TRUCKDUCK_HOST]]
+                    [--rp1210-dll [RP1210_DLL]]
+                    [--rp1210-device [RP1210_DEVICE]] [--list-rp1210]
+                    [-c CUSTOMDB] [-d] [-f [FILENAMES]] [-j CANON]
+                    [-l [{critical,error,info,debug,notset}]] [-n] [-p] [-t T]
+                    [-u U] [-v [{0,1,2}]] [-w [PID ...]] [-x] [--json]
+                    [--format]
+
+Program to make sense of logged J1708/J1587 data
+
+options:
+  -h, --help            show this help message and exit
+  --j1708-interface [{truckduck_1,j1708,truckduck_2,j1708_2,truckduck_bbplc,plc,RP1210,rp1210}]
+                        choose the interface to send and receive J1708
+                        messages. Truckduck interfaces use localhost by
+                        default. RP1210 J1708 interface is available on 32bit
+                        python running on windows when VDA drivers are
+                        installed and configured.
+  --truckduck-host [TRUCKDUCK_HOST]
+                        specify the network hostname of the target truckduck.
+                        For non-localhost you will need to start port
+                        redirects on the target host.
+  --rp1210-dll [RP1210_DLL]
+                        the RP1210 dll name to use. uses first DLL if omitted.
+  --rp1210-device [RP1210_DEVICE]
+                        the RP1210 device id to use. Default is 1.
+  --list-rp1210         list the RP1210 DLLs and Devices.
+  -c CUSTOMDB, --customdb CUSTOMDB
+                        The filename of the file that contains the custom
+                        database in JSON format
+  -d                    Disable default (grepable) output
+  -f [FILENAMES], --filenames [FILENAMES]
+                        The filename(s) of the file(s) that contain(s) the
+                        messages. Use - for stdin
+  -j CANON, --canon CANON
+                        Use this function to reformat each line of input for
+                        parsing
+  -l [{critical,error,info,debug,notset}]
+                        Set the minimum level log level
+  -n, --nocache         Parse the J-specs every time command is run and
+                        generate a new cache file
+  -p                    Print packet delimeters
+  -t T                  Define a TCP port to use as input
+  -u U                  Define a UDP port to use as input
+  -v [{0,1,2}]          Set the verbosity for regular output
+  -w [PID ...], --whitelist [PID ...]
+                        List of PIDs to be parsed, ignoring other messages
+  -x, --checksums       Tells the parser that the messages contain checksums
+  --json                Print JSON output as opposed to the default
+  --format              Pretty print the JSON output
+
+[32m.[0mstdout: MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0x31,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0x31, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0x2a,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0x2a, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0x19,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0x19, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0x19,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0x19, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0xe,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xe, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0xe,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xe, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0x19,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0x19, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0x15,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0x15, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0x34,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0x34, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0x19,0x1,0x0,0x54]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0x19, 0x1
+PID 0x00 (0): Request Parameter
+  DATA: 0x54
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff,0xa8,0xe,0x1]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+PID 0xa8 (168): Battery Potential (Voltage)
+  DATA: 0xe, 0x1
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+MSG: [0x88,0x54,0xff,0x31,0x1,0x97,0xff,0xff,0xd1,0x1,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+PID 0x31 (49): ABS Control Status
+  DATA: 0x1
+PID 0x97 (151): ATC Control Status
+  DATA: 0xff, 0xff
+PID 0xd1 (209): ABS Control Status, Trailer
+  DATA: 0x1, 0xff
+
+MSG: [0x88,0x54,0xff]
+MID 0x88 (136):  Brakes, Power Unit
+PID 0x54 (84): Road Speed
+  DATA: 0xff
+
+
+stderr: Exception in thread J1587WorkerThread:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/site-packages/hv_networks/J1587Driver.py", line 521, in run
+    self.handle_message(msg)
+  File "/usr/lib/python3.12/site-packages/hv_networks/J1587Driver.py", line 583, in handle_message
+    self.message_received(msg, has_checksum=True)
+  File "/usr/lib/python3.12/site-packages/hv_networks/J1587Driver.py", line 541, in message_received
+    self.mailbox.put(msg)
+  File "/usr/lib/python3.12/multiprocessing/queues.py", line 88, in put
+    raise ValueError(f"Queue {self!r} is closed")
+ValueError: Queue <multiprocessing.queues.Queue object at 0xb60ec930> is closed
+
+[32m.[0m[32m.[0m
+
+[32m======================================================================== [32m[1m8 passed[0m[32m in 51.68s[0m[32m ========================================================================[0m
+
+Script done on 2025-04-29 12:13:31-06:00 [COMMAND_EXIT_CODE="0"]
