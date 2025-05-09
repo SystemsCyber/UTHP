@@ -1,0 +1,339 @@
+2025-05-09 15:13:51,687 - INFO - 
+2025-05-09 15:13:51,688 - INFO - Running remote tests...
+2025-05-09 15:13:51,949 - INFO - ============================= test session starts ==============================
+2025-05-09 15:13:51,949 - INFO - platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+2025-05-09 15:13:51,949 - INFO - rootdir: /home/student/Desktop/uthp-tests/remote
+2025-05-09 15:13:51,949 - INFO - configfile: pytest.ini
+2025-05-09 15:13:51,949 - INFO - collected 6 items
+2025-05-09 15:14:12,436 - INFO - remote/test_grimmj1708_serial.py Hex string: 88c011c221010cb50109b50108b50101b20102b21c
+2025-05-09 15:14:12,437 - INFO - Hex string: 88c00fc2220104b20103b20105b20106b201e6
+2025-05-09 15:14:12,437 - INFO - Hex string: 88005424
+2025-05-09 15:14:12,437 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,438 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,438 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,438 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,439 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,439 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,439 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,440 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,440 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,440 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,440 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,441 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,441 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,441 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,441 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,441 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,441 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,441 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,442 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,443 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,444 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,445 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,446 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,447 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,448 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,449 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,450 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff25
+2025-05-09 15:14:12,451 - INFO - Hex string: 8854ff310197ffffd101ffa80301e1
+2025-05-09 15:14:12,451 - INFO - Checksum is valid for 88c011c221010cb50109b50108b50101b20102b21c
+2025-05-09 15:14:12,451 - INFO - Checksum is valid for 88c00fc2220104b20103b20105b20106b201e6
+2025-05-09 15:14:12,451 - INFO - Checksum is valid for 88005424
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,452 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,453 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,454 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,455 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,456 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,457 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:12,458 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:12,459 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,091 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,091 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,092 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:16,092 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,092 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,093 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,093 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,093 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:16,094 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,094 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,094 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,095 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,095 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:16,095 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff310197ffffd101ffa8030100548d
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,096 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,097 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,097 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,097 - INFO - Checksum is valid for 8854ff310197ffffd101ff8d
+2025-05-09 15:14:16,097 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,097 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,097 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,097 - INFO - Checksum is valid for 8854ff25
+2025-05-09 15:14:16,097 - INFO - Checksum is valid for 8854ff310197ffffd101ffa80301e1
+2025-05-09 15:14:16,097 - INFO - .
+2025-05-09 15:14:21,105 - INFO - remote/test_serial.py Serial Output:
+2025-05-09 15:14:21,105 - INFO - UTHP-R1-0035 login:
+2025-05-09 15:14:21,108 - INFO - .
+2025-05-09 15:14:22,113 - INFO - remote/test_ssh.py SSH Output: SSH_SUCCESS
+2025-05-09 15:14:22,114 - INFO - [SUCCESS] SSH authentication verified.
+2025-05-09 15:14:22,114 - INFO - uthp@UTHP-R1-0035
+2025-05-09 15:14:22,989 - INFO - .Root login attempt failed as expected: Authentication failed.
+2025-05-09 15:14:22,993 - INFO - .
+2025-05-09 15:14:40,684 - INFO - remote/test_truck_devil_serial.py (1746825264.419434) 18F0090B    06 F009 0B --> FF [0008] 627D20717D427DFF
+2025-05-09 15:14:40,685 - INFO - (1746825264.421503) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-09 15:14:40,685 - INFO - (1746825264.429954) 18F0090B    06 F009 0B --> FF [0008] 627D20717D427DFF
+2025-05-09 15:14:40,686 - INFO - (1746825264.431790) 0CF00300    03 F003 00 --> FF [0008] DD00FFFFFFFCFFFF
+2025-05-09 15:14:40,686 - INFO - (1746825264.431949) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-09 15:14:40,687 - INFO - message sent.
+2025-05-09 15:14:40,688 - INFO - .
+2025-05-09 15:14:53,203 - INFO - remote/test_truck_devil_tcp.py Command output:
+2025-05-09 15:14:53,204 - INFO -  (1746825291.779396) 18F0090B    06 F009 0B --> FF [0008] 627D20717D2E7DFF
+2025-05-09 15:14:53,204 - INFO - (1746825291.790876) 0C0A0021    03 0A00 21 --> 00 [0008] FCFFFFFFFFFFFFFF
+2025-05-09 15:14:53,204 - INFO - (1746825291.802561) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-09 15:14:53,205 - INFO - (1746825291.813937) 14F0010B    05 F001 0B --> FF [0008] 0F00FFFFFF1CFFFF
+2025-05-09 15:14:53,205 - INFO - (1746825291.825809) 14FDC40B    05 FDC4 0B --> FF [0008] FF085FFFFFFFFFFF
+2025-05-09 15:14:53,208 - INFO - .
+2025-05-09 15:14:53,208 - INFO - ========================= 6 passed in 61.32s (0:01:01) =========================
+2025-05-09 15:14:53,267 - INFO - Process finished with return code 0
+2025-05-09 15:14:53,267 - INFO - Environment variables cleaned up.
