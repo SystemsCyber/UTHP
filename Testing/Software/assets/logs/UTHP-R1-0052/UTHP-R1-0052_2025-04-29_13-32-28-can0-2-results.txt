@@ -1,0 +1,118 @@
+Script started on 2025-04-29 13:32:28-06:00 [COMMAND="bash -c './can0-2-testing && pytest ./can0-2/'" TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="147" LINES="28"]
+Please ensure you are running this script on the post-production UTHP hardware (eMMC).
+Also ensure the J1939 bus is powered.
+Are you connected to a 12v CAN bus on the deutch 9 pin? (y/n)y
+Setting up the environment for testing the can0-2 uthp tests...
+=====================================================
+Unique identifiers for UTHP-R1-0052:
+mmcblk1      
+|-mmcblk1p1  7C48-9EB1
+`-mmcblk1p2  eaf07439-bf6c-4364-8b2d-d962a1db8238
+mmcblk1boot0 
+mmcblk1boot1 
+Setting up the CAN interface...
+Environment setup should be complete... waiting for user to confirm hardware is ready.
+Press any key to continue...
+Starting the can0-2 uthp tests...
+[1m=============================================================== test session starts ===============================================================[0m
+platform linux -- Python 3.12.9, pytest-8.0.2, pluggy-1.4.0
+rootdir: /home/uthp/uthp-tests/can0-2
+configfile: pytest.ini
+plugins: anyio-3.6.1
+[1mcollecting ... [0m[1mcollecting 3 items                                                                                                                                [0m[1mcollected 3 items                                                                                                                                 [0m
+
+can0-2/test_can.py 
+[TEST] Sending from can0
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can0 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can1'...
+[DEBUG] Received ID=0x10ff0021 Ext=True DATA=[130, 0, 0, 0, 255, 63, 77, 200]
+[DEBUG] Received ID=0x18f0090b Ext=True DATA=[138, 125, 32, 113, 125, 87, 125, 255]
+[DEBUG] Received ID=0xcf00300 Ext=True DATA=[221, 0, 255, 255, 255, 252, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0x18fd0900 Ext=True DATA=[0, 0, 0, 0, 0, 0, 0, 0]
+[DEBUG] Received ID=0x18fd7c00 Ext=True DATA=[255, 255, 195, 48, 252, 255, 255, 255]
+[DEBUG] Received ID=0x14f00121 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18fcdc00 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can1'
+[RECV] Waiting for valid message on socketcan channel 'can2'...
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can2'
+[32m.[0m
+[TEST] Sending from can1
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can1 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can0'...
+[DEBUG] Received ID=0x18ffc325 Ext=True DATA=[37, 65, 243, 80, 192, 0, 65, 192]
+[DEBUG] Received ID=0x10ff0021 Ext=True DATA=[130, 0, 0, 0, 255, 63, 77, 200]
+[DEBUG] Received ID=0x18f0090b Ext=True DATA=[138, 125, 32, 113, 125, 87, 125, 255]
+[DEBUG] Received ID=0xcf00300 Ext=True DATA=[221, 0, 255, 255, 255, 252, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0x18ffc425 Ext=True DATA=[19, 212, 19, 212, 240, 255, 240, 255]
+[DEBUG] Received ID=0x18ffc725 Ext=True DATA=[67, 0, 252, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18f0090b Ext=True DATA=[138, 125, 32, 113, 125, 87, 125, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0x18fedf00 Ext=True DATA=[133, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18ffc525 Ext=True DATA=[1, 5, 21, 20, 1, 68, 0, 1]
+[DEBUG] Received ID=0x18f0090b Ext=True DATA=[138, 125, 32, 113, 125, 87, 125, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0x18ffc625 Ext=True DATA=[16, 0, 0, 0, 0, 0, 32, 23]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can0'
+[RECV] Waiting for valid message on socketcan channel 'can2'...
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can2'
+[32m.[0m
+[TEST] Sending from can2
+[INFO] Setting up bus on can0
+[INFO] Setting up bus on can1
+[INFO] Setting up bus on can2
+[SEND] can2 sent: ID=0x123 DATA=[17, 34, 51, 68]
+[RECV] Waiting for valid message on socketcan channel 'can0'...
+[DEBUG] Received ID=0xc0a0021 Ext=True DATA=[252, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18f0090b Ext=True DATA=[138, 125, 32, 113, 125, 66, 125, 255]
+[DEBUG] Received ID=0x14f0010b Ext=True DATA=[15, 0, 255, 255, 255, 28, 255, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0x18fedf00 Ext=True DATA=[133, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x1892fe00 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18f0000f Ext=True DATA=[223, 125, 125, 255, 15, 255, 255, 40]
+[DEBUG] Received ID=0x18f00100 Ext=True DATA=[255, 255, 255, 255, 0, 255, 255, 255]
+[DEBUG] Received ID=0x18fee000 Ext=True DATA=[0, 0, 0, 0, 0, 0, 0, 0]
+[DEBUG] Received ID=0x14fdc40b Ext=True DATA=[255, 8, 95, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18fef100 Ext=True DATA=[255, 255, 254, 252, 255, 255, 0, 255]
+[DEBUG] Received ID=0x18fef200 Ext=True DATA=[255, 255, 0, 0, 0, 0, 255, 255]
+[DEBUG] Received ID=0x18feef00 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 254]
+[DEBUG] Received ID=0x18fd0900 Ext=True DATA=[0, 0, 0, 0, 0, 0, 0, 0]
+[DEBUG] Received ID=0x18fde000 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18fec100 Ext=True DATA=[0, 0, 0, 0, 0, 0, 0, 0]
+[DEBUG] Received ID=0x14fe4f0b Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18fee400 Ext=True DATA=[255, 127, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18fef500 Ext=True DATA=[255, 255, 255, 226, 36, 255, 255, 255]
+[DEBUG] Received ID=0x18fef700 Ext=True DATA=[255, 255, 255, 255, 219, 0, 255, 255]
+[DEBUG] Received ID=0x18ff7400 Ext=True DATA=[0, 0, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x14fef031 Ext=True DATA=[255, 255, 255, 255, 255, 255, 204, 255]
+[DEBUG] Received ID=0x14ff07e6 Ext=True DATA=[255, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18f0090b Ext=True DATA=[138, 125, 32, 113, 125, 66, 125, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0x1cde0317 Ext=True DATA=[240, 255, 255, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x18f0090b Ext=True DATA=[138, 125, 32, 113, 125, 66, 125, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0x18f00131 Ext=True DATA=[255, 255, 207, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can0'
+[RECV] Waiting for valid message on socketcan channel 'can1'...
+[DEBUG] Received ID=0x18f0090b Ext=True DATA=[138, 125, 32, 113, 125, 66, 125, 255]
+[DEBUG] Received ID=0xcf00400 Ext=True DATA=[80, 125, 132, 255, 255, 0, 246, 125]
+[DEBUG] Received ID=0x18f00131 Ext=True DATA=[255, 255, 207, 255, 255, 255, 255, 255]
+[DEBUG] Received ID=0x123 Ext=False DATA=[17, 34, 51, 68]
+[PASS] Got expected frame on socketcan channel 'can1'
+[32m.[0m
+
+[32m================================================================ [32m[1m3 passed[0m[32m in 4.21s[0m[32m ================================================================[0m
+
+Script done on 2025-04-29 13:32:49-06:00 [COMMAND_EXIT_CODE="0"]
