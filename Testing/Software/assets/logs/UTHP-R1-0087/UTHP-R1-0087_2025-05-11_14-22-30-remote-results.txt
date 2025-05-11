@@ -1,0 +1,35 @@
+2025-05-11 14:22:30,646 - INFO - 
+2025-05-11 14:22:30,647 - INFO - Running remote tests...
+2025-05-11 14:22:30,895 - INFO - ============================= test session starts ==============================
+2025-05-11 14:22:30,895 - INFO - platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+2025-05-11 14:22:30,895 - INFO - rootdir: /home/student/Desktop/uthp-tests/remote
+2025-05-11 14:22:30,895 - INFO - configfile: pytest.ini
+2025-05-11 14:22:30,895 - INFO - collected 6 items
+2025-05-11 14:24:23,266 - INFO - remote/test_grimmj1708_serial.py .
+2025-05-11 14:24:28,278 - INFO - remote/test_serial.py Serial Output:  login:
+2025-05-11 14:24:28,278 - INFO - UTHP-R1-0087 login:
+2025-05-11 14:24:28,282 - INFO - .
+2025-05-11 14:24:29,380 - INFO - remote/test_ssh.py SSH Output: SSH_SUCCESS
+2025-05-11 14:24:29,380 - INFO - [SUCCESS] SSH authentication verified.
+2025-05-11 14:24:29,380 - INFO - uthp@UTHP-R1-0087
+2025-05-11 14:24:30,376 - INFO - .Root login attempt failed as expected: Authentication failed.
+2025-05-11 14:24:30,378 - INFO - .
+2025-05-11 14:24:48,903 - INFO - remote/test_truck_devil_serial.py (1746995072.417370) 18EAFFFE    06 EA00 FE --> FF [0003] 00EE00
+2025-05-11 14:24:48,904 - INFO - (1746995072.418157) 18EEFF00    06 EE00 00 --> FF [0008] 0000C00100000000
+2025-05-11 14:24:48,904 - INFO - (1746995072.418779) 18EEFF0F    06 EE00 0F --> FF [0008] 0000C001000C0000
+2025-05-11 14:24:48,904 - INFO - (1746995072.666751) 0CF00300    03 F003 00 --> FF [0008] DD00FFFFFFFCFFFF
+2025-05-11 14:24:48,905 - INFO - (1746995072.667501) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-11 14:24:48,905 - INFO - message sent.
+2025-05-11 14:24:48,906 - INFO - .
+2025-05-11 14:25:02,634 - INFO - remote/test_truck_devil_tcp.py Command output:
+2025-05-11 14:25:02,635 - INFO -  error in creating Message in device read: non-hexadecimal number found in fromhex() arg at position 11
+2025-05-11 14:25:02,635 - INFO - str_frame: $20408000400000000007E
+2025-05-11 14:25:02,635 - INFO - (1746995101.024899) 18EEFF00    06 EE00 00 --> FF [0008] 0000C00100000000
+2025-05-11 14:25:02,636 - INFO - (1746995101.036476) 18EEFF0F    06 EE00 0F --> FF [0008] 0000C001000C0000
+2025-05-11 14:25:02,636 - INFO - (1746995101.258749) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-11 14:25:02,636 - INFO - (1746995101.269945) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-11 14:25:02,637 - INFO - (1746995101.281717) 0CF00300    03 F003 00 --> FF [0008] DD00FFFFFFFCFFFF
+2025-05-11 14:25:02,639 - INFO - .
+2025-05-11 14:25:02,639 - INFO - ======================== 6 passed in 151.82s (0:02:31) =========================
+2025-05-11 14:25:02,702 - INFO - Process finished with return code 0
+2025-05-11 14:25:02,703 - INFO - Environment variables cleaned up.
