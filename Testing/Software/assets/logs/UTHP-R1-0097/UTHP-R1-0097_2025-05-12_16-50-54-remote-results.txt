@@ -1,0 +1,69 @@
+2025-05-12 16:50:54,663 - INFO - 
+2025-05-12 16:50:54,664 - INFO - Running remote tests...
+2025-05-12 16:50:54,917 - INFO - ============================= test session starts ==============================
+2025-05-12 16:50:54,917 - INFO - platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+2025-05-12 16:50:54,917 - INFO - rootdir: /home/student/Desktop/uthp-tests/remote
+2025-05-12 16:50:54,917 - INFO - configfile: pytest.ini
+2025-05-12 16:50:54,917 - INFO - collected 6 items
+2025-05-12 16:51:16,900 - INFO - remote/test_grimmj1708_serial.py Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,900 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,900 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,901 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,901 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,901 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,901 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,901 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,901 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,901 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,901 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,902 - INFO - Hex string: 88310d973fffa81701d101ffd4
+2025-05-12 16:51:16,902 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,902 - INFO - Hex string: 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,902 - INFO - Hex string: 88310d973fffa81a01d101ffd1
+2025-05-12 16:51:16,902 - INFO - Hex string: 88310d973fffa81a01d101ffd1
+2025-05-12 16:51:16,902 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,902 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,903 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,903 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,903 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,903 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,903 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,903 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,903 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,904 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,904 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,904 - INFO - Checksum is valid for 88310d973fffa81701d101ffd4
+2025-05-12 16:51:16,904 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,904 - INFO - Checksum is valid for 88310d973fffa81801d101ffd3
+2025-05-12 16:51:16,904 - INFO - Checksum is valid for 88310d973fffa81a01d101ffd1
+2025-05-12 16:51:16,904 - INFO - Checksum is valid for 88310d973fffa81a01d101ffd1
+2025-05-12 16:51:16,905 - INFO - .
+2025-05-12 16:51:21,913 - INFO - remote/test_serial.py Serial Output:
+2025-05-12 16:51:21,913 - INFO - TruckHackingOS 1.0.3 UTHP-R1-0097 ttyGS0
+2025-05-12 16:51:21,916 - INFO - UTHP-R1-0097 login:
+2025-05-12 16:51:21,917 - INFO - UTHP-R1-0097 login:
+2025-05-12 16:51:21,917 - INFO - .
+2025-05-12 16:51:22,543 - INFO - remote/test_ssh.py SSH Output: SSH_SUCCESS
+2025-05-12 16:51:22,544 - INFO - [SUCCESS] SSH authentication verified.
+2025-05-12 16:51:22,544 - INFO - uthp@UTHP-R1-0097
+2025-05-12 16:51:22,974 - INFO - .Root login attempt failed as expected: Authentication failed.
+2025-05-12 16:51:22,976 - INFO - .
+2025-05-12 16:51:40,176 - INFO - remote/test_truck_devil_serial.py (1747090283.988967) 0CF00300    03 F003 00 --> FF [0008] DD00FFFFFFFCFFFF
+2025-05-12 16:51:40,177 - INFO - (1747090283.989128) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-12 16:51:40,177 - INFO - (1747090283.989245) 1CEBFF00    07 EB00 00 --> FF [0008] 03B4FFFFFFFF1F0A
+2025-05-12 16:51:40,177 - INFO - (1747090283.998590) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-12 16:51:40,178 - INFO - (1747090284.008534) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-12 16:51:40,178 - INFO - message sent.
+2025-05-12 16:51:40,180 - INFO - .
+2025-05-12 16:51:52,538 - INFO - remote/test_truck_devil_tcp.py Command output:
+2025-05-12 16:51:52,539 - INFO -  (1747090311.250509) 0CF00300    03 F003 00 --> FF [0008] DD00FFFFFFFCFFFF
+2025-05-12 16:51:52,539 - INFO - (1747090311.261850) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-12 16:51:52,539 - INFO - error in creating Message in device read: non-hexadecimal number found in fromhex() arg at position 11
+2025-05-12 16:51:52,540 - INFO - str_frame: $20408004000000000005F
+2025-05-12 16:51:52,540 - INFO - (1747090311.296617) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-12 16:51:52,540 - INFO - (1747090311.307979) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-12 16:51:52,540 - INFO - (1747090311.319983) 0CF00400    03 F004 00 --> FF [0008] 507D84FFFF00F67D
+2025-05-12 16:51:52,544 - INFO - .
+2025-05-12 16:51:52,545 - INFO - ============================== 6 passed in 57.69s ==============================
+2025-05-12 16:51:52,627 - INFO - Process finished with return code 0
+2025-05-12 16:51:52,627 - INFO - Environment variables cleaned up.

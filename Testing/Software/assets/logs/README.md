@@ -136,4 +136,5 @@ After submitting your logs, sign off with your initials to indicate that the log
 | UTHP-R1-0067 | PASS | hardware,core,plc,remote,can0-2 | SS | all tests passed! |
 | UTHP-R1-0053 | PASS | hardware,core,plc,remote,can0-2 | SS | all tests passed! |
 | UTHP-R1-0014 | PASS | hardware,core,plc,remote,can0-2 | SB | all tests passed! |
+| UTHP-R1-0097 | PASS | hardware,core,plc,remote,can0-2 | CG | all tests passed! |
 
