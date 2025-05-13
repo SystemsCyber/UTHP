@@ -1,16 +1,17 @@
 # Welcome to the UTHP test suite
 
-The UTHP team put together a set of pytests to test the Yocto build of the UTHP (Ultimate Truck Hacking Platform) image. The tests are located in the `uthp-tests` directory, and are run on the target device after the image has been flashed to the eMMC (embedded MultiMediaCard).
+The UTHP team put together a set of pytests to test the Yocto build of the UTHP (Ultimate Truck Hacking Platform) image. The tests are located in the `uthp-tests` directory of https://github.com/Spenc3rB/uthp-tests, and are run on the target device after the image has been flashed to the eMMC (embedded MultiMediaCard). This directory contains a copy of those tests for convenience.
 
 ## Prerequisites
 
-Before you use this repository, you must have a basic understanding of Linux commands, and GitHub. Resources on how to use the Linux command line GitHub can be found [here](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview) and [here](https://docs.github.com/en/get-started/quickstart).
+Using this repository depends on a basic understanding of Linux commands and GitHub. Resources on how to use the Linux command line GitHub can be found [here](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview) and [here](https://docs.github.com/en/get-started/quickstart).
 
 ### 1. Connect the UTHP to the network and power it on with the SD card inserted. 
 
 >You may need to hold down the s2 button if another image is already flashed to the eMMC.
 
 ### 2. SSH into the UTHP
+Using the USB Mini connection to a computer, log into the UTHP.
 > This is stage 1
 ```bash
 ssh root@192.168.7.2
@@ -37,7 +38,7 @@ To parallize the tests for a more efficient production line, the following tests
 
 ### 1. Set up the physcial testing space
 
-Start by turning on the two battery chargers, then turn on both red safety switches on both the Cascadia and the Brake Board. 
+Start by turning on the two battery chargers, then turn on both red safety switches on both the Cascadia and the Brake Board, which are reprentative heavy vehicle systems.
 
 Then, make sure to charge the UTHP capacitors for safe-shutdown tests for at least 5 minutes, by plugging in the blue DSUB-15 connector (also referenced as the Brake Board in this document):
 
