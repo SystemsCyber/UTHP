@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# This script is used to setup the environment for testing the UTHP with real PLC signals
+echo "Please ensure you are running this script on the post-production UTHP hardware (eMMC)."
+read -p "Are you connected to the Brake Board? (y/n) " -n 1 -r
+echo
+
+if [[ $REPLY =~ ^[Nn]$ ]]; then
+    echo -e "\nPlease connect to the Brake Board before running the PLC tests."
+    exit 1
+elif [[ $EUID -ne 0 ]]; then
+    echo -e "\nThis script must be run as root. Please run the script again with sudo."
+    exit 1
+else
+    echo "Setting up the environment for testing plc uthp tests..."
+    echo "====================================================="
+    echo "Unique identifiers for $(hostname):"
+	sudo lsblk -o NAME,UUID | grep "mmcblk1" -A 2
+    # now we are explicitly testing the plc4trucks service
+    sudo systemctl stop j17084truckduck.service
+    sudo systemctl stop plc4trucksduck.service
+    sudo systemctl start plc4trucksduck.service
+    echo "Environment setup should be complete... waiting for user to confirm hardware is ready."
+    read -p "Press any key to continue..."
+    echo "Starting the PLC tests..."
+fi

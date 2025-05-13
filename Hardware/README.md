@@ -51,7 +51,7 @@ The PCB design was done in a tool called Altium Designer. The original files for
 
 There are multiple hardware versions for the PCB. The design is open, but uses Altium Designer software for the PCB Layout software. Each version is captured as a schematic, Altium files, bill of materials and Gerber Files. Previous versions are archived in the Development Versions directory. 
 
-The UTHP PCB is release under the permissive [Solderpad Hardware License v2.1](http://solderpad.org/licenses/SHL-2.1/).
+The UTHP PCB and SSC 485 Breakout are released under the permissive [Solderpad Hardware License v2.1](http://solderpad.org/licenses/SHL-2.1/).
 
 ## Enclosure
 The main part of the enclosure is the [Hammond 1455Q1602BK](https://www.digikey.com/en/products/detail/hammond-manufacturing/1455Q1602BK/965866) enclosure. This is an anodized black aluminum enclosure that can accept 160mm by 120mm printed circuit boards. The anodized aluminum is nicely finished with a laser etcher and the file that is used to etch the graphics on the top of the enclosure is available as an svg file: 

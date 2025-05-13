@@ -1,0 +1,98 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "ti,beaglebone", "ti,beaglebone-black";
+    part-number = "UTHP-GPIO";
+    version = "00A0";
+
+    fragment@0 {
+        target = <&am33xx_pinmux>;
+        __overlay__ {
+            uthp_gpio_keys_pins: pinmux_uthp_gpio_keys_pins {
+                pinctrl-single,pins = <
+                /* TIMER PINS */
+                    0x090 0x07  /* P8_07: gpio2_2 (output) */
+                    0x094 0x07  /* P8_08: gpio2_3 (output) */
+                    0x098 0x07  /* P8_09: gpio2_5 (output) */
+                    0x09C 0x07  /* P8_10: gpio2_4 (output) */
+                /* DCAN BITBANG PINS */
+                    0x030 0x27  /* P8_12: gpio1_12 (input) */
+                    0x028 0x07  /* P8_14: gpio0_26 (output)*/
+                    0x038 0x27  /* P8_16: gpio1_14 (input) */
+                    0x08C 0x07  /* P8_18: gpio2_1 (output) */
+                
+                /* PWM2A */
+                    0x020 0x07  /* P8_19: gpio0_22 (output) */
+                
+                /* OPTOISO */
+                    0x07C 0x27  /* P8_26: gpio1_29 (input) */
+
+                /* Sigrok */
+                    0x0E0 0x27  /* P8_27: gpio2_22 (input) */
+                    0x0E4 0x27  /* P8_29: gpio2_23 (input) */
+                    0x0D0 0x27  /* P8_35: gpio0_8 (input) */
+                    0x0C8 0x27  /* P8_36: gpio2_16 (input) */
+                    0x0B8 0x27  /* P8_39: gpio2_12 (input) */
+                    0x0B4 0x27  /* P8_42: gpio2_11 (input) */
+                    0x0A8 0x27  /* P8_43: gpio2_8 (input) */
+                    0x0AC 0x27  /* P8_44: gpio2_9 (input) */
+                
+                /* INT CLICK */
+                    0x0DC 0x27  /* P8_32: gpio0_11 (input) */
+                    0x0A0 0x27  /* P8_45: gpio2_6 (input) */
+                
+                /* BBB RST */
+                    0x0D8 0x07  /* P8_28: gpio0_24 (output) */
+                >;
+            };
+        };
+    };
+
+    fragment@1 {
+        target = <&ocp>;
+        __overlay__ {
+            uthp_gpio_keys {
+                compatible = "gpio-keys";
+                pinctrl-names = "default";
+                pinctrl-0 = <&uthp_gpio_keys_pins>;
+                status = "okay";
+
+                /* TIMER PINS */
+                button0  { label = "uthp:timer0";  gpios = <&gpio2 2 0>;  linux,code = <0x100>; };
+                button1  { label = "uthp:timer1";  gpios = <&gpio2 3 0>;  linux,code = <0x101>; };
+                button2  { label = "uthp:timer2";  gpios = <&gpio2 5 0>;  linux,code = <0x102>; };
+                button3  { label = "uthp:timer3";  gpios = <&gpio2 4 0>;  linux,code = <0x103>; };
+
+                /* DCAN BITBANG PINS */
+                button4  { label = "uthp:dcan0";   gpios = <&gpio1 12 0>; linux,code = <0x104>; };
+                button5  { label = "uthp:dcan1";   gpios = <&gpio0 26 0>; linux,code = <0x105>; };
+                button6  { label = "uthp:dcan2";   gpios = <&gpio1 14 0>; linux,code = <0x106>; };
+                button7  { label = "uthp:dcan3";   gpios = <&gpio2 1  0>; linux,code = <0x107>; };
+
+                /* PWM2A */
+                button8  { label = "uthp:pwm2a";   gpios = <&gpio0 22 0>; linux,code = <0x108>; };
+
+                /* OPTOISO */
+                button9  { label = "uthp:opto";    gpios = <&gpio1 29 0>; linux,code = <0x109>; };
+
+                /* SIGROK */
+                button10 { label = "uthp:sig0";    gpios = <&gpio2 22 0>; linux,code = <0x10A>; };
+                button11 { label = "uthp:sig1";    gpios = <&gpio2 23 0>; linux,code = <0x10B>; };
+                button12 { label = "uthp:sig2";    gpios = <&gpio0 8  0>; linux,code = <0x10C>; };
+                button13 { label = "uthp:sig3";    gpios = <&gpio2 16 0>; linux,code = <0x10D>; };
+                button14 { label = "uthp:sig4";    gpios = <&gpio2 12 0>; linux,code = <0x10E>; };
+                button15 { label = "uthp:sig5";    gpios = <&gpio2 11 0>; linux,code = <0x10F>; };
+                button16 { label = "uthp:sig6";    gpios = <&gpio2 8  0>; linux,code = <0x110>; };
+                button17 { label = "uthp:sig7";    gpios = <&gpio2 9  0>; linux,code = <0x111>; };
+
+                /* INT CLICK */
+                button18 { label = "uthp:int0";    gpios = <&gpio0 11 0>; linux,code = <0x112>; };
+                button19 { label = "uthp:int1";    gpios = <&gpio2 6  0>; linux,code = <0x113>; };
+
+                /* BBB RST */
+                button20 { label = "uthp:reset";   gpios = <&gpio0 24 0>; linux,code = <0x114>; };
+            };
+        };
+    };
+};

@@ -1,0 +1,52 @@
+#!/bin/bash
+declare -A final_names
+
+for iface in can0 can1 can2 can3; do
+    if [ -d "/sys/class/net/$iface" ]; then
+         # extract the "parentdev" field using ip details and awk
+         parent=$(ip -details link show "$iface" | grep "parentdev" | awk '{print $NF}')
+         case "$parent" in
+             *"481cc000.can"*)
+                 final="can0"
+                 ;;
+             *"481d0000.can"*)
+                 final="can1"
+                 ;;
+             *"spi1.0"*)
+                 final="can2"
+                 ;;
+             *"spi1.1"*)
+                 final="can3"
+                 ;;
+             *)
+                 echo "Interface $iface: unknown parentdev value: $parent" >&2
+                 continue
+                 ;;
+         esac
+         final_names["$iface"]=$final
+         echo "Interface $iface (parentdev: $parent) should be renamed to $final"
+    else
+         echo "Interface $iface does not exist, skipping." >&2
+    fi
+done
+
+# tmp names becuase linux doesn't allow if name already taken
+for iface in "${!final_names[@]}"; do
+    desired=${final_names[$iface]}
+    if [ "$iface" != "$desired" ]; then
+         echo "Temporarily renaming $iface to temp_$iface"
+         ip link set "$iface" down
+         ip link set "$iface" name temp_"$iface"
+    fi
+done
+
+# rename to final names
+for tmp in /sys/class/net/temp_*; do
+    tmp_iface=$(basename "$tmp")
+    orig=${tmp_iface#temp_}
+    desired=${final_names[$orig]}
+    if [ -n "$desired" ]; then
+         echo "Renaming $tmp_iface to $desired"
+         ip link set "$tmp_iface" name "$desired"
+    fi
+done

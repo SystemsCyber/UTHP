@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# This script is used to setup the environment for testing the UTHP on real hardware.
+echo "Please ensure you are running this script on the post-production UTHP hardware (eMMC)."
+echo "Also ensure the J1939 bus is powered."
+read -p "Are you connected to a 12v CAN bus on the deutch 9 pin? (y/n)" -n 1 -r
+echo
+
+if [[ $REPLY =~ ^[Nn]$ ]]; then
+    echo -e "\nPlease connect to the 12v CAN bus before running the tests."
+    exit 1
+elif [[ $EUID -ne 0 ]]; then
+    echo -e "\nThis script must be run as root. Please run the script again with sudo."
+    exit 1
+else
+    echo "Setting up the environment for testing the can0-2 uthp tests..."
+    echo "====================================================="
+    echo "Unique identifiers for $(hostname):"
+    sudo lsblk -o NAME,UUID | grep "mmcblk1" -A 2
+
+    read -p "Enter the desired CAN bus baud rate (e.g., 500000): " BAUD_RATE
+
+    echo "Setting up the CAN interface..."
+    sudo ip link set can0 down
+    sudo ip link set can1 down
+    sudo ip link set can2 down
+    sudo ip link set can0 type can bitrate "$BAUD_RATE"
+    sudo ip link set can1 type can bitrate "$BAUD_RATE"
+    sudo ip link set can2 type can bitrate "$BAUD_RATE"
+    sudo ip link set up can0
+    sudo ip link set up can1
+    sudo ip link set up can2
+    echo "Environment setup should be complete... waiting for user to confirm hardware is ready."
+    read -p "Press any key to continue..."
+    echo "Starting the can0-2 uthp tests..."
+fi

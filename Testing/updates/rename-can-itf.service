@@ -1,0 +1,13 @@
+[Unit]
+Description=Rename CAN interfaces
+After=systemd-udev-settle.service
+Wants=systemd-udev-settle.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rename-can-interfaces
+RemainAfterExit=true
+User=root
+
+[Install]
+WantedBy=multi-user.target

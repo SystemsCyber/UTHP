@@ -1,0 +1,4 @@
+# This updates.yaml file updates the UTHP to version 1.0.4
+client_file_paths: "updates/BB-UTHP-GPIO.dts,updates/CSS-Electronics-SAE-J1939-DEMO.dbc,updates/Makefile,updates/test_rtc.py,updates/pytest.ini,updates/test_can.py,updates/can0-2-testing,updates/init-uthp.sh,updates/rename-can-interfaces,updates/rename-can-itf.service,updates/test_cmap.py"
+uthp_file_paths: "/boot/dts/uthp/BB-UTHP-GPIO.dts,/home/uthp/uthp-tests/core/data/CSS-Electronics-SAE-J1939-DEMO.dbc,/home/uthp/uthp-tests/Makefile,/home/uthp/uthp-tests/core/test_rtc.py,/home/uthp/uthp-tests/can0-2/pytest.ini,/home/uthp/uthp-tests/can0-2/test_can.py,/home/uthp/uthp-tests/can0-2-testing,/etc/profile.d/init-uthp.sh,/usr/bin/rename-can-interfaces,/lib/systemd/system/rename-can-itf.service,/home/uthp/uthp-tests/core/test_cmap.py"
+uthp_file_permissions: "644,744,644,644,644,644,744,755,755,644,644"
